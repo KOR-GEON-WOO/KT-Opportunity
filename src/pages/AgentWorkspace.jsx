@@ -14,7 +14,12 @@ import { useRestaurantAgent } from "../hooks/useRestaurantAgent";
 export default function AgentWorkspace({ agentRef, onStepChange }) {
   const agent = useRestaurantAgent();
   agentRef.current = agent;
-  useEffect(() => { onStepChange?.(agent.step); }, [agent.step, onStepChange]);
+  useEffect(() => {
+    onStepChange?.(agent.step);
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }, [agent.step, onStepChange]);
 
   if (agent.loading) {
     return <div className="page-width"><Stepper step={agent.step} /><LoadingStep {...agent.loading} /></div>;
@@ -27,8 +32,8 @@ export default function AgentWorkspace({ agentRef, onStepChange }) {
 
       {agent.step === 1 && (
         <>
-          <section className="hero-strip">
-            <div><span className="eyebrow">NEW STORE OPPORTUNITY</span><h1>최근 인허가 음식점에서<br /><em>다음 영업 기회</em>를 찾습니다.</h1><p>공공데이터로 후보를 찾고, 직원 확인과 규칙 판별을 거쳐 검수된 KT 상품만 제안합니다.</p></div>
+          <section className="hero-strip" id="agent-main-banner">
+            <div><span className="eyebrow">NEW STORE OPPORTUNITY</span><h1><span className="hero-title-line">최근 인허가 음식점에서</span><span className="hero-title-line"><em>다음 영업 기회</em>를 찾습니다.</span></h1><p>공공데이터로 후보를 찾고, 직원 확인과 규칙 판별을 거쳐 검수된 KT 상품만 제안합니다.</p></div>
             <div className="hero-metrics"><div><span>DATA</span><strong>행정안전부</strong><small>일반음식점 OpenAPI</small></div><div><span>FILTER</span><strong>영업/정상</strong><small>인허가일 최신순</small></div><div><span>AI</span><strong>2-Model</strong><small>HyperCLOVA X → Mi:dm</small></div></div>
           </section>
           <div className="search-layout"><RestaurantSearchForm value={agent.conditions} onChange={agent.setConditions} onInterpret={agent.interpretSearch} onSearch={agent.search} /><ApiSourceCard resultCount={agent.restaurants.length} /></div>

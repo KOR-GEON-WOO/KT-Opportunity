@@ -1,16 +1,28 @@
 export default function LoginScreen({ onLogin }) {
+  const goToBanner = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <main className="login-page">
+    <main className="login-page" id="main-banner">
       <section className="login-panel">
-        <div className="login-brand">
+        <button
+          className="login-brand"
+          type="button"
+          onClick={goToBanner}
+          aria-label="KT Opportunity 메인 배너로 이동"
+        >
           <img src="/assets/kt-wordmark-standard.png" alt="KT" />
-          <span />
+          <span className="login-brand-divider" aria-hidden="true" />
           <strong>Opportunity</strong>
-        </div>
+        </button>
 
         <div className="login-copy">
           <span className="eyebrow">KT B2B SALES · PoC</span>
-          <h1>새로 문 연 음식점을<br />영업 기회로 연결합니다.</h1>
+          <h1>
+            <span className="login-title-line">새로 문 연 음식점을</span>
+            <span className="login-title-line">영업 기회로 연결합니다.</span>
+          </h1>
           <p>
             행정안전부 일반음식점 인허가 데이터와 직원 확인 정보를 결합해
             미정 상품을 찾고, 검수된 KT 상품 범위에서 상담안을 생성합니다.

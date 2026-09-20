@@ -6,12 +6,12 @@ const STEPS = [
   [5, "F-05", "후속관리 · 저장"],
 ];
 
-export default function Sidebar({ step, page, onNavigate, onStep }) {
+export default function Sidebar({ step, page, onNavigate, onHome, onStep }) {
   return (
     <aside className="sidebar">
       <div className="sidebar-section">
         <span className="sidebar-label">WORKSPACE</span>
-        <button className={page === "agent" ? "sidebar-link active" : "sidebar-link"} onClick={() => onNavigate("agent")}>
+        <button className={page === "agent" ? "sidebar-link active" : "sidebar-link"} onClick={onHome}>
           <span className="sidebar-icon">⌕</span><span>신규 영업 기회</span>
         </button>
         <button className={page === "history" ? "sidebar-link active" : "sidebar-link"} onClick={() => onNavigate("history")}>

@@ -1,9 +1,15 @@
 import { dataMode } from "../services/dataClient";
 
-export default function Header({ page, onNavigate, onLogout }) {
+export default function Header({ page, onNavigate, onHome, onLogout }) {
   return (
     <header className="top-header">
-      <button className="brand-lockup" type="button" onClick={() => onNavigate("agent")}>
+      <button
+        className="brand-lockup"
+        type="button"
+        onClick={onHome}
+        aria-label="KT Opportunity 메인 배너로 이동"
+        title="메인으로"
+      >
         <img src="/assets/kt-wordmark-standard.png" alt="KT" />
         <span className="brand-divider" />
         <span className="brand-text">
