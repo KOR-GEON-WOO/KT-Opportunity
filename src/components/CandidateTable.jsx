@@ -7,7 +7,7 @@ export default function CandidateTable({ candidates, onNext, onBack }) {
         <div>
           <span className="section-kicker">F-02 · 건축물 공공데이터 조회</span>
           <h1>1차 후보 건물</h1>
-          <p>건축HUB 응답을 조건에 맞게 필터링한 후보 목록입니다.</p>
+          <p>검색 조건에 실제로 부합하는 후보만 표시합니다.</p>
         </div>
         <div className="count-badge">{candidates.length}건</div>
       </div>
@@ -15,11 +15,7 @@ export default function CandidateTable({ candidates, onNext, onBack }) {
       <div className="candidate-toolbar">
         <div>
           <strong>후보 목록</strong>
-          <small>주소, 연식, 세대수, 주용도를 확인하세요.</small>
-        </div>
-        <div className="toolbar-actions">
-          <button type="button" className="ghost-button">필터</button>
-          <button type="button" className="ghost-button">정렬</button>
+          <small>주소, 연식, 세대수, 주용도와 후보지 ID를 확인하세요.</small>
         </div>
       </div>
 
@@ -31,6 +27,7 @@ export default function CandidateTable({ candidates, onNext, onBack }) {
               <th>사용승인일</th>
               <th>연식</th>
               <th>세대수</th>
+              <th>건물 유형</th>
               <th>주용도</th>
               <th>설치 상태</th>
               <th>후보지 ID</th>
@@ -52,6 +49,7 @@ export default function CandidateTable({ candidates, onNext, onBack }) {
                 <td>{formatDate(candidate.approvalDate)}</td>
                 <td>{candidate.buildingAge}년</td>
                 <td>{formatNumber(candidate.householdCount)}</td>
+                <td>{candidate.buildingType}</td>
                 <td>{candidate.mainPurpose}</td>
                 <td><span className="status-badge pending">미확인</span></td>
                 <td><code className="candidate-id">{candidate.candidateId}</code></td>
@@ -77,7 +75,7 @@ export default function CandidateTable({ candidates, onNext, onBack }) {
             <div className="mobile-card-stats">
               <span><strong>{candidate.householdCount}</strong>세대</span>
               <span><strong>{candidate.buildingAge}</strong>년</span>
-              <span>{candidate.mainPurpose}</span>
+              <span>{candidate.buildingType}</span>
             </div>
             <code className="candidate-id">{candidate.candidateId}</code>
           </article>

@@ -6,7 +6,8 @@ const BUILDING_TYPES = ["아파트", "다세대", "연립"];
 export default function SearchForm({
   value,
   onChange,
-  onSubmit,
+  onInterpret,
+  onSearch,
   structuredConditions,
   disabled,
 }) {
@@ -24,6 +25,7 @@ export default function SearchForm({
 
   const toggleBuildingType = (type) => {
     const selected = value.buildingTypes.includes(type);
+
     update(
       "buildingTypes",
       selected
@@ -32,27 +34,32 @@ export default function SearchForm({
     );
   };
 
-  const handleSubmit = (event) => {
+  const handleInterpret = async () => {
+    setSubmitted(true);
+    if (Object.keys(errors).length > 0 && !value.naturalQuery?.trim()) return;
+    await onInterpret();
+  };
+
+  const handleSearch = (event) => {
     event.preventDefault();
     setSubmitted(true);
-
     if (Object.keys(errors).length > 0) return;
-    onSubmit();
+    onSearch();
   };
 
   return (
-    <form className="workspace-panel search-panel page-enter" onSubmit={handleSubmit}>
+    <form className="workspace-panel search-panel page-enter" onSubmit={handleSearch}>
       <div className="panel-heading">
         <div>
           <span className="section-kicker">F-01 · 조건 접수 및 해석</span>
           <h1>어디를 먼저 방문할지 찾아볼까요?</h1>
           <p>
-            원하는 영업 조건을 자연어로 입력하면 Agent가 검색 조건으로 구조화합니다.
+            자연어 요청을 먼저 해석한 뒤, 구조화된 조건을 확인하고 검색합니다.
           </p>
         </div>
         <div className="model-chip">
           <span className="model-chip-dot hyper" />
-          HyperCLOVA X
+          HyperCLOVA X · Demo
         </div>
       </div>
 
@@ -62,11 +69,16 @@ export default function SearchForm({
           id="naturalQuery"
           value={value.naturalQuery}
           onChange={(event) => update("naturalQuery", event.target.value)}
-          placeholder="예: 대전 서구에서 10년 이상, 100세대 이상 아파트를 찾아줘"
+          placeholder="예: 대전 서구에서 15년 이상, 200세대 이상 아파트를 찾아줘"
           rows={4}
         />
-        <button className="prompt-submit" type="submit" disabled={disabled}>
-          <span>Agent에게 요청</span>
+        <button
+          className="prompt-submit"
+          type="button"
+          disabled={disabled}
+          onClick={handleInterpret}
+        >
+          <span>{structuredConditions ? "다시 해석" : "조건 해석"}</span>
           <span aria-hidden="true">↗</span>
         </button>
       </div>
@@ -76,10 +88,11 @@ export default function SearchForm({
           <div className="interpreted-head">
             <span className="success-check">✓</span>
             <div>
-              <strong>AI가 조건을 이해했습니다</strong>
-              <small>구조화된 검색 조건을 확인하세요.</small>
+              <strong>AI가 조건을 구조화했습니다</strong>
+              <small>검색 전에 아래 조건을 검토하거나 수정할 수 있습니다.</small>
             </div>
           </div>
+
           <div className="condition-chips">
             <span>지역 · {structuredConditions.targetArea}</span>
             <span>최소 연식 · {structuredConditions.minBuildingAge}년</span>
@@ -190,9 +203,18 @@ export default function SearchForm({
         </div>
       )}
 
-      <div className="sticky-action-row">
-        <button className="primary-button" type="submit" disabled={disabled}>
-          후보지 검색
+      <div className="sticky-action-row split">
+        <span className="search-ready-note">
+          {structuredConditions
+            ? "해석된 조건을 확인했습니다. 이제 건축물 데이터를 조회할 수 있습니다."
+            : "먼저 자연어 조건을 해석해 주세요."}
+        </span>
+        <button
+          className="primary-button"
+          type="submit"
+          disabled={disabled || !structuredConditions}
+        >
+          이 조건으로 검색
           <span aria-hidden="true">→</span>
         </button>
       </div>

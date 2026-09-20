@@ -65,13 +65,14 @@ export default function InstallStatus({
               <div className="inline-stats">
                 <span>{candidate.householdCount}세대</span>
                 <span>{candidate.buildingAge}년</span>
-                <span>{candidate.mainPurpose}</span>
+                <span>{candidate.buildingType}</span>
               </div>
             </div>
 
-            <div className="status-actions">
+            <div className="status-actions" role="group" aria-label={`${candidate.buildingName} 설치 상태`}>
               <button
                 type="button"
+                aria-pressed={candidate.installStatus === "PASS"}
                 className={
                   candidate.installStatus === "PASS"
                     ? "status-button pass selected"
@@ -88,6 +89,7 @@ export default function InstallStatus({
 
               <button
                 type="button"
+                aria-pressed={candidate.installStatus === "FAIL"}
                 className={
                   candidate.installStatus === "FAIL"
                     ? "status-button fail selected"

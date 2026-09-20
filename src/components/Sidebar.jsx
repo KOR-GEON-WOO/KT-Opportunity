@@ -23,27 +23,27 @@ export default function Sidebar({ page, onNavigate }) {
         </section>
 
         <section className="sidebar-section sidebar-agent">
-          <p className="sidebar-label">LOCAL AI</p>
-          <div className="agent-status-card">
+          <p className="sidebar-label">DEMO ENVIRONMENT</p>
+          <div className="agent-status-card demo">
             <div className="agent-status-head">
               <span className="agent-orb" />
               <div>
-                <strong>Gateway Ready</strong>
-                <small>Local LLM Gateway</small>
+                <strong>Mock API</strong>
+                <small>Local LLM 연동 전 UI 시연 모드</small>
               </div>
             </div>
             <dl>
               <div>
-                <dt>GPU</dt>
+                <dt>GPU Target</dt>
                 <dd>RTX 5070 Ti</dd>
               </div>
               <div>
-                <dt>VRAM</dt>
+                <dt>VRAM Target</dt>
                 <dd>12 GB</dd>
               </div>
               <div>
-                <dt>Mode</dt>
-                <dd>Single Model</dd>
+                <dt>Gateway</dt>
+                <dd>Not Connected</dd>
               </div>
             </dl>
           </div>
