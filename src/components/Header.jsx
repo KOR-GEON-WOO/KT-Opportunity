@@ -19,8 +19,8 @@ export default function Header({ page, onNavigate, onHome, onLogout }) {
       </button>
 
       <nav className="top-nav" aria-label="주요 메뉴">
-        <button className={page === "agent" ? "active" : ""} onClick={() => onNavigate("agent")}>영업 Agent</button>
-        <button className={page === "history" ? "active" : ""} onClick={() => onNavigate("history")}>상담 · 후속관리</button>
+        <button className={page === "agent" ? "active" : ""} aria-current={page === "agent" ? "page" : undefined} onClick={() => onNavigate("agent")}>영업 Agent</button>
+        <button className={page === "history" ? "active" : ""} aria-current={page === "history" ? "page" : undefined} onClick={() => onNavigate("history")}>상담 · 후속관리</button>
       </nav>
 
       <div className="header-actions">

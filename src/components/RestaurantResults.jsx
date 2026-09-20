@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { daysSince, formatNumber } from "../utils/format";
 
 const rawFields = [
@@ -12,6 +12,23 @@ const rawFields = [
 
 export default function RestaurantResults({ restaurants, onSelect }) {
   const [rawStore, setRawStore] = useState(null);
+
+  useEffect(() => {
+    if (!rawStore) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setRawStore(null);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [rawStore]);
 
   if (!restaurants.length) {
     return (
@@ -63,8 +80,14 @@ export default function RestaurantResults({ restaurants, onSelect }) {
 
       {rawStore && (
         <div className="drawer-backdrop" onClick={() => setRawStore(null)}>
-          <aside className="raw-drawer" onClick={(e) => e.stopPropagation()}>
-            <div className="drawer-head"><div><span>LOCALDATA RAW FIELDS</span><h3>{rawStore.storeName}</h3></div><button onClick={() => setRawStore(null)}>×</button></div>
+          <aside
+            className="raw-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${rawStore.storeName} 원천 데이터`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="drawer-head"><div><span>LOCALDATA RAW FIELDS</span><h3>{rawStore.storeName}</h3></div><button type="button" aria-label="원천 데이터 닫기" onClick={() => setRawStore(null)}>×</button></div>
             <p className="drawer-sub">공공데이터 응답 중 영업 판단에 활용하는 핵심 필드를 정규화해 표시합니다.</p>
             <div className="raw-grid">
               {rawFields.map(([label, key]) => <div key={key}><span>{label}</span><strong>{rawStore[key] ?? "-"}</strong><code>{key}</code></div>)}

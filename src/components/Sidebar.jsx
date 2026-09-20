@@ -11,10 +11,10 @@ export default function Sidebar({ step, page, onNavigate, onHome, onStep }) {
     <aside className="sidebar">
       <div className="sidebar-section">
         <span className="sidebar-label">WORKSPACE</span>
-        <button className={page === "agent" ? "sidebar-link active" : "sidebar-link"} onClick={onHome}>
+        <button className={page === "agent" ? "sidebar-link active" : "sidebar-link"} aria-current={page === "agent" ? "page" : undefined} onClick={onHome}>
           <span className="sidebar-icon">⌕</span><span>신규 영업 기회</span>
         </button>
-        <button className={page === "history" ? "sidebar-link active" : "sidebar-link"} onClick={() => onNavigate("history")}>
+        <button className={page === "history" ? "sidebar-link active" : "sidebar-link"} aria-current={page === "history" ? "page" : undefined} onClick={() => onNavigate("history")}>
           <span className="sidebar-icon">▦</span><span>상담 · 후속관리</span>
         </button>
       </div>
@@ -28,6 +28,7 @@ export default function Sidebar({ step, page, onNavigate, onHome, onStep }) {
               type="button"
               disabled={id > step || page !== "agent"}
               className={id === step && page === "agent" ? "flow-item current" : id < step ? "flow-item done" : "flow-item"}
+              aria-current={id === step && page === "agent" ? "step" : undefined}
               onClick={() => id <= step && onStep(id)}
             >
               <span className="flow-marker">{id < step ? "✓" : id}</span>

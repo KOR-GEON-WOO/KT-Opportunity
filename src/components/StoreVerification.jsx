@@ -6,7 +6,21 @@ import {
 import { formatNumber } from "../utils/format";
 
 function Segmented({ value, options, labels, onChange }) {
-  return <div className="segmented">{options.map((option) => <button key={option} type="button" className={value === option ? "active" : ""} onClick={() => onChange(option)}>{labels[option]}</button>)}</div>;
+  return (
+    <div className="segmented" role="group">
+      {options.map((option) => (
+        <button
+          key={option}
+          type="button"
+          className={value === option ? "active" : ""}
+          aria-pressed={value === option}
+          onClick={() => onChange(option)}
+        >
+          {labels[option]}
+        </button>
+      ))}
+    </div>
+  );
 }
 
 export default function StoreVerification({ store, value, onChange, onBack, onNext }) {

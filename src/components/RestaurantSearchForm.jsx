@@ -19,7 +19,18 @@ export default function RestaurantSearchForm({ value, onChange, onInterpret, onS
 
       <div className="natural-query">
         <div className="ai-badge">AI</div>
-        <input value={value.naturalQuery} onChange={(e) => update("naturalQuery", e.target.value)} placeholder="예: 충남 천안시에서 최근 개업한 일식 음식점을 찾아줘" />
+        <input
+          value={value.naturalQuery}
+          onChange={(e) => update("naturalQuery", e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              onInterpret();
+            }
+          }}
+          placeholder="예: 충남 천안시에서 최근 개업한 일식 음식점을 찾아줘"
+          aria-label="자연어 검색 조건"
+        />
         <button type="button" onClick={onInterpret}>조건 해석</button>
       </div>
 

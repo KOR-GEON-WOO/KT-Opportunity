@@ -84,8 +84,8 @@ export default function App() {
         </main>
       </div>
       <nav className="mobile-nav" aria-label="모바일 주요 메뉴">
-        <button className={page === "agent" ? "active" : ""} onClick={() => navigate("agent")}><span>⌕</span>영업 Agent</button>
-        <button className={page === "history" ? "active" : ""} onClick={() => navigate("history")}><span>▦</span>후속관리</button>
+        <button className={page === "agent" ? "active" : ""} aria-current={page === "agent" ? "page" : undefined} onClick={() => navigate("agent")}><span>⌕</span>영업 Agent</button>
+        <button className={page === "history" ? "active" : ""} aria-current={page === "history" ? "page" : undefined} onClick={() => navigate("history")}><span>▦</span>후속관리</button>
       </nav>
     </div>
   );
