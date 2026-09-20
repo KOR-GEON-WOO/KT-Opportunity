@@ -11,6 +11,7 @@ import Proposal from './features/proposal/Proposal.jsx';
 import FollowUp from './features/followup/FollowUp.jsx';
 import History from './features/history/History.jsx';
 import ProductStandards from './features/products/ProductStandards.jsx';
+import { dataClient, dataMode } from './services/dataClient.js';
 import { clearAuthSession, loadAuthSession, saveAuthSession } from './utils/storage.js';
 
 const VALID_PAGES = new Set(['home', 'discovery', 'proposal', 'followup', 'history', 'products']);
@@ -63,21 +64,43 @@ function AppWorkspace({ onLogout }) {
 }
 
 export default function App() {
-  const [session, setSession] = useState(() => loadAuthSession());
+  const [session, setSession] = useState(() => {
+    const stored = loadAuthSession();
+    if (!stored || stored.dataMode !== dataMode) {
+      if (stored) clearAuthSession();
+      return null;
+    }
+    return stored;
+  });
+  const [authState, setAuthState] = useState({ loading: false, error: null });
 
-  const login = () => {
-    const value = { role: 'KT_SALES_POC', loggedInAt: new Date().toISOString() };
-    saveAuthSession(value);
-    window.history.replaceState(null, '', '#home');
-    setSession(value);
+  const login = async () => {
+    setAuthState({ loading: true, error: null });
+    try {
+      const value = await dataClient.loginSession({ client: 'kt-opportunity' });
+      const sessionValue = { ...value, dataMode };
+      saveAuthSession(sessionValue);
+      window.history.replaceState(null, '', '#home');
+      setSession(sessionValue);
+    } catch (error) {
+      setAuthState({ loading: false, error: error.message || '로그인 세션을 시작하지 못했습니다.' });
+      return;
+    }
+    setAuthState({ loading: false, error: null });
   };
 
-  const logout = () => {
-    clearAuthSession();
-    window.history.replaceState(null, '', '#home');
-    setSession(null);
+  const logout = async () => {
+    try {
+      await dataClient.logoutSession();
+    } catch {
+      // 서버 로그아웃 실패와 무관하게 로컬 세션은 즉시 종료한다.
+    } finally {
+      clearAuthSession();
+      window.history.replaceState(null, '', '#home');
+      setSession(null);
+    }
   };
 
-  if (!session) return <LoginScreen onLogin={login} />;
+  if (!session) return <LoginScreen onLogin={login} loading={authState.loading} error={authState.error} dataMode={dataMode} />;
   return <AgentProvider><AppWorkspace onLogout={logout} /></AgentProvider>;
 }

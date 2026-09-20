@@ -17,7 +17,7 @@ export default function Topbar({ page, onLogout, onMenu }) {
       <div className="topbar-title"><h1>{title}</h1><p>{description}</p></div>
       <div className="topbar-actions">
         <span className="workspace-chip">PoC Workspace</span>
-        <button type="button" className="icon-text-button" onClick={onLogout}><Icon name="logout" size={18} /><span>로그아웃</span></button>
+        <button type="button" className="icon-text-button" onClick={onLogout} aria-label="로그아웃" title="로그아웃"><Icon name="logout" size={18} /><span>로그아웃</span></button>
       </div>
     </header>
   );

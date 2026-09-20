@@ -1,4 +1,5 @@
-export default function LoginScreen({ onLogin }) {
+export default function LoginScreen({ onLogin, loading = false, error = null, dataMode = 'mock' }) {
+  const liveMode = dataMode === 'n8n';
   return (
     <main className="login-screen">
       <section className="login-brand-panel">
@@ -16,13 +17,14 @@ export default function LoginScreen({ onLogin }) {
         <div className="login-card">
           <span className="eyebrow">KT SALES WORKSPACE</span>
           <h2>영업 Agent 시작</h2>
-          <p>현재 버전은 PoC 테스트 세션입니다. 실제 운영 시 서버 세션 인증 또는 Cloudflare Access를 연결합니다.</p>
+          <p>{liveMode ? 'n8n 서버 세션 인증을 확인한 뒤 업무 화면으로 진입합니다.' : '현재 버전은 Mock 데이터를 사용하는 PoC 테스트 세션입니다.'}</p>
           <div className="login-security-note">
             <strong>데이터 원칙</strong>
             <span>확인되지 않은 개업·계약 상태는 UNKNOWN으로 유지하고 Agent가 임의로 추정하지 않습니다.</span>
           </div>
-          <button type="button" className="button primary xl" onClick={onLogin}>PoC 테스트 세션 시작 <span>→</span></button>
-          <small>LOCALDATA · n8n · HyperCLOVA X · KT Mi:dm</small>
+          {error && <div className="global-error login-error" role="alert">{error}</div>}
+          <button type="button" className="button primary xl" onClick={onLogin} disabled={loading}>{loading ? '세션 확인 중...' : liveMode ? '서버 세션 시작' : 'PoC 테스트 세션 시작'} <span>→</span></button>
+          <small>{liveMode ? 'n8n authenticated session · LOCALDATA · Local LLM Gateway' : 'Mock data · LOCALDATA schema · HyperCLOVA X · KT Mi:dm'}</small>
         </div>
       </section>
     </main>

@@ -19,12 +19,13 @@ export const businessTypeOptions = [
 
 export function createInitialSearchConditions() {
   const today = getKstToday();
+  const dataAsOf = addDays(today, -2);
   return {
     naturalQuery: "충청남도 천안시에서 최근 인허가된 정상 영업 음식점을 찾아줘",
     regionLevel1: "충청남도",
     regionLevel2: "천안시",
-    permitDateFrom: addDays(today, -30),
-    permitDateTo: today,
+    permitDateFrom: addDays(dataAsOf, -30),
+    permitDateTo: dataAsOf,
     businessStatus: "영업/정상",
     businessType: "전체",
     storeNameKeyword: "",
@@ -407,7 +408,7 @@ export function createDefaultVerification() {
     wifiStatus: "UNKNOWN",
     posStatus: "UNKNOWN",
     cctvStatus: "UNKNOWN",
-    checkedAt: getKstToday(),
+    checkedAt: null,
     checkNote: "",
   };
 }

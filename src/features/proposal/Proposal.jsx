@@ -79,7 +79,7 @@ export default function Proposal({ onNavigate }) {
         </button>
         {detailsOpen && <div className="agent-details-body">
           <div className="model-flow">{proposal.modelFlow?.map((item, index) => <div key={item}><span>{index + 1}</span><strong>{item}</strong></div>)}</div>
-          <div className="validation-box"><p><span>Schema</span><strong>{proposal.validation?.schema || 'PASS'}</strong></p><p><span>Product code</span><strong>{proposal.validation?.productCodes || 'PASS'}</strong></p></div>
+          <div className="validation-box"><p><span>Schema</span><strong className={proposal.validation?.schema === 'PASS' ? 'pass' : 'unknown'}>{proposal.validation?.schema || '미수신'}</strong></p><p><span>Product code</span><strong className={proposal.validation?.productCodes === 'PASS' ? 'pass' : 'unknown'}>{proposal.validation?.productCodes || '미수신'}</strong></p></div>
           <p className="no-hallucination-copy">입력 데이터에 없는 상품명·가격·혜택·가입조건은 생성하지 않습니다.</p>
         </div>}
       </section>

@@ -29,7 +29,8 @@ export default function SearchPanel() {
         <button type="button" className="filter-toggle" onClick={() => setExpanded((prev) => !prev)} aria-expanded={expanded}><Icon name="filter" size={18} /> 검색 조건</button>
       </div>
 
-      {expanded && <div className="filter-grid">
+      {expanded && <>
+      <div className="filter-grid">
         <label><span>시·도</span><select value={conditions.regionLevel1} onChange={(e) => changeRegion1(e.target.value)}>{Object.keys(regionOptions).map((item) => <option key={item}>{item}</option>)}</select></label>
         <label><span>시·군·구</span><select value={conditions.regionLevel2} onChange={(e) => updateCondition('regionLevel2', e.target.value)}>{region2.map((item) => <option key={item}>{item}</option>)}</select></label>
         <label><span>인허가 시작일</span><input type="date" value={conditions.permitDateFrom} onChange={(e) => updateCondition('permitDateFrom', e.target.value)} /></label>
@@ -37,7 +38,9 @@ export default function SearchPanel() {
         <label><span>업태</span><select value={conditions.businessType} onChange={(e) => updateCondition('businessType', e.target.value)}>{businessTypeOptions.map((item) => <option key={item}>{item}</option>)}</select></label>
         <label><span>사업장명</span><input value={conditions.storeNameKeyword} onChange={(e) => updateCondition('storeNameKeyword', e.target.value)} placeholder="선택 입력" /></label>
         <div className="search-submit-area"><button type="button" className="button primary" onClick={search}><Icon name="search" size={18} /> 음식점 조회</button></div>
-      </div>}
+      </div>
+      <p className="source-freshness-note">LOCALDATA는 일 단위 갱신 기준으로 제공되며 기본 조회 종료일은 D-2로 설정합니다.</p>
+      </>}
 
       {(isSearchStale || searchNotice) && <div className={isSearchStale ? 'search-notice stale' : 'search-notice'}>
         <span>{isSearchStale ? '검색 조건이 변경되었습니다. 아래 목록은 이전 조회 결과입니다.' : searchNotice}</span>

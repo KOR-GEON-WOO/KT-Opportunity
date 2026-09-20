@@ -1,18 +1,18 @@
 import { useMemo } from 'react';
-import { mockRestaurants } from '../../data/mockData.js';
 import { useAgent } from '../../app/AgentProvider.jsx';
 import { daysSince, formatDate } from '../../utils/format.js';
 import StatusBadge from '../../components/ui/StatusBadge.jsx';
+import EmptyState from '../../components/ui/EmptyState.jsx';
 import Icon from '../../components/ui/Icon.jsx';
 
 export default function Dashboard({ onNavigate }) {
-  const { restaurants, selectStore } = useAgent();
-  const leads = useMemo(() => (restaurants.length ? restaurants : mockRestaurants.filter((item) => item.businessStatus === '영업/정상')).slice(0, 5), [restaurants]);
+  const { restaurants, selectStore, dashboardSummary, lastExecutedConditions } = useAgent();
+  const leads = useMemo(() => restaurants.slice(0, 5), [restaurants]);
   const metrics = [
-    ['신규 인허가', restaurants.length || 7, '최근 조회 기준', 'neutral'],
-    ['확인 필요', Math.max(1, Math.min(8, Math.ceil((restaurants.length || 7) * 0.45))), '직원 확인 대기', 'warning'],
-    ['제안 준비', Math.max(1, Math.min(5, Math.ceil((restaurants.length || 7) * 0.28))), '상품 검토 가능', 'accent'],
-    ['후속 상담', 1, '일정 등록', 'success'],
+    ['신규 인허가', dashboardSummary.discovered, dashboardSummary.hasSearchRun ? '최근 조회 결과' : '아직 조회 전', 'neutral'],
+    ['확인 필요', dashboardSummary.confirmationRequired, '직원 확인 대기', 'warning'],
+    ['제안 준비', dashboardSummary.proposalReady, '현재 세션 생성', 'accent'],
+    ['후속 상담', dashboardSummary.followUp, '현재 세션 등록', 'success'],
   ];
 
   const openLead = (id) => {
@@ -27,23 +27,31 @@ export default function Dashboard({ onNavigate }) {
         <button className="button primary" type="button" onClick={() => onNavigate('discovery')}>신규 음식점 찾기 <Icon name="arrow" size={18} /></button>
       </section>
 
-      <section className="metric-grid">
+      <section className="metric-grid" aria-label="현재 조회 업무 현황">
         {metrics.map(([label, value, sub, tone]) => <article className={`metric-card ${tone}`} key={label}><span>{label}</span><strong>{value}</strong><small>{sub}</small></article>)}
       </section>
 
       <section className="dashboard-grid">
         <article className="panel recent-leads-panel">
-          <div className="panel-heading"><div><span className="eyebrow">RECENT LEADS</span><h3>최근 신규 음식점</h3></div><button className="text-button" type="button" onClick={() => onNavigate('discovery')}>전체 보기 <Icon name="arrow" size={16} /></button></div>
-          <div className="dashboard-lead-list">
-            {leads.map((store) => (
-              <button type="button" className="dashboard-lead" key={store.storeId} onClick={() => openLead(store.storeId)}>
-                <div className="lead-avatar">{store.businessType?.slice(0,1) || '매'}</div>
-                <div className="lead-copy"><strong>{store.storeName}</strong><span>{store.businessType} · {store.regionLevel2} · 인허가 D+{daysSince(store.permitDate)}</span></div>
-                <StatusBadge tone={daysSince(store.permitDate) <= 3 ? 'accent' : 'neutral'}>{formatDate(store.permitDate)}</StatusBadge>
-                <Icon name="chevron" size={18} className="lead-chevron" />
-              </button>
-            ))}
-          </div>
+          <div className="panel-heading"><div><span className="eyebrow">RECENT LEADS</span><h3>최근 신규 음식점</h3>{lastExecutedConditions && <p>{lastExecutedConditions.regionLevel1} {lastExecutedConditions.regionLevel2} · {lastExecutedConditions.permitDateFrom} ~ {lastExecutedConditions.permitDateTo}</p>}</div><button className="text-button" type="button" onClick={() => onNavigate('discovery')}>전체 보기 <Icon name="arrow" size={16} /></button></div>
+          {leads.length ? (
+            <div className="dashboard-lead-list">
+              {leads.map((store) => (
+                <button type="button" className="dashboard-lead" key={store.storeId} onClick={() => openLead(store.storeId)}>
+                  <div className="lead-avatar">{store.businessType?.slice(0,1) || '매'}</div>
+                  <div className="lead-copy"><strong>{store.storeName}</strong><span>{store.businessType} · {store.regionLevel2} · 인허가 D+{daysSince(store.permitDate)}</span></div>
+                  <StatusBadge tone={daysSince(store.permitDate) <= 3 ? 'accent' : 'neutral'}>{formatDate(store.permitDate)}</StatusBadge>
+                  <Icon name="chevron" size={18} className="lead-chevron" />
+                </button>
+              ))}
+            </div>
+          ) : (
+            <EmptyState
+              title="아직 불러온 음식점이 없습니다"
+              description="신규 음식점에서 지역과 인허가 기간을 선택해 조회하면 실제 조회 결과가 이곳에 표시됩니다."
+              action={<button type="button" className="button primary" onClick={() => onNavigate('discovery')}>음식점 조회하기</button>}
+            />
+          )}
         </article>
 
         <aside className="panel activity-panel">
