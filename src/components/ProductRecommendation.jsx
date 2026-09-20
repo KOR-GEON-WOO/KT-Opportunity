@@ -4,15 +4,19 @@ export default function ProductRecommendation({ recommendation }) {
   const { product, reason, salesPoints } = recommendation;
 
   return (
-    <section className="recommendation-box">
-      <div className="recommendation-label">Mi:dm · 상품 매칭</div>
-
-      <div className="product-heading">
+    <section className="recommendation-box midm-card">
+      <div className="ai-panel-head">
         <div>
-          <small>{product.productCode}</small>
-          <h2>{product.productName}</h2>
+          <span className="ai-panel-eyebrow">PRODUCT MATCH</span>
+          <h2>KT Mi:dm</h2>
         </div>
-        <span className="verified-badge">검수 완료</span>
+        <span className="model-status">LOCAL AI</span>
+      </div>
+
+      <div className="product-card-main">
+        <small>{product.productCode}</small>
+        <h3>{product.productName}</h3>
+        <span className="verified-badge">✓ 검수 완료</span>
       </div>
 
       <dl className="product-meta">
@@ -21,12 +25,14 @@ export default function ProductRecommendation({ recommendation }) {
           <dd>{product.eligibilityCondition}</dd>
         </div>
         <div>
-          <dt>검수 정보</dt>
+          <dt>적용 기간</dt>
           <dd>
             {formatDate(product.validFrom)} ~ {formatDate(product.validTo)}
-            <br />
-            최종 검수 {formatDate(product.verifiedAt)}
           </dd>
+        </div>
+        <div>
+          <dt>최종 검수</dt>
+          <dd>{formatDate(product.verifiedAt)}</dd>
         </div>
       </dl>
 

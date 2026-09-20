@@ -2,12 +2,17 @@ export default function Header({ page, onNavigate }) {
   return (
     <header className="top-header">
       <button
-        className="brand"
+        className="brand-lockup"
         type="button"
         onClick={() => onNavigate("dashboard")}
         aria-label="KT Sales Agent 홈"
       >
-        <span className="brand-mark">KT</span>
+        <img
+          className="brand-logo"
+          src="/assets/kt-wordmark-standard.png"
+          alt="KT"
+        />
+        <span className="brand-divider" aria-hidden="true" />
         <span className="brand-copy">
           <strong>Sales Agent</strong>
           <small>영업 후보지 발굴 · 방문 준비</small>
@@ -31,9 +36,14 @@ export default function Header({ page, onNavigate }) {
         </button>
       </nav>
 
-      <div className="system-badge" title="현재 MVP는 Mock API로 동작합니다.">
-        <span className="status-dot" />
-        MOCK READY
+      <div className="header-status">
+        <span className="status-pill">
+          <span className="status-dot" />
+          Agent Ready
+        </span>
+        <span className="header-user" aria-label="사용자">
+          KT 직원
+        </span>
       </div>
     </header>
   );

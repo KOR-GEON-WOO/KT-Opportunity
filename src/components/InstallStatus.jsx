@@ -25,23 +25,31 @@ export default function InstallStatus({
   };
 
   return (
-    <section className="panel">
+    <section className="workspace-panel page-enter">
+      <div className="verification-banner">
+        <span className="verification-icon">H</span>
+        <div>
+          <strong>Human Verification</strong>
+          <span>직원이 직접 확인한 정보만 다음 단계에 반영됩니다.</span>
+        </div>
+      </div>
+
       <div className="panel-heading">
         <div>
           <span className="section-kicker">F-03 · 설치 가능 여부 입력</span>
           <h1>KT 인터넷 설치 상태 확인</h1>
-          <p>
-            직원이 내부 전산에서 확인한 결과만 PASS 또는 FAIL로 입력합니다.
-          </p>
+          <p>KT 내부 전산에서 확인한 결과만 PASS 또는 FAIL로 입력합니다.</p>
         </div>
-        <div className="progress-count">
-          {checkedCount}/{candidates.length} 확인
-        </div>
+        <div className="progress-count">{checkedCount}/{candidates.length} 확인</div>
       </div>
 
       <div className="install-list">
-        {candidates.map((candidate) => (
-          <article className="install-card" key={candidate.candidateId}>
+        {candidates.map((candidate, index) => (
+          <article
+            className="install-card stagger-item"
+            key={candidate.candidateId}
+            style={{ "--delay": `${index * 50}ms` }}
+          >
             <div className="install-card-info">
               <div className="install-title-row">
                 <h3>{candidate.buildingName}</h3>
@@ -54,10 +62,11 @@ export default function InstallStatus({
                 </span>
               </div>
               <p>{candidate.address}</p>
-              <small>
-                {candidate.householdCount}세대 · {candidate.buildingAge}년 ·{" "}
-                {candidate.candidateId}
-              </small>
+              <div className="inline-stats">
+                <span>{candidate.householdCount}세대</span>
+                <span>{candidate.buildingAge}년</span>
+                <span>{candidate.mainPurpose}</span>
+              </div>
             </div>
 
             <div className="status-actions">
@@ -70,9 +79,13 @@ export default function InstallStatus({
                 }
                 onClick={() => updateStatus(candidate.candidateId, "PASS")}
               >
-                PASS
-                <small>설치 가능</small>
+                <span className="status-action-symbol">✓</span>
+                <span>
+                  PASS
+                  <small>설치 가능</small>
+                </span>
               </button>
+
               <button
                 type="button"
                 className={
@@ -82,8 +95,11 @@ export default function InstallStatus({
                 }
                 onClick={() => updateStatus(candidate.candidateId, "FAIL")}
               >
-                FAIL
-                <small>설치 불가</small>
+                <span className="status-action-symbol">×</span>
+                <span>
+                  FAIL
+                  <small>설치 불가</small>
+                </span>
               </button>
             </div>
           </article>
@@ -107,6 +123,7 @@ export default function InstallStatus({
           disabled={!allChecked}
         >
           방문 우선순위 계산
+          <span aria-hidden="true">→</span>
         </button>
       </div>
     </section>

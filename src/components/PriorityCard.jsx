@@ -1,4 +1,7 @@
 export default function PriorityCard({ candidate, selected, onSelect }) {
+  const householdPct = Math.round((candidate.householdScore / 60) * 100);
+  const agePct = Math.round((candidate.ageScore / 40) * 100);
+
   return (
     <button
       type="button"
@@ -6,8 +9,8 @@ export default function PriorityCard({ candidate, selected, onSelect }) {
       onClick={() => onSelect(candidate.candidateId)}
     >
       <div className="rank-block">
-        <span>{candidate.priorityRank}</span>
-        <small>순위</small>
+        <span>{String(candidate.priorityRank).padStart(2, "0")}</span>
+        <small>RANK</small>
       </div>
 
       <div className="priority-main">
@@ -16,25 +19,43 @@ export default function PriorityCard({ candidate, selected, onSelect }) {
             <h3>{candidate.buildingName}</h3>
             <p>{candidate.address}</p>
           </div>
-          <strong className="score-total">{candidate.priorityScore}점</strong>
+          <div className="score-total">
+            <strong>{candidate.priorityScore}</strong>
+            <span>SCORE</span>
+          </div>
         </div>
 
-        <div className="score-grid">
-          <div>
-            <span>세대수</span>
-            <strong>{candidate.householdCount}세대</strong>
-            <small>{candidate.householdScore}/60점</small>
+        <div className="score-detail-row">
+          <div className="score-metric">
+            <div className="score-metric-head">
+              <span>세대수 · {candidate.householdCount}세대</span>
+              <strong>{candidate.householdScore} / 60</strong>
+            </div>
+            <div className="score-track">
+              <span
+                className="score-fill"
+                style={{ "--score-width": `${householdPct}%` }}
+              />
+            </div>
           </div>
-          <div>
-            <span>건물 연식</span>
-            <strong>{candidate.buildingAge}년</strong>
-            <small>{candidate.ageScore}/40점</small>
+
+          <div className="score-metric">
+            <div className="score-metric-head">
+              <span>건물 연식 · {candidate.buildingAge}년</span>
+              <strong>{candidate.ageScore} / 40</strong>
+            </div>
+            <div className="score-track">
+              <span
+                className="score-fill"
+                style={{ "--score-width": `${agePct}%` }}
+              />
+            </div>
           </div>
-          <div>
-            <span>설치 상태</span>
-            <strong className="pass-text">PASS</strong>
-            <small>{candidate.checkDate}</small>
-          </div>
+        </div>
+
+        <div className="priority-foot">
+          <span className="status-badge pass">● PASS</span>
+          <span>규칙 기반 점수 · 세대수 60 + 연식 40</span>
         </div>
       </div>
     </button>

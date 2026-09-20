@@ -54,8 +54,14 @@ export default function Dashboard() {
 
   async function handleSearch() {
     setLoading({
-      title: "영업 조건을 해석하고 있습니다.",
-      detail: "HyperCLOVA X 역할을 Mock API로 시뮬레이션합니다.",
+      title: "영업 후보지를 찾고 있습니다",
+      detail: "자연어 조건을 구조화하고 건축물 데이터를 조회합니다.",
+      stages: [
+        "영업 조건 해석",
+        "지역명 표준화",
+        "건축HUB 조회",
+        "후보 건물 필터링",
+      ],
     });
 
     const interpreted = await interpretSearchConditions(conditions);
@@ -78,8 +84,14 @@ export default function Dashboard() {
     if (!rankedCandidates.length) return;
 
     setLoading({
-      title: "AI 영업 준비자료를 생성하고 있습니다.",
-      detail: "Mi:dm 상품 매칭 후 HyperCLOVA X 상담 스크립트 생성을 순차 처리합니다.",
+      title: "AI 영업 준비자료를 생성하고 있습니다",
+      detail: "Mi:dm 상품 매칭 후 HyperCLOVA X 상담 스크립트를 순차 생성합니다.",
+      stages: [
+        "Mi:dm 상품 매칭",
+        "추천 근거 정리",
+        "모델 전환 · Gateway",
+        "HyperCLOVA X 상담 스크립트",
+      ],
     });
 
     const result = [];
@@ -118,39 +130,37 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div className="page-width">
-        <StepBar step={step} />
-        <LoadingStep title={loading.title} detail={loading.detail} />
+        <ResponsiveStepBar step={step} />
+        <LoadingStep
+          title={loading.title}
+          detail={loading.detail}
+          stages={loading.stages}
+        />
       </div>
     );
   }
 
   return (
     <div className="page-width">
-      <StepBar step={step} />
+      <ResponsiveStepBar step={step} />
+      <div className="kt-sweep" key={`sweep-${step}`} />
 
       {step === 1 && (
         <Search
           value={conditions}
           onChange={setConditions}
           onSubmit={handleSearch}
+          structuredConditions={structuredConditions}
         />
       )}
 
       {step === 2 && (
-        <>
-          {structuredConditions && (
-            <div className="structured-query">
-              <span>Agent 해석 결과</span>
-              <code>{JSON.stringify(structuredConditions)}</code>
-            </div>
-          )}
-          <Candidates
-            mode="list"
-            candidates={candidates}
-            onBack={() => setStep(1)}
-            onNext={() => setStep(3)}
-          />
-        </>
+        <Candidates
+          mode="list"
+          candidates={candidates}
+          onBack={() => setStep(1)}
+          onNext={() => setStep(3)}
+        />
       )}
 
       {step === 3 && (
@@ -164,27 +174,30 @@ export default function Dashboard() {
       )}
 
       {step === 4 && (
-        <section className="panel">
+        <section className="workspace-panel page-enter">
           <div className="panel-heading">
             <div>
               <span className="section-kicker">F-04 · 방문 우선순위</span>
               <h1>PASS 후보 우선순위</h1>
-              <p>
-                세대수 최대 60점 + 건물 연식 최대 40점으로 계산합니다.
-              </p>
+              <p>세대수 최대 60점 + 건물 연식 최대 40점의 규칙 기반 점수입니다.</p>
             </div>
             <div className="count-badge">{rankedCandidates.length}개 PASS</div>
           </div>
 
           {rankedCandidates.length ? (
             <div className="priority-list">
-              {rankedCandidates.map((candidate) => (
-                <PriorityCard
+              {rankedCandidates.map((candidate, index) => (
+                <div
                   key={candidate.candidateId}
-                  candidate={candidate}
-                  selected={candidate.candidateId === selectedCandidate?.candidateId}
-                  onSelect={setSelectedCandidateId}
-                />
+                  className="stagger-item"
+                  style={{ "--delay": `${index * 70}ms` }}
+                >
+                  <PriorityCard
+                    candidate={candidate}
+                    selected={candidate.candidateId === selectedCandidate?.candidateId}
+                    onSelect={setSelectedCandidateId}
+                  />
+                </div>
               ))}
             </div>
           ) : (
@@ -208,6 +221,7 @@ export default function Dashboard() {
               onClick={handleRecommendation}
             >
               AI 추천 생성
+              <span aria-hidden="true">→</span>
             </button>
           </div>
         </section>
@@ -215,7 +229,7 @@ export default function Dashboard() {
 
       {step === 5 && selectedRecommendation && (
         <>
-          <div className="candidate-switcher">
+          <div className="candidate-switcher page-enter">
             {rankedCandidates.map((candidate) => (
               <button
                 type="button"
@@ -227,7 +241,8 @@ export default function Dashboard() {
                 }
                 onClick={() => setSelectedCandidateId(candidate.candidateId)}
               >
-                #{candidate.priorityRank} {candidate.buildingName}
+                <span>#{candidate.priorityRank}</span>
+                {candidate.buildingName}
               </button>
             ))}
           </div>
@@ -254,29 +269,43 @@ export default function Dashboard() {
   );
 }
 
-function StepBar({ step }) {
+function ResponsiveStepBar({ step }) {
+  const current = STEPS.find((item) => item.id === step);
+
   return (
-    <div className="step-bar" aria-label="Agent 진행 단계">
-      {STEPS.map((item) => (
-        <div
-          key={item.id}
-          className={
-            item.id === step
-              ? "step-item current"
-              : item.id < step
-                ? "step-item done"
-                : "step-item"
-          }
-        >
-          <span className="step-circle">
-            {item.id < step ? "✓" : item.id}
-          </span>
-          <div>
-            <small>{item.code}</small>
-            <strong>{item.label}</strong>
+    <>
+      <div className="step-bar" aria-label="Agent 진행 단계">
+        {STEPS.map((item) => (
+          <div
+            key={item.id}
+            className={
+              item.id === step
+                ? "step-item current"
+                : item.id < step
+                  ? "step-item done"
+                  : "step-item"
+            }
+          >
+            <span className="step-circle">
+              {item.id < step ? "✓" : item.id}
+            </span>
+            <div>
+              <small>{item.code}</small>
+              <strong>{item.label}</strong>
+            </div>
           </div>
+        ))}
+      </div>
+
+      <div className="mobile-step-header" aria-label="모바일 Agent 진행 단계">
+        <div className="mobile-step-copy">
+          <small>STEP {step} OF {STEPS.length}</small>
+          <strong>{current?.label}</strong>
         </div>
-      ))}
-    </div>
+        <div className="mobile-progress-track">
+          <span style={{ width: `${(step / STEPS.length) * 100}%` }} />
+        </div>
+      </div>
+    </>
   );
 }
