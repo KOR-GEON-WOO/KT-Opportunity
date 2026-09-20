@@ -1,31 +1,30 @@
-# KT Sales Agent 배포 메모
+# KT Opportunity 배포
 
-## 빌드
+## 개발/빌드
 
 ```bash
 npm install
+npm run dev
 npm run build
 ```
 
-## Nginx에 반영
+## Nginx 반영
 
 ```bash
-sudo rm -rf /var/www/kt-sales-agent/*
-sudo cp -r dist/. /var/www/kt-sales-agent/
+sudo rm -rf /var/www/kt-opportunity/*
+sudo cp -r dist/. /var/www/kt-opportunity/
 sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-`deploy/nginx/kt-sales-agent.conf`는 운영용 예시 설정입니다.
+## 데이터 모드
 
-현재 프로젝트는 Mock API 데모입니다. 실제 n8n 연결 시 브라우저 번들에 비밀키를
-넣지 말고, Nginx/Gateway에서 `/api`를 same-origin reverse proxy하는 구성을 권장합니다.
+기본은 `VITE_DATA_MODE=mock`이다. 실제 n8n 연동 시 `.env.production`에 다음을 설정한다.
 
-## Quick Tunnel
-
-```bash
-cloudflared tunnel --url http://127.0.0.1:80
+```env
+VITE_DATA_MODE=n8n
+VITE_N8N_BASE_URL=https://your-secure-gateway.example.com
 ```
 
-Quick Tunnel은 테스트/발표용입니다. 고정 주소가 필요하면 Named Tunnel과 systemd
-서비스로 전환하세요.
+API Key, n8n Credential, Local LLM Gateway Token은 절대로 `VITE_*` 변수에 넣지 않는다.
+브라우저에 번들되는 값은 비밀값이 아니다.

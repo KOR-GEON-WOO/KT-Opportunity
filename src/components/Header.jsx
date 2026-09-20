@@ -1,98 +1,32 @@
-import { useState } from "react";
+import { dataMode } from "../services/dataClient";
 
-export default function Header({ page, onNavigate }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const navigate = (nextPage) => {
-    onNavigate(nextPage);
-    setMenuOpen(false);
-  };
-
+export default function Header({ page, onNavigate, onLogout }) {
   return (
     <header className="top-header">
-      <button
-        className="brand-lockup"
-        type="button"
-        onClick={() => navigate("dashboard")}
-        aria-label="KT Sales Agent 홈"
-      >
-        <img
-          className="brand-logo"
-          src="/assets/kt-wordmark-standard.png"
-          alt="KT"
-        />
-        <span className="brand-divider" aria-hidden="true" />
-        <span className="brand-copy">
-          <strong>Sales Agent</strong>
-          <small>영업 후보지 발굴 · 방문 준비</small>
+      <button className="brand-lockup" type="button" onClick={() => onNavigate("agent")}>
+        <img src="/assets/kt-wordmark-standard.png" alt="KT" />
+        <span className="brand-divider" />
+        <span className="brand-text">
+          <strong>Opportunity</strong>
+          <small>신규 음식점 영업 기회 발굴 · 맞춤 상품 설계</small>
         </span>
       </button>
 
       <nav className="top-nav" aria-label="주요 메뉴">
-        <button
-          className={page === "dashboard" ? "nav-button active" : "nav-button"}
-          type="button"
-          onClick={() => navigate("dashboard")}
-        >
-          영업 Agent
-        </button>
-        <button
-          className={page === "history" ? "nav-button active" : "nav-button"}
-          type="button"
-          onClick={() => navigate("history")}
-        >
-          방문 · 상담 이력
-        </button>
+        <button className={page === "agent" ? "active" : ""} onClick={() => onNavigate("agent")}>영업 Agent</button>
+        <button className={page === "history" ? "active" : ""} onClick={() => onNavigate("history")}>상담 · 후속관리</button>
       </nav>
 
-      <div className="header-status">
-        <span className="status-pill demo">
-          <span className="status-dot" />
-          DEMO MODE
+      <div className="header-actions">
+        <span className={`mode-pill ${dataMode}`}>
+          <i /> {dataMode === "n8n" ? "N8N LIVE" : "POC MOCK"}
         </span>
-        <button
-          className="tablet-menu-button"
-          type="button"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-expanded={menuOpen}
-          aria-label="태블릿 메뉴 열기"
-        >
-          ☰
-        </button>
-      </div>
-
-      {menuOpen && (
-        <div className="tablet-drawer">
-          <div className="tablet-drawer-head">
-            <strong>KT Sales Agent</strong>
-            <button type="button" onClick={() => setMenuOpen(false)} aria-label="메뉴 닫기">
-              ×
-            </button>
-          </div>
-
-          <button
-            type="button"
-            className={page === "dashboard" ? "drawer-item active" : "drawer-item"}
-            onClick={() => navigate("dashboard")}
-          >
-            영업 후보지 탐색
-          </button>
-
-          <button
-            type="button"
-            className={page === "history" ? "drawer-item active" : "drawer-item"}
-            onClick={() => navigate("history")}
-          >
-            방문 · 상담 이력
-          </button>
-
-          <div className="drawer-status">
-            <span>Local AI</span>
-            <strong>Mock API</strong>
-            <small>실제 Gateway 상태가 아닙니다.</small>
-          </div>
+        <div className="user-chip">
+          <span className="user-avatar">KT</span>
+          <div><strong>영업 직원</strong><small>Demo Session</small></div>
         </div>
-      )}
+        <button className="logout-button" type="button" onClick={onLogout}>로그아웃</button>
+      </div>
     </header>
   );
 }

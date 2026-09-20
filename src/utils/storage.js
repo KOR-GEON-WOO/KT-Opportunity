@@ -1,56 +1,44 @@
-const WORKFLOW_SESSION_KEY = "kt-sales-agent:workflow:v4";
-const HISTORY_LOCAL_KEY = "kt-sales-agent:history:v1";
+const WORKFLOW_KEY = "kt-restaurant-agent:workflow:v1";
+const HISTORY_KEY = "kt-restaurant-agent:history:v1";
+const AUTH_KEY = "kt-restaurant-agent:auth:v1";
 
-function getStorage(kind) {
+function storage(type) {
   if (typeof window === "undefined") return null;
-
   try {
-    return kind === "session" ? window.sessionStorage : window.localStorage;
+    return type === "local" ? window.localStorage : window.sessionStorage;
   } catch {
     return null;
   }
 }
 
-export function loadWorkflowSnapshot() {
-  const storage = getStorage("session");
-  if (!storage) return null;
-
+export function loadWorkflow() {
   try {
-    const raw = storage.getItem(WORKFLOW_SESSION_KEY);
+    const raw = storage("session")?.getItem(WORKFLOW_KEY);
     return raw ? JSON.parse(raw) : null;
   } catch {
     return null;
   }
 }
 
-export function saveWorkflowSnapshot(snapshot) {
-  const storage = getStorage("session");
-  if (!storage) return;
-
+export function saveWorkflow(value) {
   try {
-    storage.setItem(WORKFLOW_SESSION_KEY, JSON.stringify(snapshot));
+    storage("session")?.setItem(WORKFLOW_KEY, JSON.stringify(value));
   } catch {
-    // Storage may be unavailable in privacy-restricted environments.
+    // Demo storage is optional.
   }
 }
 
-export function clearWorkflowSnapshot() {
-  const storage = getStorage("session");
-  if (!storage) return;
-
+export function clearWorkflow() {
   try {
-    storage.removeItem(WORKFLOW_SESSION_KEY);
+    storage("session")?.removeItem(WORKFLOW_KEY);
   } catch {
-    // Ignore storage failures in demo mode.
+    // Ignore storage failures.
   }
 }
 
-export function loadStoredHistory() {
-  const storage = getStorage("local");
-  if (!storage) return [];
-
+export function loadHistory() {
   try {
-    const raw = storage.getItem(HISTORY_LOCAL_KEY);
+    const raw = storage("local")?.getItem(HISTORY_KEY);
     const parsed = raw ? JSON.parse(raw) : [];
     return Array.isArray(parsed) ? parsed : [];
   } catch {
@@ -58,32 +46,39 @@ export function loadStoredHistory() {
   }
 }
 
-export function upsertStoredHistory(rows) {
-  const storage = getStorage("local");
-  if (!storage) return rows;
-
-  const previous = loadStoredHistory();
-  const byCandidateId = new Map(
-    previous.map((item) => [item.candidateId, item])
-  );
-
-  rows.forEach((item) => {
-    const previousItem = byCandidateId.get(item.candidateId) ?? {};
-    byCandidateId.set(item.candidateId, {
-      ...previousItem,
-      ...item,
-    });
-  });
-
-  const merged = [...byCandidateId.values()].sort((a, b) =>
-    String(b.updatedAt ?? "").localeCompare(String(a.updatedAt ?? ""))
-  );
-
+export function upsertHistory(record) {
+  const current = loadHistory();
+  const next = [record, ...current.filter((item) => item.storeId !== record.storeId)];
   try {
-    storage.setItem(HISTORY_LOCAL_KEY, JSON.stringify(merged));
+    storage("local")?.setItem(HISTORY_KEY, JSON.stringify(next));
   } catch {
-    // The save API still returns success for the in-memory demo workflow.
+    // Ignore storage failures.
   }
+  return next;
+}
 
-  return merged;
+export function loadAuthSession() {
+  try {
+    const raw = storage("session")?.getItem(AUTH_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+export function saveAuthSession(value) {
+  try {
+    storage("session")?.setItem(AUTH_KEY, JSON.stringify(value));
+  } catch {
+    // Ignore storage failures.
+  }
+}
+
+export function clearAuthSession() {
+  try {
+    storage("session")?.removeItem(AUTH_KEY);
+    storage("session")?.removeItem(WORKFLOW_KEY);
+  } catch {
+    // Ignore storage failures.
+  }
 }
