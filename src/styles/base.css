@@ -49,3 +49,4 @@ code, .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monosp
 .empty-state h3 { font-size: 18px; }
 .empty-state p { max-width: 420px; margin: 8px 0 18px; color: var(--ink-500); font-size: 13px; line-height: 1.6; }
 .action-row-v6 { display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; }
+.global-warning { border: 1px solid #e4c36d; border-radius: var(--radius-md); background: var(--warning-bg); color: var(--warning); padding: 12px 14px; font-size: 13px; line-height: 1.5; font-weight: 700; }

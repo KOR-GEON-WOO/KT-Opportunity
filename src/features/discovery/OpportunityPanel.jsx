@@ -5,8 +5,10 @@ import {
   categoryLabels,
   contractStatusLabels,
   installStatusLabels,
+  MOCK_DEMO_TODAY,
 } from '../../data/mockData.js';
 import { daysSince, formatDate, formatNumber } from '../../utils/format.js';
+import { dataMode } from '../../services/dataClient.js';
 import EmptyState from '../../components/ui/EmptyState.jsx';
 import StatusBadge from '../../components/ui/StatusBadge.jsx';
 import Icon from '../../components/ui/Icon.jsx';
@@ -41,6 +43,7 @@ function AnalysisColumn({ title, tone, items }) {
 export default function OpportunityPanel({ onProposal }) {
   const { selectedStore, verification, updateVerification, loadDemoVerification, liveAnalysis, generateProposal } = useAgent();
   const [rawOpen, setRawOpen] = useState(false);
+  const displayToday = dataMode === 'mock' ? MOCK_DEMO_TODAY : undefined;
 
   if (!selectedStore) {
     return <section className="opportunity-panel panel"><EmptyState title="확인할 음식점을 선택하세요" description="왼쪽 후보 목록에서 매장을 선택하면 상세 정보와 영업 기회 확인 화면이 표시됩니다." /></section>;
@@ -55,7 +58,7 @@ export default function OpportunityPanel({ onProposal }) {
     <section className="opportunity-panel panel">
       <header className="store-context-header">
         <div>
-          <div className="store-title-line"><h2>{selectedStore.storeName}</h2><StatusBadge tone={daysSince(selectedStore.permitDate) <= 3 ? 'accent' : 'neutral'}>D+{daysSince(selectedStore.permitDate)}</StatusBadge></div>
+          <div className="store-title-line"><h2>{selectedStore.storeName}</h2><StatusBadge tone={daysSince(selectedStore.permitDate, displayToday) <= 3 ? 'accent' : 'neutral'}>D+{daysSince(selectedStore.permitDate, displayToday)}</StatusBadge></div>
           <p>{selectedStore.businessType} · {selectedStore.roadAddress}</p>
         </div>
         <button type="button" className="text-button" onClick={() => setRawOpen((v) => !v)}>{rawOpen ? '원천 데이터 닫기' : '원천 데이터 보기'}</button>

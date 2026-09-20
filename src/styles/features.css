@@ -229,3 +229,5 @@
 .validation-box strong { color: var(--ink-500); }
 .validation-box strong.pass { color: var(--success); }
 .validation-box strong.unknown { color: var(--warning); }
+.priority-demo-note { margin-top: -10px; margin-bottom: 14px; color: var(--ink-500); font-size: 11px; font-weight: 700; }
+.product-standard-title { grid-template-columns: auto minmax(0,1fr) auto auto; }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { businessTypeOptions, regionOptions } from '../../data/mockData.js';
+import { businessTypeOptions, regionOptions, MOCK_DEMO_TODAY } from '../../data/mockData.js';
 import { useAgent } from '../../app/AgentProvider.jsx';
+import { dataMode } from '../../services/dataClient.js';
 import Icon from '../../components/ui/Icon.jsx';
 
 export default function SearchPanel() {
@@ -39,7 +40,7 @@ export default function SearchPanel() {
         <label><span>사업장명</span><input value={conditions.storeNameKeyword} onChange={(e) => updateCondition('storeNameKeyword', e.target.value)} placeholder="선택 입력" /></label>
         <div className="search-submit-area"><button type="button" className="button primary" onClick={search}><Icon name="search" size={18} /> 음식점 조회</button></div>
       </div>
-      <p className="source-freshness-note">LOCALDATA는 일 단위 갱신 기준으로 제공되며 기본 조회 종료일은 D-2로 설정합니다.</p>
+      <p className="source-freshness-note">{dataMode === 'mock' ? `PoC 데모 기준일 ${MOCK_DEMO_TODAY} · LOCALDATA 조회 종료일은 D-2 스냅샷으로 고정됩니다.` : 'LOCALDATA는 일 단위 갱신 기준으로 제공되며 기본 조회 종료일은 D-2로 설정합니다.'}</p>
       </>}
 
       {(isSearchStale || searchNotice) && <div className={isSearchStale ? 'search-notice stale' : 'search-notice'}>

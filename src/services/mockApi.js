@@ -1,7 +1,14 @@
-import { baseHistory, mockRestaurants, regionOptions, verifiedProducts } from '../data/mockData.js';
+import {
+  actualOpenStatusLabels,
+  baseHistory,
+  mockRestaurants,
+  MOCK_DEMO_TODAY,
+  regionOptions,
+  verifiedProducts,
+} from '../data/mockData.js';
 import { analyzeProductNeeds } from '../utils/rules.js';
-import { getKstToday, kstIsoNow } from '../utils/clock.js';
-import { appendHistory, loadHistory, upsertStoreStatus } from '../utils/storage.js';
+import { kstIsoNow } from '../utils/clock.js';
+import { appendHistory, loadHistory, loadStoreStatuses, upsertStoreStatus } from '../utils/storage.js';
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -71,6 +78,7 @@ export async function searchRestaurants(conditions, onStage) {
   onStage?.(1);
   await wait(160);
 
+  const statuses = loadStoreStatuses();
   const result = mockRestaurants
     .filter((store) => store.regionLevel1 === conditions.regionLevel1)
     .filter((store) => store.regionLevel2 === conditions.regionLevel2)
@@ -79,6 +87,7 @@ export async function searchRestaurants(conditions, onStage) {
     .filter((store) => conditions.businessStatus ? store.businessStatus === conditions.businessStatus : true)
     .filter((store) => !conditions.businessType || conditions.businessType === '전체' ? true : store.businessType === conditions.businessType)
     .filter((store) => conditions.storeNameKeyword ? store.storeName.includes(conditions.storeNameKeyword.trim()) : true)
+    .map((store) => statuses[store.storeId] ? { ...store, verification: statuses[store.storeId] } : store)
     .sort((a, b) => b.permitDate.localeCompare(a.permitDate));
 
   onStage?.(2);
@@ -86,6 +95,11 @@ export async function searchRestaurants(conditions, onStage) {
   onStage?.(3);
   await wait(80);
   return structuredClone(result);
+}
+
+export async function fetchStoreStatus(storeId) {
+  await wait(60);
+  return loadStoreStatuses()[storeId] || null;
 }
 
 export async function saveVerification(store, verification) {
@@ -100,8 +114,13 @@ export async function runRuleAnalysis(verification) {
   return analyzeProductNeeds(verification);
 }
 
-function productIsValid(product, date = getKstToday()) {
+function productIsValid(product, date = MOCK_DEMO_TODAY) {
   return product.validFrom <= date && date <= product.validTo;
+}
+
+export async function fetchProductCatalog() {
+  await wait(90);
+  return structuredClone(verifiedProducts);
 }
 
 export async function generateProposal(store, verification, analysis, onStage) {
@@ -120,9 +139,10 @@ export async function generateProposal(store, verification, analysis, onStage) {
 
   const strategy = {
     priority,
+    prioritySource: 'DEMO_RULE',
     summary: `${store.businessType ?? '일반'} 업태 · ${sizeSignal} · 인허가일 ${store.permitDate} 기준으로 확인된 상태만 사용해 상담 순서를 구성했습니다.`,
     points: [
-      `실제 개업 상태: ${verification.actualOpenStatus}`,
+      `실제 개업 상태: ${actualOpenStatusLabels[verification.actualOpenStatus] || '확인 필요'}`,
       area ? `소재지 면적 ${area}㎡ 기반 사용 환경 확인` : '매장 면적 정보 추가 확인',
       `추천 후보 ${analysis.recommend.length}개 / 추가 확인 ${analysis.confirm.length}개`,
     ],
@@ -163,6 +183,7 @@ export async function generateProposal(store, verification, analysis, onStage) {
 export async function saveFollowUp(payload) {
   await wait(160);
   if (payload.saveApproved !== true) throw new Error('직원의 최종 저장 승인이 필요합니다.');
+  if (!payload.consultationId) throw new Error('상담 저장 요청 식별자가 없습니다.');
   appendHistory(payload);
   upsertStoreStatus(payload.storeId, {
     storeId: payload.storeId,
@@ -171,7 +192,7 @@ export async function saveFollowUp(payload) {
     consultationStatus: payload.consultationStatus,
     updatedAt: payload.updatedAt,
   });
-  return { ok: true, savedAt: payload.updatedAt };
+  return { ok: true, savedAt: payload.updatedAt, consultationId: payload.consultationId };
 }
 
 export async function fetchHistory() {

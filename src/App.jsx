@@ -66,13 +66,24 @@ function AppWorkspace({ onLogout }) {
 export default function App() {
   const [session, setSession] = useState(() => {
     const stored = loadAuthSession();
-    if (!stored || stored.dataMode !== dataMode) {
+    if (!stored || stored.dataMode !== dataMode || stored.authenticated !== true) {
       if (stored) clearAuthSession();
       return null;
     }
     return stored;
   });
   const [authState, setAuthState] = useState({ loading: false, error: null });
+
+  useEffect(() => {
+    const handleExpired = () => {
+      clearAuthSession();
+      window.history.replaceState(null, '', '#home');
+      setSession(null);
+      setAuthState({ loading: false, error: '로그인 세션이 만료되었습니다. 다시 로그인해 주세요.' });
+    };
+    window.addEventListener('kt-auth-expired', handleExpired);
+    return () => window.removeEventListener('kt-auth-expired', handleExpired);
+  }, []);
 
   const login = async () => {
     setAuthState({ loading: true, error: null });

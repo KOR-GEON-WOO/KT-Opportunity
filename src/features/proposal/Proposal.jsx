@@ -39,8 +39,9 @@ export default function Proposal({ onNavigate }) {
           </div>
         </div>
         <div className="proposal-hero-action">
-          <small>상담 우선순위</small>
+          <small>{proposal.strategy.prioritySource === 'DEMO_RULE' ? '시연용 상담 우선순위' : '상담 우선순위'}</small>
           <strong>{proposal.strategy.priority === 'HIGH' ? '높음' : '보통'}</strong>
+          {proposal.strategy.prioritySource === 'DEMO_RULE' && <span className="priority-demo-note">PoC 규칙 기반</span>}
           <button type="button" className="button primary" onClick={() => onNavigate('followup')}>상담 기록으로 이동 <Icon name="arrow" size={18} /></button>
         </div>
       </section>
@@ -55,7 +56,7 @@ export default function Proposal({ onNavigate }) {
         </article>
 
         <article className="panel product-offer-card">
-          <div className="panel-heading"><div><span className="eyebrow">VERIFIED PRODUCT</span><h3>제안 가능 상품</h3></div><StatusBadge tone="success">검수 완료</StatusBadge></div>
+          <div className="panel-heading"><div><span className="eyebrow">VERIFIED PRODUCT</span><h3>제안 가능 상품</h3></div><StatusBadge tone={proposal.products?.length ? 'success' : 'warning'}>{proposal.products?.length ? '검수 완료' : '검수 상품 없음'}</StatusBadge></div>
           {proposal.products?.length ? proposal.products.map((product) => (
             <div className="verified-product" key={product.productCode}>
               <div className="verified-product-head"><div><span>{categoryLabels[product.productCategory]}</span><h4>{product.productName}</h4></div><code>{product.productCode}</code></div>

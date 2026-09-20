@@ -1,5 +1,14 @@
 const BASE_URL = (import.meta.env.VITE_N8N_BASE_URL || '').replace(/\/$/, '');
 
+function emitAuthExpired() {
+  if (typeof window === 'undefined') return;
+  try {
+    window.dispatchEvent(new CustomEvent('kt-auth-expired'));
+  } catch {
+    // Ignore event dispatch errors in non-browser environments.
+  }
+}
+
 async function parseResponse(response) {
   if (response.status === 204) return {};
   const text = await response.text();
@@ -23,6 +32,12 @@ async function request(path, options = {}, timeoutMs = 15000) {
       ...options,
       signal: controller.signal,
     });
+
+    if (response.status === 401 || response.status === 403) {
+      emitAuthExpired();
+      throw new Error('로그인 세션이 만료되었거나 접근 권한이 없습니다. 다시 로그인해 주세요.');
+    }
+
     if (!response.ok) {
       const text = await response.text().catch(() => '');
       throw new Error(text || `n8n 요청 실패 (${response.status})`);
@@ -43,9 +58,11 @@ export const n8nApi = {
   logout: () => request('/webhook/auth/logout', { method: 'POST' }, 10000),
   interpretNaturalSearch: (body) => post('/webhook/restaurant/interpret', body, 20000),
   searchRestaurants: (body) => post('/webhook/restaurant/search', body, 30000),
+  getStoreStatus: (body) => post('/webhook/restaurant/status', body, 10000),
   verifyStore: (body) => post('/webhook/restaurant/verify', body, 15000),
   analyzeProducts: (body) => post('/webhook/restaurant/analyze', body, 15000),
   generateProposal: (body) => post('/webhook/restaurant/proposal', body, 120000),
   saveFollowUp: (body) => post('/webhook/restaurant/follow-up', body, 20000),
   history: () => request('/webhook/restaurant/history', {}, 20000),
+  products: () => request('/webhook/restaurant/products', {}, 15000),
 };

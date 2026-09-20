@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useAgent } from '../../app/AgentProvider.jsx';
 import { daysSince, formatDate } from '../../utils/format.js';
+import { MOCK_DEMO_TODAY } from '../../data/mockData.js';
+import { dataMode } from '../../services/dataClient.js';
 import StatusBadge from '../../components/ui/StatusBadge.jsx';
 import EmptyState from '../../components/ui/EmptyState.jsx';
 
@@ -10,6 +12,7 @@ export default function LeadList() {
   const { restaurants, selectedStoreId, selectStore, lastExecutedConditions } = useAgent();
   const [page, setPage] = useState(1);
   const totalPages = Math.max(1, Math.ceil(restaurants.length / PAGE_SIZE));
+  const displayToday = dataMode === 'mock' ? MOCK_DEMO_TODAY : undefined;
 
   useEffect(() => {
     setPage(1);
@@ -33,7 +36,7 @@ export default function LeadList() {
           const selected = store.storeId === selectedStoreId;
           return (
             <button key={store.storeId} type="button" className={selected ? 'lead-row selected' : 'lead-row'} onClick={() => selectStore(store.storeId)} aria-pressed={selected}>
-              <div className="lead-row-top"><strong>{store.storeName}</strong><span>D+{daysSince(store.permitDate)}</span></div>
+              <div className="lead-row-top"><strong>{store.storeName}</strong><span>D+{daysSince(store.permitDate, displayToday)}</span></div>
               <p>{store.businessType} · {store.roadAddress}</p>
               <div className="lead-row-meta"><span>{formatDate(store.permitDate)}</span><span>{store.area ? `${store.area}㎡` : '면적 미확인'}</span></div>
             </button>

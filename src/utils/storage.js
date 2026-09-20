@@ -1,8 +1,9 @@
-const WORKFLOW_KEY = 'kt-restaurant-agent:workflow:v2';
+const WORKFLOW_KEY = 'kt-restaurant-agent:workflow:v3';
 const HISTORY_KEY = 'kt-restaurant-agent:consultation-history:v2';
 const STORE_STATUS_KEY = 'kt-restaurant-agent:store-status:v2';
 const AUTH_KEY = 'kt-restaurant-agent:auth:v2';
 const DRAFT_KEY = 'kt-restaurant-agent:followup-drafts:v2';
+const MAX_PERSISTED_RESULTS = 200;
 
 function storage(type) {
   if (typeof window === 'undefined') return null;
@@ -25,20 +26,34 @@ function readJson(type, key, fallback) {
 
 function writeJson(type, key, value) {
   try {
-    storage(type)?.setItem(key, JSON.stringify(value));
-  } catch {
-    // Storage is best-effort in PoC mode.
+    const target = storage(type);
+    if (!target) return false;
+    target.setItem(key, JSON.stringify(value));
+    return true;
+  } catch (error) {
+    console.warn(`[storage] ${key} 저장 실패`, error);
+    return false;
   }
 }
 
 export function loadWorkflow() {
   const value = readJson('session', WORKFLOW_KEY, null);
-  if (!value || value.schemaVersion !== 2) return null;
+  if (!value || value.schemaVersion !== 3) return null;
   return value;
 }
 
 export function saveWorkflow(value) {
-  writeJson('session', WORKFLOW_KEY, { schemaVersion: 2, ...value });
+  const restaurants = Array.isArray(value.restaurants) ? value.restaurants : [];
+  const omitResults = restaurants.length > MAX_PERSISTED_RESULTS;
+  const snapshot = {
+    schemaVersion: 3,
+    ...value,
+    restaurants: omitResults ? [] : restaurants,
+    selectedStoreId: omitResults ? null : value.selectedStoreId,
+    restaurantsOmitted: omitResults,
+    omittedRestaurantCount: omitResults ? restaurants.length : 0,
+  };
+  return { ok: writeJson('session', WORKFLOW_KEY, snapshot), omittedResults: omitResults };
 }
 
 export function clearWorkflow() {
@@ -52,6 +67,10 @@ export function loadHistory() {
 
 export function appendHistory(record) {
   const current = loadHistory();
+  if (record?.consultationId) {
+    const existing = current.find((item) => item.consultationId === record.consultationId);
+    if (existing) return current;
+  }
   const next = [record, ...current];
   writeJson('local', HISTORY_KEY, next);
   return next;
@@ -76,9 +95,19 @@ export function loadFollowUpDraft(storeId) {
 }
 
 export function saveFollowUpDraft(storeId, draft) {
+  if (!storeId) return false;
+  const drafts = readJson('session', DRAFT_KEY, {});
+  return writeJson('session', DRAFT_KEY, { ...drafts, [storeId]: draft });
+}
+
+export function invalidateFollowUpDraftApproval(storeId) {
   if (!storeId) return;
   const drafts = readJson('session', DRAFT_KEY, {});
-  writeJson('session', DRAFT_KEY, { ...drafts, [storeId]: draft });
+  if (!drafts?.[storeId]) return;
+  writeJson('session', DRAFT_KEY, {
+    ...drafts,
+    [storeId]: { ...drafts[storeId], saveApproved: false },
+  });
 }
 
 export function clearFollowUpDraft(storeId) {
@@ -94,7 +123,7 @@ export function loadAuthSession() {
 }
 
 export function saveAuthSession(value) {
-  writeJson('session', AUTH_KEY, value);
+  return writeJson('session', AUTH_KEY, value);
 }
 
 export function clearAuthSession() {

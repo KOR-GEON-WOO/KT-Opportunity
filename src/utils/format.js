@@ -31,8 +31,8 @@ export function formatCurrency(value) {
   return `${new Intl.NumberFormat('ko-KR').format(value)}원/월`;
 }
 
-export function daysSince(dateString) {
-  return daysSinceKst(dateString);
+export function daysSince(dateString, today) {
+  return daysSinceKst(dateString, today);
 }
 
 export { kstIsoNow };

@@ -17,8 +17,10 @@ export const businessTypeOptions = [
   "기타",
 ];
 
-export function createInitialSearchConditions() {
-  const today = getKstToday();
+export const MOCK_DEMO_TODAY = '2026-09-18';
+
+export function createInitialSearchConditions(referenceDate = getKstToday()) {
+  const today = referenceDate;
   const dataAsOf = addDays(today, -2);
   return {
     naturalQuery: "충청남도 천안시에서 최근 인허가된 정상 영업 음식점을 찾아줘",
@@ -413,7 +415,7 @@ export function createDefaultVerification() {
   };
 }
 
-export function createDemoVerification() {
+export function createDemoVerification(referenceDate = getKstToday()) {
   return {
     actualOpenStatus: "OPEN",
     installStatus: "PASS",
@@ -421,7 +423,7 @@ export function createDemoVerification() {
     wifiStatus: "UNDECIDED",
     posStatus: "CONTRACTED",
     cctvStatus: "UNKNOWN",
-    checkedAt: getKstToday(),
+    checkedAt: referenceDate,
     checkNote: "CCTV 사용 여부 추가 확인 필요",
   };
 }
@@ -430,6 +432,8 @@ export const defaultVerification = createDefaultVerification();
 
 export const baseHistory = [
   {
+    consultationId: "demo-history-20260918-001",
+    proposalVersion: "2026-09-18T15:20:00.000+09:00",
     storeId: "4490000-101-2026-00271",
     storeName: "쌍용동 봄식탁",
     roadAddress: "충청남도 천안시 서북구 쌍용대로 88",

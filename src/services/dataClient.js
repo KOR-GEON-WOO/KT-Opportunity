@@ -5,9 +5,11 @@ import {
   normalizeAuthResponse,
   normalizeHistoryResponse,
   normalizeInterpretResponse,
+  normalizeProductCatalogResponse,
   normalizeProposalResponse,
   normalizeRestaurantSearchResponse,
   normalizeSaveResponse,
+  normalizeStoreStatusResponse,
   normalizeVerificationResponse,
 } from './contracts.js';
 
@@ -28,6 +30,11 @@ async function n8nSearch(conditions, onStage) {
   const result = normalizeRestaurantSearchResponse(raw);
   onStage?.(1);
   return result;
+}
+
+async function n8nStoreStatus(storeId) {
+  const raw = await n8nApi.getStoreStatus({ storeId });
+  return normalizeStoreStatusResponse(raw);
 }
 
 async function n8nVerification(store, verification) {
@@ -56,6 +63,10 @@ async function n8nHistory() {
   return normalizeHistoryResponse(await n8nApi.history());
 }
 
+async function n8nProducts() {
+  return normalizeProductCatalogResponse(await n8nApi.products());
+}
+
 export const dataClient = {
   loginSession: dataMode === 'n8n'
     ? async (body = {}) => normalizeAuthResponse(await n8nApi.login(body))
@@ -63,9 +74,11 @@ export const dataClient = {
   logoutSession: dataMode === 'n8n' ? n8nApi.logout : async () => ({ ok: true }),
   interpretNaturalSearch: dataMode === 'n8n' ? n8nInterpret : mockApi.interpretNaturalSearch,
   searchRestaurants: dataMode === 'n8n' ? n8nSearch : mockApi.searchRestaurants,
+  fetchStoreStatus: dataMode === 'n8n' ? n8nStoreStatus : mockApi.fetchStoreStatus,
   saveVerification: dataMode === 'n8n' ? n8nVerification : mockApi.saveVerification,
   runRuleAnalysis: dataMode === 'n8n' ? n8nAnalysis : (_store, verification) => mockApi.runRuleAnalysis(verification),
   generateProposal: dataMode === 'n8n' ? n8nProposal : mockApi.generateProposal,
   saveFollowUp: dataMode === 'n8n' ? n8nSave : mockApi.saveFollowUp,
   fetchHistory: dataMode === 'n8n' ? n8nHistory : mockApi.fetchHistory,
+  fetchProductCatalog: dataMode === 'n8n' ? n8nProducts : mockApi.fetchProductCatalog,
 };

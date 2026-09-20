@@ -1,14 +1,24 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { createDefaultVerification, createDemoVerification, createInitialSearchConditions } from '../data/mockData.js';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { createDefaultVerification, createDemoVerification, createInitialSearchConditions, MOCK_DEMO_TODAY } from '../data/mockData.js';
 import { dataClient, dataMode } from '../services/dataClient.js';
 import { analyzeProductNeeds } from '../utils/rules.js';
-import { clearFollowUpDraft, clearWorkflow, loadStoreStatuses, loadWorkflow, saveWorkflow } from '../utils/storage.js';
+import {
+  clearFollowUpDraft,
+  clearWorkflow,
+  invalidateFollowUpDraftApproval,
+  loadStoreStatuses,
+  loadWorkflow,
+  saveWorkflow,
+} from '../utils/storage.js';
 import { getKstToday, kstIsoNow } from '../utils/clock.js';
 import { validateSearch, validateVerification } from '../utils/validation.js';
 
 const AgentContext = createContext(null);
-
 const VERIFICATION_FIELDS = ['actualOpenStatus', 'installStatus', 'internetStatus', 'wifiStatus', 'posStatus', 'cctvStatus'];
+
+function initialConditions() {
+  return createInitialSearchConditions(dataMode === 'mock' ? MOCK_DEMO_TODAY : getKstToday());
+}
 
 function comparableConditions(value) {
   const { naturalQuery: _ignore, ...rest } = value || {};
@@ -24,10 +34,17 @@ function needsHumanCheck(value) {
   return VERIFICATION_FIELDS.some((field) => !value[field] || value[field] === 'UNKNOWN');
 }
 
+function asStoredVerification(store, value) {
+  if (!value) return null;
+  return { ...value, storeId: store.storeId, storeName: store.storeName };
+}
+
 export function AgentProvider({ children }) {
   const restored = useMemo(() => loadWorkflow(), []);
+  const statusLookupDone = useRef(new Set());
+  const locallyTouchedStores = useRef(new Set());
   const [storeStatuses, setStoreStatuses] = useState(() => loadStoreStatuses());
-  const [conditions, setConditionsState] = useState(restored?.conditions ?? createInitialSearchConditions());
+  const [conditions, setConditionsState] = useState(restored?.conditions ?? initialConditions());
   const [lastExecutedConditions, setLastExecutedConditions] = useState(restored?.lastExecutedConditions ?? null);
   const [restaurants, setRestaurants] = useState(restored?.restaurants ?? []);
   const [selectedStoreId, setSelectedStoreId] = useState(restored?.selectedStoreId ?? null);
@@ -36,7 +53,10 @@ export function AgentProvider({ children }) {
   const [saveResultByStore, setSaveResultByStore] = useState(restored?.saveResultByStore ?? {});
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
-  const [searchNotice, setSearchNotice] = useState(null);
+  const [searchNotice, setSearchNotice] = useState(() => restored?.restaurantsOmitted
+    ? `이전 대량 조회 ${restored.omittedRestaurantCount || ''}건은 브라우저 세션에 저장하지 않았습니다. 다시 조회해 주세요.`
+    : null);
+  const [persistenceWarning, setPersistenceWarning] = useState(null);
 
   const selectedStore = useMemo(
     () => restaurants.find((item) => item.storeId === selectedStoreId) ?? null,
@@ -74,7 +94,7 @@ export function AgentProvider({ children }) {
   }, [restaurants, verificationByStore, storeStatuses, proposalByStore, saveResultByStore, lastExecutedConditions]);
 
   useEffect(() => {
-    saveWorkflow({
+    const result = saveWorkflow({
       conditions,
       lastExecutedConditions,
       restaurants,
@@ -83,7 +103,34 @@ export function AgentProvider({ children }) {
       proposalByStore,
       saveResultByStore,
     });
+    if (!result.ok) {
+      setPersistenceWarning('브라우저 임시저장 공간이 부족하거나 사용할 수 없습니다. 새로고침하면 현재 작업 일부가 복원되지 않을 수 있습니다.');
+    } else if (result.omittedResults) {
+      setPersistenceWarning(`조회 결과가 ${restaurants.length}건으로 많아 목록 전체는 세션에 저장하지 않습니다. 현재 화면에서는 계속 작업할 수 있습니다.`);
+    } else {
+      setPersistenceWarning(null);
+    }
   }, [conditions, lastExecutedConditions, restaurants, selectedStoreId, verificationByStore, proposalByStore, saveResultByStore]);
+
+  useEffect(() => {
+    if (dataMode !== 'n8n' || !selectedStoreId || !selectedStore) return undefined;
+    if (verificationByStore[selectedStoreId] || storeStatuses[selectedStoreId] || statusLookupDone.current.has(selectedStoreId)) return undefined;
+
+    statusLookupDone.current.add(selectedStoreId);
+    let active = true;
+    dataClient.fetchStoreStatus(selectedStoreId)
+      .then((status) => {
+        if (!active || !status || locallyTouchedStores.current.has(selectedStoreId)) return;
+        const next = asStoredVerification(selectedStore, status);
+        setStoreStatuses((prev) => ({ ...prev, [selectedStoreId]: next }));
+        setVerificationByStore((prev) => ({ ...prev, [selectedStoreId]: next }));
+      })
+      .catch((err) => {
+        statusLookupDone.current.delete(selectedStoreId);
+        if (active) setError(err.message || '기존 매장 확인 상태를 불러오지 못했습니다.');
+      });
+    return () => { active = false; };
+  }, [selectedStoreId, selectedStore, verificationByStore, storeStatuses]);
 
   const setConditions = useCallback((updater) => {
     setConditionsState((prev) => typeof updater === 'function' ? updater(prev) : updater);
@@ -143,6 +190,22 @@ export function AgentProvider({ children }) {
       const result = await dataClient.searchRestaurants(conditions, (stageIndex) => setLoading((prev) => prev ? { ...prev, stageIndex } : prev));
       setRestaurants(result);
       setLastExecutedConditions({ ...conditions });
+
+      const inlineStatuses = {};
+      for (const store of result) {
+        if (store.verification) inlineStatuses[store.storeId] = asStoredVerification(store, store.verification);
+      }
+      if (Object.keys(inlineStatuses).length) {
+        setStoreStatuses((prev) => ({ ...prev, ...inlineStatuses }));
+        setVerificationByStore((prev) => {
+          const next = { ...prev };
+          for (const [storeId, status] of Object.entries(inlineStatuses)) {
+            if (!locallyTouchedStores.current.has(storeId) && !prev[storeId]) next[storeId] = status;
+          }
+          return next;
+        });
+      }
+
       if (!result.length) {
         setSelectedStoreId(null);
         setSearchNotice('조회는 정상 처리되었지만 조건에 맞는 음식점이 0건입니다.');
@@ -165,8 +228,15 @@ export function AgentProvider({ children }) {
     setError(null);
   }
 
+  function invalidateStoreProposal(storeId) {
+    setProposalByStore((prev) => ({ ...prev, [storeId]: null }));
+    setSaveResultByStore((prev) => ({ ...prev, [storeId]: null }));
+    invalidateFollowUpDraftApproval(storeId);
+  }
+
   function updateVerification(key, value) {
     if (!selectedStoreId) return;
+    locallyTouchedStores.current.add(selectedStoreId);
     setVerificationByStore((prev) => {
       const base = prev[selectedStoreId] || storeStatuses[selectedStoreId] || createDefaultVerification();
       return {
@@ -178,15 +248,14 @@ export function AgentProvider({ children }) {
         },
       };
     });
-    setProposalByStore((prev) => ({ ...prev, [selectedStoreId]: null }));
-    setSaveResultByStore((prev) => ({ ...prev, [selectedStoreId]: null }));
+    invalidateStoreProposal(selectedStoreId);
   }
 
   function loadDemoVerification() {
     if (!selectedStoreId) return;
-    setVerificationByStore((prev) => ({ ...prev, [selectedStoreId]: createDemoVerification() }));
-    setProposalByStore((prev) => ({ ...prev, [selectedStoreId]: null }));
-    setSaveResultByStore((prev) => ({ ...prev, [selectedStoreId]: null }));
+    locallyTouchedStores.current.add(selectedStoreId);
+    setVerificationByStore((prev) => ({ ...prev, [selectedStoreId]: createDemoVerification(dataMode === 'mock' ? MOCK_DEMO_TODAY : getKstToday()) }));
+    invalidateStoreProposal(selectedStoreId);
     setError(null);
   }
 
@@ -221,19 +290,24 @@ export function AgentProvider({ children }) {
         storeName: selectedStore.storeName,
       };
       setStoreStatuses((prev) => ({ ...prev, [selectedStoreId]: nextStoredStatus }));
-      setVerificationByStore((prev) => ({ ...prev, [selectedStoreId]: verificationToSave }));
+      setVerificationByStore((prev) => ({ ...prev, [selectedStoreId]: nextStoredStatus }));
 
       if (dataMode === 'mock') setLoading((prev) => prev ? { ...prev, stageIndex: 1 } : prev);
-      const analysis = await dataClient.runRuleAnalysis(selectedStore, verificationToSave);
+      const analysis = await dataClient.runRuleAnalysis(selectedStore, nextStoredStatus);
       if (!analysis.recommend.length) {
         setError('현재 확인값에서는 바로 추천할 상품군이 없습니다. 추가 확인 항목을 먼저 점검해 주세요.');
         return false;
       }
 
       setLoading((prev) => prev ? { ...prev, stageIndex: dataMode === 'n8n' ? 1 : 2 } : prev);
-      const result = await dataClient.generateProposal(selectedStore, verificationToSave, analysis, (stageIndex) => {
+      const rawResult = await dataClient.generateProposal(selectedStore, nextStoredStatus, analysis, (stageIndex) => {
         setLoading((prev) => prev ? { ...prev, stageIndex: dataMode === 'n8n' ? Math.min(2, stageIndex + 1) : Math.min(3, stageIndex) } : prev);
       });
+      const result = {
+        ...rawResult,
+        proposalVersion: rawResult.proposalVersion || rawResult.generatedAt || kstIsoNow(),
+      };
+      invalidateFollowUpDraftApproval(selectedStoreId);
       setProposalByStore((prev) => ({ ...prev, [selectedStoreId]: result }));
       return true;
     } catch (err) {
@@ -247,8 +321,19 @@ export function AgentProvider({ children }) {
   async function saveFollowUp(form) {
     if (!selectedStore) return null;
     setError(null);
+    if (!form.saveApproved) {
+      setError('저장 내용을 최종 확인해 주세요.');
+      return null;
+    }
+    if (!form.consultationId) {
+      setError('상담 저장 요청 식별자가 없습니다. 화면을 새로 열어 다시 시도해 주세요.');
+      return null;
+    }
+
     const now = kstIsoNow();
     const payload = {
+      consultationId: form.consultationId,
+      proposalVersion: form.proposalVersion || proposal?.proposalVersion || null,
       storeId: selectedStore.storeId,
       storeName: selectedStore.storeName,
       roadAddress: selectedStore.roadAddress,
@@ -259,12 +344,13 @@ export function AgentProvider({ children }) {
       interestProducts: form.interestProducts,
       followUpDate: form.followUpDate || null,
       notes: form.notes.trim(),
-      saveApproved: form.saveApproved,
-      approvedAt: form.saveApproved ? now : null,
+      saveApproved: true,
+      approvedAt: now,
       updatedAt: now,
     };
     try {
       const result = await dataClient.saveFollowUp(payload);
+      if (result?.ok !== true) throw new Error('서버가 저장 성공을 확인하지 않았습니다.');
       setSaveResultByStore((prev) => ({ ...prev, [selectedStoreId]: { ...result, payload } }));
       setStoreStatuses((prev) => ({
         ...prev,
@@ -287,7 +373,7 @@ export function AgentProvider({ children }) {
 
   function startNewSearch() {
     clearWorkflow();
-    setConditionsState(createInitialSearchConditions());
+    setConditionsState(initialConditions());
     setLastExecutedConditions(null);
     setRestaurants([]);
     setSelectedStoreId(null);
@@ -296,6 +382,9 @@ export function AgentProvider({ children }) {
     setSaveResultByStore({});
     setError(null);
     setSearchNotice(null);
+    setPersistenceWarning(null);
+    statusLookupDone.current.clear();
+    locallyTouchedStores.current.clear();
   }
 
   const value = {
@@ -317,6 +406,7 @@ export function AgentProvider({ children }) {
     error,
     setError,
     searchNotice,
+    persistenceWarning,
     isSearchStale,
     dashboardSummary,
     interpretSearch,

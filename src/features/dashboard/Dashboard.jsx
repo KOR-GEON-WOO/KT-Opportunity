@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import { useAgent } from '../../app/AgentProvider.jsx';
 import { daysSince, formatDate } from '../../utils/format.js';
+import { MOCK_DEMO_TODAY } from '../../data/mockData.js';
+import { dataMode } from '../../services/dataClient.js';
 import StatusBadge from '../../components/ui/StatusBadge.jsx';
 import EmptyState from '../../components/ui/EmptyState.jsx';
 import Icon from '../../components/ui/Icon.jsx';
@@ -8,6 +10,7 @@ import Icon from '../../components/ui/Icon.jsx';
 export default function Dashboard({ onNavigate }) {
   const { restaurants, selectStore, dashboardSummary, lastExecutedConditions } = useAgent();
   const leads = useMemo(() => restaurants.slice(0, 5), [restaurants]);
+  const displayToday = dataMode === 'mock' ? MOCK_DEMO_TODAY : undefined;
   const metrics = [
     ['신규 인허가', dashboardSummary.discovered, dashboardSummary.hasSearchRun ? '최근 조회 결과' : '아직 조회 전', 'neutral'],
     ['확인 필요', dashboardSummary.confirmationRequired, '직원 확인 대기', 'warning'],
@@ -39,8 +42,8 @@ export default function Dashboard({ onNavigate }) {
               {leads.map((store) => (
                 <button type="button" className="dashboard-lead" key={store.storeId} onClick={() => openLead(store.storeId)}>
                   <div className="lead-avatar">{store.businessType?.slice(0,1) || '매'}</div>
-                  <div className="lead-copy"><strong>{store.storeName}</strong><span>{store.businessType} · {store.regionLevel2} · 인허가 D+{daysSince(store.permitDate)}</span></div>
-                  <StatusBadge tone={daysSince(store.permitDate) <= 3 ? 'accent' : 'neutral'}>{formatDate(store.permitDate)}</StatusBadge>
+                  <div className="lead-copy"><strong>{store.storeName}</strong><span>{store.businessType} · {store.regionLevel2} · 인허가 D+{daysSince(store.permitDate, displayToday)}</span></div>
+                  <StatusBadge tone={daysSince(store.permitDate, displayToday) <= 3 ? 'accent' : 'neutral'}>{formatDate(store.permitDate)}</StatusBadge>
                   <Icon name="chevron" size={18} className="lead-chevron" />
                 </button>
               ))}

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useAgent } from '../../app/AgentProvider.jsx';
 import { categoryLabels } from '../../data/mockData.js';
 import { clearFollowUpDraft, loadFollowUpDraft, saveFollowUpDraft } from '../../utils/storage.js';
+import { createConsultationId } from '../../utils/id.js';
 import EmptyState from '../../components/ui/EmptyState.jsx';
 import StatusBadge from '../../components/ui/StatusBadge.jsx';
 import Icon from '../../components/ui/Icon.jsx';
@@ -15,10 +16,24 @@ const CONSULT_LABELS = {
 const RESULT_LABELS = { SUCCESS: '성공', FOLLOW_UP: '후속 필요', FAIL: '실패' };
 const PRODUCTS = ['INTERNET', 'WIFI', 'POS', 'CCTV'];
 
+function getProposalVersion(proposal) {
+  return proposal?.proposalVersion || proposal?.generatedAt || null;
+}
+
 function createInitialDraft(storeId, proposal) {
+  const currentProposalVersion = getProposalVersion(proposal);
   const saved = loadFollowUpDraft(storeId);
-  if (saved) return saved;
+  if (saved) {
+    return {
+      ...saved,
+      consultationId: saved.consultationId || createConsultationId(),
+      proposalVersion: currentProposalVersion,
+      saveApproved: saved.proposalVersion === currentProposalVersion ? Boolean(saved.saveApproved) : false,
+    };
+  }
   return {
+    consultationId: createConsultationId(),
+    proposalVersion: currentProposalVersion,
     leadStatus: 'READY',
     consultationStatus: 'NOT_STARTED',
     consultationResult: '',
@@ -36,7 +51,7 @@ export default function FollowUp({ onNavigate }) {
 
   useEffect(() => {
     setForm(createInitialDraft(selectedStore?.storeId, proposal));
-  }, [selectedStore?.storeId]);
+  }, [selectedStore?.storeId, proposal?.proposalVersion, proposal?.generatedAt]);
 
   useEffect(() => {
     if (selectedStore?.storeId && !saveResult) saveFollowUpDraft(selectedStore.storeId, form);
@@ -48,8 +63,18 @@ export default function FollowUp({ onNavigate }) {
     return <div className="page-stack"><section className="panel"><EmptyState title="선택된 음식점이 없습니다" description="신규 음식점에서 매장을 선택한 뒤 상담 결과를 기록해 주세요." action={<button type="button" className="button primary" onClick={() => onNavigate('discovery')}>신규 음식점으로 이동</button>} /></section></div>;
   }
 
-  const update = (key, value) => setForm((prev) => ({ ...prev, [key]: value }));
-  const toggleProduct = (product) => update('interestProducts', form.interestProducts.includes(product) ? form.interestProducts.filter((item) => item !== product) : [...form.interestProducts, product]);
+  const update = (key, value) => setForm((prev) => ({
+    ...prev,
+    [key]: value,
+    saveApproved: key === 'saveApproved' ? value : false,
+  }));
+  const toggleProduct = (product) => setForm((prev) => ({
+    ...prev,
+    interestProducts: prev.interestProducts.includes(product)
+      ? prev.interestProducts.filter((item) => item !== product)
+      : [...prev.interestProducts, product],
+    saveApproved: false,
+  }));
 
   const save = async () => {
     setSaving(true);
