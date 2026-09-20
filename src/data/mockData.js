@@ -1,3 +1,5 @@
+import { addDays, getKstToday } from '../utils/clock.js';
+
 export const regionOptions = {
   "충청남도": ["천안시", "아산시", "공주시"],
   "충청북도": ["청주시", "충주시", "제천시"],
@@ -15,16 +17,21 @@ export const businessTypeOptions = [
   "기타",
 ];
 
-export const initialSearchConditions = {
-  naturalQuery: "충청남도 천안시에서 최근 인허가된 정상 영업 음식점을 찾아줘",
-  regionLevel1: "충청남도",
-  regionLevel2: "천안시",
-  permitDateFrom: "2026-09-01",
-  permitDateTo: "2026-09-18",
-  businessStatus: "영업/정상",
-  businessType: "전체",
-  storeNameKeyword: "",
-};
+export function createInitialSearchConditions() {
+  const today = getKstToday();
+  return {
+    naturalQuery: "충청남도 천안시에서 최근 인허가된 정상 영업 음식점을 찾아줘",
+    regionLevel1: "충청남도",
+    regionLevel2: "천안시",
+    permitDateFrom: addDays(today, -30),
+    permitDateTo: today,
+    businessStatus: "영업/정상",
+    businessType: "전체",
+    storeNameKeyword: "",
+  };
+}
+
+export const initialSearchConditions = createInitialSearchConditions();
 
 // 행정안전부 LOCALDATA 일반음식점 원천 데이터 스키마를 따르는 PoC 더미 데이터.
 // 실제 배포에서는 n8n이 /info 응답을 동일 필드명으로 정규화해 프런트에 전달한다.
@@ -392,16 +399,33 @@ export const verifiedProducts = [
   },
 ];
 
-export const defaultVerification = {
-  actualOpenStatus: "OPEN",
-  installStatus: "PASS",
-  internetStatus: "UNDECIDED",
-  wifiStatus: "UNDECIDED",
-  posStatus: "CONTRACTED",
-  cctvStatus: "UNKNOWN",
-  checkedAt: "2026-09-18",
-  checkNote: "CCTV 사용 여부 추가 확인 필요",
-};
+export function createDefaultVerification() {
+  return {
+    actualOpenStatus: "UNKNOWN",
+    installStatus: "UNKNOWN",
+    internetStatus: "UNKNOWN",
+    wifiStatus: "UNKNOWN",
+    posStatus: "UNKNOWN",
+    cctvStatus: "UNKNOWN",
+    checkedAt: getKstToday(),
+    checkNote: "",
+  };
+}
+
+export function createDemoVerification() {
+  return {
+    actualOpenStatus: "OPEN",
+    installStatus: "PASS",
+    internetStatus: "UNDECIDED",
+    wifiStatus: "UNDECIDED",
+    posStatus: "CONTRACTED",
+    cctvStatus: "UNKNOWN",
+    checkedAt: getKstToday(),
+    checkNote: "CCTV 사용 여부 추가 확인 필요",
+  };
+}
+
+export const defaultVerification = createDefaultVerification();
 
 export const baseHistory = [
   {

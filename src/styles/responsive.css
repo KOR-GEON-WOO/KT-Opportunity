@@ -1,0 +1,114 @@
+@media (max-width: 1380px) {
+  .filter-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .search-submit-area { grid-column: span 2; }
+  .search-submit-area .button { width: 100%; }
+  .opportunity-workspace { grid-template-columns: 1fr; }
+  .analysis-side { border-left: 0; border-top: 1px solid var(--line-100); padding-left: 0; padding-top: 20px; }
+  .analysis-columns { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+
+@media (max-width: 1120px) {
+  :root { --sidebar: 220px; }
+  .app-main { padding-left: 20px; padding-right: 20px; }
+  .dashboard-grid, .proposal-content-grid, .followup-grid-v6 { grid-template-columns: 1fr; }
+  .activity-panel { order: -1; }
+  .workflow-list { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .master-detail { grid-template-columns: 300px minmax(0,1fr); }
+  .store-facts { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .proposal-hero { grid-template-columns: 1fr; }
+  .proposal-hero-action { border-left: 0; border-top: 1px solid var(--line-100); padding-left: 0; padding-top: 18px; }
+}
+
+@media (max-width: 920px) {
+  .app-shell, .app-shell.sidebar-is-collapsed { display: block; }
+  .sidebar { position: fixed; left: 0; top: 0; width: min(300px,84vw); transform: translateX(-105%); box-shadow: 18px 0 50px rgba(0,0,0,.14); transition: transform .2s ease; }
+  .app-shell.mobile-menu-open .sidebar { transform: translateX(0); }
+  .sidebar.collapsed { width: min(300px,84vw); }
+  .sidebar.collapsed .sidebar-logo { justify-content: flex-start; padding: 0 10px; }
+  .sidebar.collapsed .sidebar-logo span, .sidebar.collapsed .sidebar-nav span, .sidebar.collapsed .sidebar-section-label { display: inline; }
+  .sidebar.collapsed .sidebar-nav button { justify-content: flex-start; padding: 0 11px; }
+  .mobile-backdrop { display: block; position: fixed; inset: 0; z-index: 25; border: 0; background: rgba(0,0,0,.34); }
+  .mobile-menu-button { display: grid; }
+  .sidebar-collapse { display: none; }
+  .topbar { padding: 0 16px; }
+  .topbar-title p, .workspace-chip { display: none; }
+  .app-main { padding: 16px 16px 88px; }
+  .mobile-bottom-nav { position: fixed; left: 50%; bottom: 12px; z-index: 40; transform: translateX(-50%); width: min(420px,calc(100% - 24px)); display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--line-200); border-radius: 16px; background: rgba(255,255,255,.96); box-shadow: 0 10px 35px rgba(0,0,0,.13); backdrop-filter: blur(10px); padding: 6px; }
+  .mobile-bottom-nav button { min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border: 0; border-radius: 11px; background: transparent; color: var(--ink-500); font-size: 9px; font-weight: 800; }
+  .mobile-bottom-nav button.active { background: var(--ink-950); color: white; }
+  .login-screen { grid-template-columns: 1fr; }
+  .login-brand-panel { min-height: auto; padding: 50px 32px; }
+  .login-logo { margin-bottom: 52px; }
+  .login-brand-inner h1 { font-size: clamp(38px,8vw,58px); }
+  .login-action-panel { padding: 44px 24px 70px; }
+  .master-detail { grid-template-columns: 1fr; }
+  .lead-list { position: static; max-height: none; }
+  .lead-list-scroll { max-height: 420px; }
+}
+
+@media (max-width: 720px) {
+  .welcome-strip { align-items: flex-start; flex-direction: column; padding: 26px 22px; }
+  .welcome-strip h2 { font-size: 27px; }
+  .welcome-strip .button { width: 100%; }
+  .metric-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .dashboard-lead { grid-template-columns: 38px minmax(0,1fr) 18px; }
+  .dashboard-lead .status-badge { display: none; }
+  .workflow-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .search-panel-top { align-items: stretch; flex-direction: column; }
+  .filter-toggle { align-self: flex-start; }
+  .filter-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .search-submit-area { grid-column: 1 / -1; }
+  .natural-search { grid-template-columns: auto minmax(0,1fr); }
+  .natural-search .button { grid-column: 1 / -1; width: 100%; }
+  .search-notice { align-items: flex-start; flex-direction: column; }
+  .store-context-header, .store-context-strip { flex-direction: column; align-items: flex-start; }
+  .store-facts, .raw-data-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .product-status-row { grid-template-columns: 1fr; }
+  .analysis-columns { grid-template-columns: 1fr; }
+  .proposal-hero { padding: 24px; }
+  .proposal-hero h2 { font-size: 25px; }
+  .verified-product dl { grid-template-columns: 1fr; }
+  .agent-details-body { grid-template-columns: 1fr; }
+  .form-grid-2, .summary-grid { grid-template-columns: 1fr; }
+  .summary-grid > div.wide { grid-column: auto; }
+  .product-standard-list dl { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+@media (max-width: 520px) {
+  .topbar { height: 64px; }
+  .topbar-title h1 { font-size: 16px; }
+  .topbar-actions .icon-text-button span { display: none; }
+  .app-main { padding: 12px 12px 84px; }
+  .page-stack { gap: 12px; }
+  .panel { border-radius: 14px; }
+  .login-brand-panel { padding: 36px 22px; }
+  .login-logo { width: 56px; margin-bottom: 38px; }
+  .login-brand-inner h1 { font-size: 38px; line-height: 1.1; }
+  .login-brand-inner > p { font-size: 14px; }
+  .login-flow { display: grid; grid-template-columns: 1fr; }
+  .login-flow i { display: none; }
+  .login-action-panel { padding: 34px 20px 60px; }
+  .metric-grid { gap: 10px; }
+  .metric-card { padding: 16px; }
+  .metric-card strong { font-size: 26px; }
+  .recent-leads-panel, .activity-panel, .history-panel, .product-offer-card, .proposal-reason-card, .script-panel, .agent-details, .followup-form-panel, .followup-context-panel, .products-page > .panel:last-child, .readonly-summary { padding: 18px; }
+  .filter-grid { grid-template-columns: 1fr; }
+  .store-facts, .raw-data-grid { grid-template-columns: 1fr; }
+  .opportunity-panel { padding: 18px; }
+  .store-title-line h2 { font-size: 21px; }
+  .segment-control { grid-auto-flow: row; grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .product-status-row .segment-control { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .proposal-hero { padding: 20px; }
+  .context-actions, .action-row-v6 { width: 100%; flex-direction: column; align-items: stretch; }
+  .context-actions .button, .action-row-v6 .button { width: 100%; }
+  .verified-product-head { flex-direction: column; }
+  .product-standard-title { grid-template-columns: 1fr; }
+  .product-standard-title code { justify-self: start; }
+  .product-standard-list dl { grid-template-columns: 1fr; }
+  input, select { min-height: 46px; font-size: 16px; }
+  textarea { font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
