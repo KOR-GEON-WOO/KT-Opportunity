@@ -9,6 +9,7 @@ export default function SearchForm({
   onInterpret,
   onSearch,
   structuredConditions,
+  conditionsDirty,
   disabled,
 }) {
   const [submitted, setSubmitted] = useState(false);
@@ -36,14 +37,20 @@ export default function SearchForm({
 
   const handleInterpret = async () => {
     setSubmitted(true);
-    if (Object.keys(errors).length > 0 && !value.naturalQuery?.trim()) return;
+
+    if (!value.naturalQuery?.trim()) {
+      return;
+    }
+
     await onInterpret();
   };
 
   const handleSearch = (event) => {
     event.preventDefault();
     setSubmitted(true);
+
     if (Object.keys(errors).length > 0) return;
+
     onSearch();
   };
 
@@ -54,7 +61,7 @@ export default function SearchForm({
           <span className="section-kicker">F-01 · 조건 접수 및 해석</span>
           <h1>어디를 먼저 방문할지 찾아볼까요?</h1>
           <p>
-            자연어 요청을 먼저 해석한 뒤, 구조화된 조건을 확인하고 검색합니다.
+            자연어 요청을 구조화한 뒤 직원이 조건을 확인·수정하고 검색합니다.
           </p>
         </div>
         <div className="model-chip">
@@ -75,7 +82,7 @@ export default function SearchForm({
         <button
           className="prompt-submit"
           type="button"
-          disabled={disabled}
+          disabled={disabled || !value.naturalQuery?.trim()}
           onClick={handleInterpret}
         >
           <span>{structuredConditions ? "다시 해석" : "조건 해석"}</span>
@@ -84,21 +91,39 @@ export default function SearchForm({
       </div>
 
       {structuredConditions && (
-        <div className="interpreted-box page-enter">
+        <div
+          className={
+            conditionsDirty
+              ? "interpreted-box edited page-enter"
+              : "interpreted-box page-enter"
+          }
+        >
           <div className="interpreted-head">
-            <span className="success-check">✓</span>
+            <span className={conditionsDirty ? "edited-check" : "success-check"}>
+              {conditionsDirty ? "✎" : "✓"}
+            </span>
             <div>
-              <strong>AI가 조건을 구조화했습니다</strong>
-              <small>검색 전에 아래 조건을 검토하거나 수정할 수 있습니다.</small>
+              <strong>
+                {conditionsDirty
+                  ? "AI 해석 후 직원이 상세 조건을 수정했습니다"
+                  : "AI가 조건을 구조화했습니다"}
+              </strong>
+              <small>
+                {conditionsDirty
+                  ? "실제 검색에는 아래 상세 조건의 현재 값이 적용됩니다."
+                  : "검색 전에 아래 조건을 검토하거나 수정할 수 있습니다."}
+              </small>
             </div>
           </div>
 
-          <div className="condition-chips">
-            <span>지역 · {structuredConditions.targetArea}</span>
-            <span>최소 연식 · {structuredConditions.minBuildingAge}년</span>
-            <span>최소 세대수 · {structuredConditions.minHouseholds}세대</span>
-            <span>유형 · {structuredConditions.buildingTypes.join(" · ")}</span>
-          </div>
+          {!conditionsDirty && (
+            <div className="condition-chips">
+              <span>지역 · {structuredConditions.targetArea}</span>
+              <span>최소 연식 · {structuredConditions.minBuildingAge}년</span>
+              <span>최소 세대수 · {structuredConditions.minHouseholds}세대</span>
+              <span>유형 · {structuredConditions.buildingTypes.join(" · ")}</span>
+            </div>
+          )}
         </div>
       )}
 
@@ -112,7 +137,7 @@ export default function SearchForm({
           상세 조건 {detailsOpen ? "접기" : "펼치기"}
           <span className={detailsOpen ? "chevron open" : "chevron"}>⌄</span>
         </button>
-        <span>누락값은 AI가 임의로 채우지 않습니다.</span>
+        <span>최종 검색은 상세 조건의 현재 값을 기준으로 실행됩니다.</span>
       </div>
 
       {detailsOpen && (
@@ -206,9 +231,12 @@ export default function SearchForm({
       <div className="sticky-action-row split">
         <span className="search-ready-note">
           {structuredConditions
-            ? "해석된 조건을 확인했습니다. 이제 건축물 데이터를 조회할 수 있습니다."
+            ? conditionsDirty
+              ? "직원이 수정한 상세 조건으로 검색합니다."
+              : "해석된 조건을 확인했습니다. 건축물 데이터를 조회할 수 있습니다."
             : "먼저 자연어 조건을 해석해 주세요."}
         </span>
+
         <button
           className="primary-button"
           type="submit"

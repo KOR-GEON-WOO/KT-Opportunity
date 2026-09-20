@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   fetchCandidates,
   generateRecommendation,
@@ -7,19 +7,78 @@ import {
 } from "../services/mockApi";
 import { calculatePriority } from "../utils/score";
 import { initialSearchConditions } from "../data/mockData";
+import {
+  clearWorkflowSnapshot,
+  loadWorkflowSnapshot,
+  saveWorkflowSnapshot,
+} from "../utils/storage";
+
+function toSearchPayload(conditions) {
+  return {
+    targetArea: String(conditions.targetArea ?? "").trim(),
+    minBuildingAge: Number(conditions.minBuildingAge || 0),
+    maxBuildingAge:
+      conditions.maxBuildingAge === "" ||
+      conditions.maxBuildingAge === null ||
+      conditions.maxBuildingAge === undefined
+        ? null
+        : Number(conditions.maxBuildingAge),
+    minHouseholds: Number(conditions.minHouseholds || 0),
+    buildingTypes: conditions.buildingTypes ?? [],
+  };
+}
 
 export function useSalesAgent() {
-  const [step, setStep] = useState(1);
-  const [conditions, setConditions] = useState(initialSearchConditions);
-  const [structuredConditions, setStructuredConditions] = useState(null);
-  const [candidates, setCandidates] = useState([]);
-  const [rankedCandidates, setRankedCandidates] = useState([]);
-  const [selectedCandidateId, setSelectedCandidateId] = useState(null);
-  const [recommendations, setRecommendations] = useState([]);
+  const restored = useMemo(() => loadWorkflowSnapshot(), []);
+
+  const [step, setStep] = useState(restored?.step ?? 1);
+  const [conditions, setConditionsState] = useState(
+    restored?.conditions ?? initialSearchConditions
+  );
+  const [structuredConditions, setStructuredConditions] = useState(
+    restored?.structuredConditions ?? null
+  );
+  const [conditionsDirty, setConditionsDirty] = useState(
+    restored?.conditionsDirty ?? false
+  );
+  const [candidates, setCandidates] = useState(restored?.candidates ?? []);
+  const [rankedCandidates, setRankedCandidates] = useState(
+    restored?.rankedCandidates ?? []
+  );
+  const [selectedCandidateId, setSelectedCandidateId] = useState(
+    restored?.selectedCandidateId ?? null
+  );
+  const [recommendations, setRecommendations] = useState(
+    restored?.recommendations ?? []
+  );
+  const [savedResult, setSavedResult] = useState(restored?.savedResult ?? null);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
   const [saving, setSaving] = useState(false);
-  const [savedResult, setSavedResult] = useState(null);
+
+  useEffect(() => {
+    saveWorkflowSnapshot({
+      step,
+      conditions,
+      structuredConditions,
+      conditionsDirty,
+      candidates,
+      rankedCandidates,
+      selectedCandidateId,
+      recommendations,
+      savedResult,
+    });
+  }, [
+    step,
+    conditions,
+    structuredConditions,
+    conditionsDirty,
+    candidates,
+    rankedCandidates,
+    selectedCandidateId,
+    recommendations,
+    savedResult,
+  ]);
 
   const selectedCandidate = useMemo(
     () =>
@@ -37,12 +96,21 @@ export function useSalesAgent() {
     [recommendations, selectedCandidate]
   );
 
+  function setConditions(next) {
+    if (structuredConditions) {
+      setConditionsDirty(true);
+    }
+
+    setConditionsState(next);
+  }
+
   function clearError() {
     setError(null);
   }
 
   async function interpretConditions() {
     clearError();
+
     setLoading({
       mode: "search",
       title: "영업 조건을 해석하고 있습니다",
@@ -63,7 +131,7 @@ export function useSalesAgent() {
       );
 
       setStructuredConditions(interpreted);
-      setConditions((prev) => ({
+      setConditionsState((prev) => ({
         ...prev,
         targetArea: interpreted.targetArea,
         minBuildingAge: interpreted.minBuildingAge,
@@ -71,6 +139,7 @@ export function useSalesAgent() {
         minHouseholds: interpreted.minHouseholds,
         buildingTypes: interpreted.buildingTypes,
       }));
+      setConditionsDirty(false);
 
       setLoading(null);
       return interpreted;
@@ -88,26 +157,21 @@ export function useSalesAgent() {
   async function searchCandidates() {
     clearError();
 
-    if (!structuredConditions) {
-      const interpreted = await interpretConditions();
-      if (!interpreted) return;
-    }
+    const activeConditions = toSearchPayload(conditions);
 
-    const activeConditions = structuredConditions ?? {
-      targetArea: conditions.targetArea,
-      minBuildingAge: Number(conditions.minBuildingAge || 0),
-      maxBuildingAge:
-        conditions.maxBuildingAge === ""
-          ? null
-          : Number(conditions.maxBuildingAge),
-      minHouseholds: Number(conditions.minHouseholds || 0),
-      buildingTypes: conditions.buildingTypes,
-    };
+    if (!activeConditions.targetArea) {
+      setError({
+        title: "검색 지역이 필요합니다",
+        message: "상세 조건에서 영업 지역을 입력해 주세요.",
+        retryAction: "edit",
+      });
+      return;
+    }
 
     setLoading({
       mode: "search",
       title: "영업 후보지를 찾고 있습니다",
-      detail: "건축물 데이터를 조회하고 조건에 맞는 후보를 필터링합니다.",
+      detail: "현재 화면에 입력된 조건으로 건축물 데이터를 조회합니다.",
       stageIndex: 0,
       stages: [
         "건축HUB 조회",
@@ -131,7 +195,7 @@ export function useSalesAgent() {
         setError({
           title: "조건에 맞는 후보가 없습니다",
           message:
-            "연식, 세대수 또는 건물 유형 조건을 완화한 뒤 다시 검색해 주세요.",
+            "현재 Mock 데이터 범위에서 일치하는 건물이 없습니다. 지역, 연식, 세대수 또는 건물 유형 조건을 조정해 주세요.",
           retryAction: "edit",
           kind: "empty",
         });
@@ -151,6 +215,7 @@ export function useSalesAgent() {
 
   function handlePriority() {
     clearError();
+
     const ranked = calculatePriority(candidates);
     setRankedCandidates(ranked);
     setSelectedCandidateId(ranked[0]?.candidateId ?? null);
@@ -175,8 +240,11 @@ export function useSalesAgent() {
     setLoading({
       mode: "recommend",
       title: "AI 영업 준비자료를 생성하고 있습니다",
-      detail: "Mi:dm 상품 매칭 후 HyperCLOVA X 상담 스크립트를 생성합니다.",
+      detail: "Mi:dm 상품 매칭 후 HyperCLOVA X 상담 스크립트를 순차 생성합니다.",
       stageIndex: 0,
+      itemIndex: 0,
+      itemTotal: rankedCandidates.length,
+      itemName: rankedCandidates[0]?.buildingName,
       stages: [
         "Mi:dm 상품 유효성 확인",
         "상품 매칭 · 추천 근거 생성",
@@ -187,12 +255,36 @@ export function useSalesAgent() {
 
     try {
       const result = [];
-      for (const candidate of rankedCandidates) {
+
+      for (let index = 0; index < rankedCandidates.length; index += 1) {
+        const candidate = rankedCandidates[index];
+
+        setLoading((prev) =>
+          prev
+            ? {
+                ...prev,
+                stageIndex: 0,
+                itemIndex: index,
+                itemName: candidate.buildingName,
+              }
+            : prev
+        );
+
         const recommendation = await generateRecommendation(
           candidate,
           (stageIndex) =>
-            setLoading((prev) => (prev ? { ...prev, stageIndex } : prev))
+            setLoading((prev) =>
+              prev
+                ? {
+                    ...prev,
+                    stageIndex,
+                    itemIndex: index,
+                    itemName: candidate.buildingName,
+                  }
+                : prev
+            )
         );
+
         result.push(recommendation);
       }
 
@@ -211,6 +303,7 @@ export function useSalesAgent() {
 
   async function approveAndSave(saveApproved) {
     if (!saveApproved) return;
+
     clearError();
     setSaving(true);
 
@@ -221,6 +314,8 @@ export function useSalesAgent() {
         (item) => item.candidateId === candidate.candidateId
       );
 
+      const reviewRequired = Boolean(recommendation?.requiresReview);
+
       return {
         ...candidate,
         visitDate: null,
@@ -228,7 +323,8 @@ export function useSalesAgent() {
         consultationResult: null,
         recommendedProductCode:
           recommendation?.product?.productCode ?? null,
-        notes: "",
+        notes: reviewRequired ? "상품 재검수 필요" : "",
+        reviewRequired,
         saveApproved: true,
         approvedAt: now,
         updatedAt: now,
@@ -251,6 +347,21 @@ export function useSalesAgent() {
     }
   }
 
+  function resetWorkflow() {
+    clearWorkflowSnapshot();
+    setStep(1);
+    setConditionsState(initialSearchConditions);
+    setStructuredConditions(null);
+    setConditionsDirty(false);
+    setCandidates([]);
+    setRankedCandidates([]);
+    setSelectedCandidateId(null);
+    setRecommendations([]);
+    setSavedResult(null);
+    setLoading(null);
+    setError(null);
+  }
+
   function retry() {
     const action = error?.retryAction;
     clearError();
@@ -269,6 +380,7 @@ export function useSalesAgent() {
     conditions,
     setConditions,
     structuredConditions,
+    conditionsDirty,
     candidates,
     setCandidates,
     rankedCandidates,
@@ -287,6 +399,7 @@ export function useSalesAgent() {
     handlePriority,
     createRecommendations,
     approveAndSave,
+    resetWorkflow,
     retry,
   };
 }

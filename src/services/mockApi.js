@@ -3,14 +3,73 @@ import {
   mockProducts,
   mockHistory,
 } from "../data/mockData";
+import {
+  loadStoredHistory,
+  upsertStoredHistory,
+} from "../utils/storage";
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function normalizeArea(text) {
-  return text
-    .replace(/\s+/g, " ")
-    .replace("대전 서구", "대전광역시 서구")
-    .trim();
+const REGION_ALIASES = {
+  서울: "서울특별시",
+  서울특별시: "서울특별시",
+  부산: "부산광역시",
+  부산광역시: "부산광역시",
+  대구: "대구광역시",
+  대구광역시: "대구광역시",
+  인천: "인천광역시",
+  인천광역시: "인천광역시",
+  광주: "광주광역시",
+  광주광역시: "광주광역시",
+  대전: "대전광역시",
+  대전광역시: "대전광역시",
+  울산: "울산광역시",
+  울산광역시: "울산광역시",
+  세종: "세종특별자치시",
+  세종특별자치시: "세종특별자치시",
+  경기: "경기도",
+  경기도: "경기도",
+  강원: "강원특별자치도",
+  강원도: "강원특별자치도",
+  강원특별자치도: "강원특별자치도",
+  충북: "충청북도",
+  충청북도: "충청북도",
+  충남: "충청남도",
+  충청남도: "충청남도",
+  전북: "전북특별자치도",
+  전라북도: "전북특별자치도",
+  전북특별자치도: "전북특별자치도",
+  전남: "전라남도",
+  전라남도: "전라남도",
+  경북: "경상북도",
+  경상북도: "경상북도",
+  경남: "경상남도",
+  경상남도: "경상남도",
+  제주: "제주특별자치도",
+  제주도: "제주특별자치도",
+  제주특별자치도: "제주특별자치도",
+};
+
+const REGION_PATTERN = Object.keys(REGION_ALIASES)
+  .sort((a, b) => b.length - a.length)
+  .join("|");
+
+function normalizeWhitespace(text = "") {
+  return String(text).replace(/\s+/g, " ").trim();
+}
+
+function normalizeArea(text = "") {
+  const normalized = normalizeWhitespace(text);
+  if (!normalized) return "";
+
+  const tokens = normalized.split(" ");
+  const region = REGION_ALIASES[tokens[0]];
+
+  if (region) {
+    tokens[0] = region;
+  }
+
+  return tokens.join(" ");
 }
 
 function parseNumber(text, pattern) {
@@ -18,9 +77,45 @@ function parseNumber(text, pattern) {
   return match ? Number(match[1]) : null;
 }
 
+function extractArea(text) {
+  const match = text.match(
+    new RegExp(
+      `(${REGION_PATTERN})(?:\\s+([가-힣]+(?:시|군|구)))?(?:\\s+([가-힣]+(?:동|읍|면)))?`
+    )
+  );
+
+  if (match?.[1]) {
+    return normalizeArea(
+      [REGION_ALIASES[match[1]], match[2], match[3]]
+        .filter(Boolean)
+        .join(" ")
+    );
+  }
+
+  const hasUnresolvedArea =
+    /[가-힣]{1,12}(?:시|군|구|동|읍|면)(?:에서|의|\s|$)/.test(text);
+
+  if (hasUnresolvedArea) {
+    throw new Error(
+      "지역을 정확히 해석하지 못했습니다. 시·도와 시·군·구를 함께 입력하거나 상세 조건에서 직접 지정해 주세요."
+    );
+  }
+
+  return null;
+}
+
 function parseNaturalQuery(query, fallback) {
-  const text = (query ?? "").trim();
-  if (!text) return fallback;
+  const text = normalizeWhitespace(query);
+  if (!text) {
+    return {
+      targetArea: normalizeArea(fallback.targetArea),
+      minBuildingAge: Number(fallback.minBuildingAge || 0),
+      maxBuildingAge:
+        fallback.maxBuildingAge === "" ? null : Number(fallback.maxBuildingAge),
+      minHouseholds: Number(fallback.minHouseholds || 0),
+      buildingTypes: fallback.buildingTypes,
+    };
+  }
 
   const minAge =
     parseNumber(text, /(\d+)\s*년\s*(?:이상|넘는|지난)/) ??
@@ -34,14 +129,8 @@ function parseNaturalQuery(query, fallback) {
     parseNumber(text, /(\d+)\s*세대\s*(?:이상|넘는)/) ??
     Number(fallback.minHouseholds || 0);
 
-  const areaMatch = text.match(
-    /(대전(?:광역시)?\s*서구(?:\s*[가-힣]+동)?|서울(?:특별시)?\s*[가-힣]+구(?:\s*[가-힣]+동)?|부산(?:광역시)?\s*[가-힣]+구(?:\s*[가-힣]+동)?)/
-  );
-
-  let targetArea = fallback.targetArea;
-  if (areaMatch?.[1]) {
-    targetArea = normalizeArea(areaMatch[1]);
-  }
+  const extractedArea = extractArea(text);
+  const targetArea = extractedArea ?? normalizeArea(fallback.targetArea);
 
   const types = [];
   if (/아파트/.test(text)) types.push("아파트");
@@ -59,27 +148,33 @@ function parseNaturalQuery(query, fallback) {
 
 export async function interpretSearchConditions(conditions, onStage) {
   onStage?.(0);
-  await wait(350);
+  await wait(300);
 
   const interpreted = parseNaturalQuery(conditions.naturalQuery, conditions);
 
   onStage?.(1);
-  await wait(250);
+  await wait(220);
 
   const targetArea = normalizeArea(interpreted.targetArea);
 
   onStage?.(2);
-  await wait(220);
+  await wait(180);
 
   if (!targetArea) {
     throw new Error("영업 지역을 해석할 수 없습니다.");
+  }
+
+  if (
+    interpreted.maxBuildingAge !== null &&
+    Number(interpreted.maxBuildingAge) < Number(interpreted.minBuildingAge)
+  ) {
+    throw new Error("최대 건물 연식은 최소 건물 연식보다 작을 수 없습니다.");
   }
 
   return {
     targetArea,
     minBuildingAge: Number(interpreted.minBuildingAge || 0),
     maxBuildingAge:
-      interpreted.maxBuildingAge === "" ||
       interpreted.maxBuildingAge === null ||
       interpreted.maxBuildingAge === undefined
         ? null
@@ -92,51 +187,43 @@ export async function interpretSearchConditions(conditions, onStage) {
 function candidateMatches(candidate, conditions) {
   const typeMatches =
     !conditions.buildingTypes?.length ||
-    conditions.buildingTypes.some((type) => {
-      if (type === "아파트") return candidate.buildingType === "아파트";
-      return candidate.buildingType === type;
-    });
+    conditions.buildingTypes.includes(candidate.buildingType);
 
   const ageMatches =
     candidate.buildingAge >= Number(conditions.minBuildingAge || 0) &&
     (conditions.maxBuildingAge === null ||
       conditions.maxBuildingAge === undefined ||
+      conditions.maxBuildingAge === "" ||
       candidate.buildingAge <= Number(conditions.maxBuildingAge));
 
   const householdMatches =
     candidate.householdCount >= Number(conditions.minHouseholds || 0);
 
+  const normalizedTarget = normalizeArea(conditions.targetArea);
+  const normalizedAddress = normalizeArea(candidate.address);
+
   const areaMatches =
-    !conditions.targetArea ||
-    candidate.address.includes(
-      conditions.targetArea
-        .replace("대전광역시", "대전광역시")
-        .replace(/\s+/g, " ")
-        .split(" ")
-        .slice(0, 3)
-        .join(" ")
-    ) ||
-    candidate.address.includes("대전광역시 서구 탄방동");
+    !normalizedTarget || normalizedAddress.startsWith(normalizedTarget);
 
   return typeMatches && ageMatches && householdMatches && areaMatches;
 }
 
 export async function fetchCandidates(conditions, onStage) {
   onStage?.(0);
-  await wait(420);
+  await wait(350);
 
   onStage?.(1);
-  await wait(250);
+  await wait(220);
 
   onStage?.(2);
-  await wait(250);
+  await wait(220);
 
   const filtered = mockCandidates.filter((candidate) =>
     candidateMatches(candidate, conditions)
   );
 
   onStage?.(3);
-  await wait(220);
+  await wait(180);
 
   return structuredClone(filtered);
 }
@@ -167,14 +254,20 @@ function pickValidProduct(candidate) {
 
 export async function generateRecommendation(candidate, onStage) {
   onStage?.(0);
-  await wait(320);
+  await wait(280);
 
   const product = pickValidProduct(candidate);
 
   onStage?.(1);
-  await wait(420);
+  await wait(340);
 
   if (!product) {
+    onStage?.(2);
+    await wait(180);
+
+    onStage?.(3);
+    await wait(280);
+
     return {
       candidateId: candidate.candidateId,
       product: null,
@@ -191,10 +284,10 @@ export async function generateRecommendation(candidate, onStage) {
   }
 
   onStage?.(2);
-  await wait(280);
+  await wait(220);
 
   onStage?.(3);
-  await wait(420);
+  await wait(340);
 
   return {
     candidateId: candidate.candidateId,
@@ -212,7 +305,7 @@ export async function generateRecommendation(candidate, onStage) {
 }
 
 export async function saveApprovedCandidates(payload) {
-  await wait(600);
+  await wait(450);
 
   if (!payload?.length) {
     throw new Error("저장할 후보 데이터가 없습니다.");
@@ -223,14 +316,46 @@ export async function saveApprovedCandidates(payload) {
     throw new Error("최종 승인되지 않은 데이터가 포함되어 있습니다.");
   }
 
+  const storedRows = payload.map((item) => ({
+    candidateId: item.candidateId,
+    buildingName: item.buildingName,
+    address: item.address,
+    visitDate: item.visitDate,
+    visitStatus: item.visitStatus,
+    consultationResult: item.consultationResult,
+    recommendedProductCode: item.recommendedProductCode,
+    priorityScore: item.priorityScore,
+    priorityRank: item.priorityRank,
+    notes: item.notes,
+    reviewRequired: Boolean(item.reviewRequired),
+    updatedAt: item.updatedAt,
+    approvedAt: item.approvedAt,
+  }));
+
+  upsertStoredHistory(storedRows);
+
   return {
     ok: true,
-    savedCount: payload.length,
+    savedCount: storedRows.length,
     savedAt: new Date().toISOString(),
   };
 }
 
 export async function fetchHistory() {
-  await wait(350);
-  return structuredClone(mockHistory);
+  await wait(250);
+
+  const savedRows = loadStoredHistory();
+  const byCandidateId = new Map(
+    mockHistory.map((item) => [item.candidateId, item])
+  );
+
+  savedRows.forEach((item) => {
+    byCandidateId.set(item.candidateId, item);
+  });
+
+  return structuredClone(
+    [...byCandidateId.values()].sort((a, b) =>
+      String(b.updatedAt ?? "").localeCompare(String(a.updatedAt ?? ""))
+    )
+  );
 }

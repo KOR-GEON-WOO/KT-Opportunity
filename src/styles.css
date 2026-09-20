@@ -2882,3 +2882,238 @@ textarea:focus-visible,
     width: 100%;
   }
 }
+
+
+/* ===== v4 reliability + legibility ===== */
+
+.header-status::after {
+  content: none !important;
+}
+
+.section-kicker { font-size: 12px; }
+.panel-heading p,
+.page-intro p { font-size: 14px; }
+.sidebar-label { font-size: 10px; }
+.sidebar-item { font-size: 13px; }
+
+.agent-status-head strong,
+.candidate-toolbar strong,
+.verification-banner strong { font-size: 12px; }
+
+.agent-status-head small,
+.candidate-toolbar small,
+.verification-banner span,
+.human-note span,
+.warning-box,
+.search-ready-note { font-size: 11px; }
+
+.step-item small { font-size: 10px; }
+.step-item strong { font-size: 12px; }
+
+.model-chip,
+.count-badge,
+.progress-count,
+.human-gate,
+.detail-toggle,
+.primary-button,
+.secondary-button { font-size: 12px; }
+
+.condition-chips span,
+.check-pill span,
+.status-badge,
+.inline-stats span,
+.field-error { font-size: 11px; }
+
+.field-block label { font-size: 12px; }
+.field-block input { font-size: 14px; }
+.building-cell strong { font-size: 14px; }
+
+.building-cell span,
+td { font-size: 12px; }
+
+th { font-size: 11px; }
+.candidate-id { font-size: 10px; }
+.status-button > span:last-child { font-size: 12px; }
+.status-button small { font-size: 10px; }
+
+.score-metric-head span,
+.score-metric-head strong,
+.priority-foot { font-size: 11px; }
+
+.ai-panel-eyebrow,
+.model-status,
+.verified-badge,
+.product-card-main small,
+.product-meta dt,
+.script-label { font-size: 10px; }
+
+.product-meta dd,
+.reason-box p,
+.sales-point-list > div,
+.script-notice { font-size: 11px; }
+
+.reason-box strong { font-size: 11px; }
+
+.interpreted-box.edited {
+  border-color: #ecd5a4;
+  background: #fffaf0;
+}
+
+.edited-check {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #d79421;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.loading-candidate {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: min(560px, 100%);
+  margin-top: 28px;
+  padding: 14px 15px;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 11px;
+  background: rgba(255,255,255,0.045);
+}
+
+.loading-candidate > div {
+  display: grid;
+  gap: 4px;
+}
+
+.loading-candidate span {
+  color: #9297a2;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.loading-candidate strong {
+  color: #fff;
+  font-size: 13px;
+}
+
+.loading-candidate > strong {
+  color: #ff8a8f;
+  font-size: 18px;
+}
+
+.approval-warning-code { color: var(--warning); }
+
+.approval-review-warning {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid #efd8a5;
+  border-radius: 11px;
+  background: var(--warning-bg);
+}
+
+.approval-review-warning > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 27px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #e8b75c;
+  color: #5d4217;
+  font-weight: 900;
+}
+
+.approval-review-warning div {
+  display: grid;
+  gap: 4px;
+}
+
+.approval-review-warning strong {
+  color: #805a18;
+  font-size: 12px;
+}
+
+.approval-review-warning p {
+  margin: 0;
+  color: #8b672d;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.approval-check.override {
+  margin-top: 8px;
+  border-color: #eadfc8;
+  background: #fffdfa;
+}
+
+.status-badge.review {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.history-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 18px;
+  margin-bottom: 14px;
+  padding: 13px 14px;
+  border-radius: 11px;
+  background: var(--gray-100);
+}
+
+.history-summary > div {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.history-summary span,
+.history-summary p {
+  color: var(--gray-500);
+  font-size: 11px;
+}
+
+.history-summary strong { font-size: 20px; }
+.history-summary p { margin: 0; }
+
+@media (max-width: 767px) {
+  .prompt-shell textarea,
+  .field-block input {
+    font-size: 16px;
+  }
+
+  .panel-heading p,
+  .page-intro p {
+    font-size: 13px;
+  }
+
+  .mobile-step-copy small { font-size: 10px; }
+  .mobile-step-copy strong { font-size: 13px; }
+
+  .mobile-candidate-card p,
+  .mobile-card-stats span,
+  .candidate-id,
+  .script-notice,
+  .product-meta dd,
+  .reason-box p,
+  .sales-point-list > div {
+    font-size: 11px;
+  }
+
+  .mobile-candidate-card h3 { font-size: 16px; }
+  .mobile-bottom-nav button { font-size: 11px; }
+
+  .history-summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

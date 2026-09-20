@@ -28,6 +28,9 @@ export default function Dashboard() {
           detail={agent.loading.detail}
           stages={agent.loading.stages}
           stageIndex={agent.loading.stageIndex}
+          itemIndex={agent.loading.itemIndex}
+          itemTotal={agent.loading.itemTotal}
+          itemName={agent.loading.itemName}
         />
       </div>
     );
@@ -63,6 +66,7 @@ export default function Dashboard() {
           onInterpret={agent.interpretConditions}
           onSearch={agent.searchCandidates}
           structuredConditions={agent.structuredConditions}
+          conditionsDirty={agent.conditionsDirty}
         />
       )}
 
@@ -175,6 +179,7 @@ export default function Dashboard() {
           savedResult={agent.savedResult}
           onBack={() => agent.setStep(5)}
           onApprove={agent.approveAndSave}
+          onReset={agent.resetWorkflow}
         />
       )}
     </div>

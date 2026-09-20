@@ -10,7 +10,7 @@ export default function SalesScript({ script }) {
           <span className="ai-panel-eyebrow">SALES SCRIPT</span>
           <h2>HyperCLOVA X</h2>
         </div>
-        <span className="model-status hyper">LOCAL AI</span>
+        <span className="model-status hyper">DEMO AI</span>
       </div>
 
       <div className="script-surface">
