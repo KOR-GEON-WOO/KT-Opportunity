@@ -4,21 +4,22 @@
 .app-main { max-width: var(--content-max); margin: 0 auto; padding: 30px var(--page-gutter) 64px; }
 .page-stack { display: grid; gap: 22px; }
 
-.sidebar { position: sticky; top: 0; z-index: 30; height: 100vh; display: flex; flex-direction: column; border-right: 1px solid var(--line-200); background: var(--surface-0); padding: 22px 16px 18px; overflow: hidden; }
-.sidebar-logo { height: 58px; display: flex; align-items: center; gap: 13px; border: 0; background: transparent; padding: 0 11px; text-align: left; }
+.sidebar { position: sticky; top: 0; z-index: 30; height: 100vh; height: 100dvh; display: flex; flex-direction: column; border-right: 1px solid var(--line-200); background: var(--surface-0); padding: 22px 16px 18px; overflow: hidden; }
+.sidebar-brand-row { min-width: 0; display: flex; align-items: center; gap: 8px; }
+.sidebar-logo { min-width: 0; flex: 1; height: 58px; display: flex; align-items: center; gap: 13px; border: 0; background: transparent; padding: 0 11px; text-align: left; }
 .sidebar-logo img { width: 45px; height: auto; flex: none; }
-.sidebar-logo span { min-width: 0; color: var(--ink-800); font-size: 14px; font-weight: 850; white-space: nowrap; }
+.sidebar-logo span { min-width: 0; color: var(--ink-800); font-size: 15px; font-weight: 850; white-space: nowrap; }
 .sidebar-nav { display: grid; gap: 6px; margin-top: 24px; }
-.sidebar-section-label { margin: 18px 12px 6px; color: var(--ink-400); font-size: 10px; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+.sidebar-section-label { margin: 18px 12px 6px; color: var(--ink-400); font-size: 12px; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
 .sidebar-nav button { min-height: 48px; display: flex; align-items: center; gap: 13px; border: 0; border-radius: 11px; background: transparent; padding: 0 12px; color: var(--ink-600); font-size: 14px; font-weight: 750; text-align: left; white-space: nowrap; transition: background .15s ease, color .15s ease, transform .15s ease; }
 .sidebar-nav button:hover { background: var(--surface-100); color: var(--ink-900); transform: translateX(1px); }
 .sidebar-nav button.active { background: var(--ink-950); color: white; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
 .sidebar-nav svg { flex: none; }
 .sidebar-status { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line-200); }
-.sidebar-status > div { display: flex; gap: 10px; align-items: flex-start; padding: 9px 11px; }
+.sidebar-status-copy > div { display: flex; gap: 10px; align-items: flex-start; padding: 9px 11px; }
 .sidebar-status p { display: grid; gap: 2px; min-width: 0; }
-.sidebar-status strong { font-size: 12px; }
-.sidebar-status small { color: var(--ink-500); font-size: 11px; }
+.sidebar-status strong { font-size: 13px; }
+.sidebar-status small { color: var(--ink-500); font-size: 12px; }
 .dot { width: 8px; height: 8px; margin-top: 5px; border-radius: 999px; background: var(--ink-400); flex: none; }
 .dot.success { background: #29a36a; box-shadow: 0 0 0 3px #e9f7f0; }
 .sidebar-collapse { width: 100%; min-height: 46px; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; background: transparent; color: var(--ink-500); }
@@ -27,21 +28,23 @@
 .sidebar.collapsed .sidebar-logo img { width: 42px; }
 .sidebar.collapsed .sidebar-logo span,
 .sidebar.collapsed .sidebar-nav span,
-.sidebar.collapsed .sidebar-section-label { display: none; }
+.sidebar.collapsed .sidebar-section-label,
+.sidebar.collapsed .sidebar-status-copy { display: none; }
 .sidebar.collapsed .sidebar-nav button { justify-content: center; padding: 0; }
 .sidebar.collapsed .sidebar-collapse svg { transform: rotate(180deg); }
 
 .topbar { position: sticky; top: 0; z-index: 20; height: var(--topbar); display: flex; align-items: center; gap: 18px; border-bottom: 1px solid var(--line-200); background: rgba(255,255,255,.96); backdrop-filter: blur(14px); padding: 0 var(--page-gutter); }
 .topbar-title { min-width: 0; }
-.topbar-title h1 { font-size: 20px; line-height: 1.2; }
-.topbar-title p { margin-top: 5px; color: var(--ink-500); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.topbar-title h1 { font-size: 21px; line-height: 1.2; }
+.topbar-title p { margin-top: 5px; color: var(--ink-500); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .topbar-actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
-.workspace-chip { min-height: 30px; display: inline-flex; align-items: center; padding: 0 11px; border-radius: 999px; background: var(--surface-100); color: var(--ink-600); font-size: 11px; font-weight: 800; }
-.mobile-menu-button { display: none; width: 42px; height: 42px; place-items: center; border: 0; border-radius: 10px; background: var(--surface-100); }
+.workspace-chip { min-height: 32px; display: inline-flex; align-items: center; padding: 0 11px; border-radius: 999px; background: var(--surface-100); color: var(--ink-600); font-size: 12px; font-weight: 800; }
+.sidebar-mobile-close { display: none; width: 44px; height: 44px; flex: none; place-items: center; border: 0; border-radius: 10px; background: var(--surface-100); }
+.mobile-menu-button { display: none; width: 44px; height: 44px; place-items: center; border: 0; border-radius: 10px; background: var(--surface-100); }
 .mobile-backdrop { display: none; }
 .mobile-bottom-nav { display: none; }
 
-.login-screen { min-height: 100vh; display: grid; grid-template-columns: minmax(0,1.18fr) minmax(430px,.82fr); background: white; }
+.login-screen { min-height: 100vh; min-height: 100dvh; display: grid; grid-template-columns: minmax(0,1.18fr) minmax(430px,.82fr); background: white; }
 .login-brand-panel { display: flex; align-items: center; background: #131416; color: white; padding: 68px clamp(52px,6vw,112px); overflow: hidden; position: relative; }
 .login-brand-panel::before { content: ''; position: absolute; width: 580px; height: 580px; border-radius: 50%; background: radial-gradient(circle, rgba(237,27,36,.20) 0%, rgba(237,27,36,.08) 42%, transparent 70%); right: -120px; bottom: -230px; }
 .login-brand-panel::after { content: ''; position: absolute; width: 470px; height: 470px; border: 1px solid rgba(255,255,255,.09); border-radius: 50%; right: -60px; bottom: -150px; }
@@ -60,17 +63,17 @@
 .login-security-note strong { display: block; font-size: 13px; }
 .login-security-note span { display: block; margin-top: 7px; color: var(--ink-500); font-size: 13px; line-height: 1.65; }
 .login-card .button { width: 100%; }
-.login-card > small { display: block; margin-top: 18px; color: var(--ink-400); font-size: 11px; line-height: 1.5; text-align: center; letter-spacing: .015em; overflow-wrap: anywhere; }
+.login-card > small { display: block; margin-top: 18px; color: var(--ink-400); font-size: 12px; line-height: 1.5; text-align: center; letter-spacing: .015em; overflow-wrap: anywhere; }
 
 .loading-overlay { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: rgba(17,17,17,.34); backdrop-filter: blur(5px); padding: 20px; }
-.loading-card { width: min(560px,100%); border-radius: 22px; background: white; padding: 28px; box-shadow: 0 30px 80px rgba(0,0,0,.20); }
+.loading-card { width: min(560px,100%); max-height: calc(100dvh - 40px); overflow-y: auto; overscroll-behavior: contain; border-radius: 22px; background: white; padding: 28px; box-shadow: 0 30px 80px rgba(0,0,0,.20); }
 .loading-spinner { width: 30px; height: 30px; border: 3px solid var(--line-200); border-top-color: var(--kt-red); border-radius: 50%; animation: spin .8s linear infinite; }
 .loading-copy { margin-top: 17px; }
 .loading-copy strong { font-size: 19px; }
 .loading-copy p { margin-top: 7px; color: var(--ink-500); font-size: 13px; line-height: 1.6; }
 .loading-stages { display: grid; gap: 9px; margin-top: 22px; }
 .loading-stages > div { display: flex; gap: 11px; align-items: center; color: var(--ink-400); font-size: 13px; }
-.loading-stages span { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: var(--surface-100); font-size: 11px; font-weight: 800; }
+.loading-stages span { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: var(--surface-100); font-size: 12px; font-weight: 800; }
 .loading-stages .active { color: var(--ink-900); font-weight: 800; }
 .loading-stages .active span { background: var(--kt-red-soft); color: var(--kt-red); }
 .loading-stages .done { color: var(--success); }

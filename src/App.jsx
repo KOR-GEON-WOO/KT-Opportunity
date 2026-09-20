@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AgentProvider, useAgent } from './app/AgentProvider.jsx';
 import LoginScreen from './components/layout/LoginScreen.jsx';
 import Sidebar from './components/layout/Sidebar.jsx';
@@ -25,6 +25,10 @@ function AppWorkspace({ onLogout }) {
   const [page, setPage] = useState(pageFromHash);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileLayout, setMobileLayout] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 960px)').matches);
+  const sidebarRef = useRef(null);
+  const menuButtonRef = useRef(null);
+  const mainRef = useRef(null);
   const { loading } = useAgent();
 
   useEffect(() => {
@@ -34,12 +38,81 @@ function AppWorkspace({ onLogout }) {
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
 
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 960px)');
+    const sync = () => {
+      setMobileLayout(media.matches);
+      if (!media.matches) setMobileMenuOpen(false);
+    };
+    sync();
+    media.addEventListener?.('change', sync);
+    return () => media.removeEventListener?.('change', sync);
+  }, []);
+
+  const closeMobileMenu = (restoreFocus = true) => {
+    setMobileMenuOpen(false);
+    if (restoreFocus) window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+  };
+
+  useEffect(() => {
+    if (!mobileLayout || !mobileMenuOpen) return undefined;
+
+    const drawer = sidebarRef.current;
+    const focusableSelector = [
+      'button:not([disabled])',
+      'a[href]',
+      'input:not([disabled])',
+      'select:not([disabled])',
+      'textarea:not([disabled])',
+      '[tabindex]:not([tabindex="-1"])',
+    ].join(',');
+
+    const getFocusable = () => Array.from(drawer?.querySelectorAll(focusableSelector) || [])
+      .filter((element) => !element.hasAttribute('inert') && element.getClientRects().length > 0);
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMobileMenu(true);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = getFocusable();
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKeyDown);
+    window.requestAnimationFrame(() => {
+      const preferred = drawer?.querySelector('.sidebar-mobile-close, .sidebar-nav button.active');
+      preferred?.focus();
+    });
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [mobileLayout, mobileMenuOpen]);
+
   const navigate = (next) => {
     const safe = VALID_PAGES.has(next) ? next : 'home';
     setPage(safe);
     setMobileMenuOpen(false);
     if (window.location.hash !== `#${safe}`) window.location.hash = safe;
-    window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      mainRef.current?.focus({ preventScroll: true });
+    });
   };
 
   let content = <Dashboard onNavigate={navigate} />;
@@ -51,11 +124,27 @@ function AppWorkspace({ onLogout }) {
 
   return (
     <div className={`app-shell ${sidebarCollapsed ? 'sidebar-is-collapsed' : ''} ${mobileMenuOpen ? 'mobile-menu-open' : ''}`}>
-      <Sidebar page={page} onNavigate={navigate} collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed((v) => !v)} />
-      {mobileMenuOpen && <button type="button" className="mobile-backdrop" aria-label="메뉴 닫기" onClick={() => setMobileMenuOpen(false)} />}
+      <a className="skip-link" href="#main-content">본문 바로가기</a>
+      <Sidebar
+        ref={sidebarRef}
+        page={page}
+        onNavigate={navigate}
+        collapsed={sidebarCollapsed}
+        onToggle={() => setSidebarCollapsed((v) => !v)}
+        onMobileClose={() => closeMobileMenu(true)}
+        mobileDrawer={mobileLayout}
+        mobileMenuOpen={mobileMenuOpen}
+      />
+      {mobileMenuOpen && <button type="button" className="mobile-backdrop" aria-label="메뉴 닫기" onClick={() => closeMobileMenu(true)} />}
       <div className="app-column">
-        <Topbar page={page} onLogout={onLogout} onMenu={() => setMobileMenuOpen((v) => !v)} />
-        <main className="app-main" id="main-content">{content}</main>
+        <Topbar
+          ref={menuButtonRef}
+          page={page}
+          onLogout={onLogout}
+          onMenu={() => (mobileMenuOpen ? closeMobileMenu(false) : setMobileMenuOpen(true))}
+          menuOpen={mobileMenuOpen}
+        />
+        <main ref={mainRef} className="app-main" id="main-content" tabIndex="-1">{content}</main>
       </div>
       <MobileNav page={page} onNavigate={navigate} />
       <LoadingOverlay value={loading} />

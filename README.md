@@ -1,4 +1,4 @@
-# KT Opportunity V3
+# KT Opportunity V3.1
 
 신규 음식점 영업 기회 발굴 및 맞춤 상품 설계 PoC입니다.
 

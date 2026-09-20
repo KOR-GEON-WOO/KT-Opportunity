@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import Icon from '../ui/Icon.jsx';
 
 const titles = {
@@ -9,11 +10,11 @@ const titles = {
   products: ['상품 기준', 'Agent가 사용할 수 있는 검수 완료 상품 기준을 확인합니다.'],
 };
 
-export default function Topbar({ page, onLogout, onMenu }) {
+const Topbar = forwardRef(function Topbar({ page, onLogout, onMenu, menuOpen = false }, ref) {
   const [title, description] = titles[page] || titles.home;
   return (
     <header className="topbar">
-      <button type="button" className="mobile-menu-button" onClick={onMenu} aria-label="메뉴 열기"><Icon name="menu" /></button>
+      <button ref={ref} type="button" className="mobile-menu-button" onClick={onMenu} aria-label={menuOpen ? '메뉴 닫기' : '메뉴 열기'} aria-expanded={menuOpen} aria-controls="app-sidebar"><Icon name={menuOpen ? 'close' : 'menu'} /></button>
       <div className="topbar-title"><h1>{title}</h1><p>{description}</p></div>
       <div className="topbar-actions">
         <span className="workspace-chip">PoC Workspace</span>
@@ -21,4 +22,6 @@ export default function Topbar({ page, onLogout, onMenu }) {
       </div>
     </header>
   );
-}
+});
+
+export default Topbar;

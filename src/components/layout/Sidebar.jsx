@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import Icon from '../ui/Icon.jsx';
 import { dataMode } from '../../services/dataClient.js';
 
@@ -24,14 +25,27 @@ function NavButton({ item, page, onNavigate }) {
   );
 }
 
-export default function Sidebar({ page, onNavigate, collapsed, onToggle }) {
+const Sidebar = forwardRef(function Sidebar({ page, onNavigate, collapsed, onToggle, onMobileClose, mobileDrawer = false, mobileMenuOpen = false }, ref) {
   const liveMode = dataMode === 'n8n';
+  const drawerClosed = mobileDrawer && !mobileMenuOpen;
   return (
-    <aside className={collapsed ? 'sidebar collapsed' : 'sidebar'}>
-      <button className="sidebar-logo" type="button" onClick={() => onNavigate('home')} aria-label="영업 홈으로 이동" title="영업 홈">
-        <img src="/assets/kt-wordmark-standard.png" alt="KT" />
-        {!collapsed && <span>Opportunity Agent</span>}
-      </button>
+    <aside
+      ref={ref}
+      id="app-sidebar"
+      className={collapsed ? 'sidebar collapsed' : 'sidebar'}
+      role={mobileDrawer ? 'dialog' : undefined}
+      aria-modal={mobileDrawer && mobileMenuOpen ? 'true' : undefined}
+      aria-label={mobileDrawer ? '주요 메뉴' : undefined}
+      aria-hidden={drawerClosed ? 'true' : undefined}
+      inert={drawerClosed ? true : undefined}
+    >
+      <div className="sidebar-brand-row">
+        <button className="sidebar-logo" type="button" onClick={() => onNavigate('home')} aria-label="KT Opportunity 홈으로 이동" title="KT Opportunity">
+          <img src="/assets/kt-wordmark-standard.png" alt="KT" />
+          <span>KT Opportunity</span>
+        </button>
+        <button type="button" className="sidebar-mobile-close" onClick={onMobileClose} aria-label="메뉴 닫기" title="메뉴 닫기"><Icon name="close" size={20} /></button>
+      </div>
 
       <nav className="sidebar-nav" aria-label="주요 메뉴">
         <span className="sidebar-section-label">영업</span>
@@ -41,12 +55,14 @@ export default function Sidebar({ page, onNavigate, collapsed, onToggle }) {
       </nav>
 
       <div className="sidebar-status">
-        {!collapsed && <>
+        <div className="sidebar-status-copy">
           <div><span className="dot" /><p><strong>LOCALDATA</strong><small>{liveMode ? 'n8n 서버 경유' : 'Mock data'}</small></p></div>
           <div><span className="dot" /><p><strong>Agent Gateway</strong><small>{liveMode ? 'n8n configured' : 'Mock mode'}</small></p></div>
-        </>}
+        </div>
         <button type="button" className="sidebar-collapse" onClick={onToggle} aria-label={collapsed ? '사이드바 펼치기' : '사이드바 접기'} title={collapsed ? '사이드바 펼치기' : '사이드바 접기'}><Icon name="chevron" size={18} /></button>
       </div>
     </aside>
   );
-}
+});
+
+export default Sidebar;

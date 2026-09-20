@@ -115,6 +115,7 @@ export default function OpportunityPanel({ onProposal }) {
           </div>
           <div className="opportunity-rule-note"><Icon name="check" size={18} /><p><strong>결정 규칙</strong><span>인터넷은 미정 + 설치 가능일 때만 추천합니다. 계약 완료·불필요는 제외하고 확인 필요는 보류합니다.</span></p></div>
           <button type="button" className="button primary wide" onClick={handleGenerate} disabled={!liveAnalysis.recommend.length}>맞춤 제안 만들기 <Icon name="arrow" size={18} /></button>
+          {!liveAnalysis.recommend.length && <p className="cta-helper">추천 가능 항목이 생기면 맞춤 제안을 만들 수 있습니다. 왼쪽 확인 항목을 먼저 완료해 주세요.</p>}
         </aside>
       </div>
     </section>

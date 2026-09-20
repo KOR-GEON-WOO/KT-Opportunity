@@ -6,7 +6,7 @@ import Icon from '../../components/ui/Icon.jsx';
 
 export default function SearchPanel() {
   const { conditions, updateCondition, setConditions, interpretSearch, search, isSearchStale, searchNotice } = useAgent();
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(() => typeof window === 'undefined' ? true : !window.matchMedia('(max-width: 760px)').matches);
   const region2 = regionOptions[conditions.regionLevel1] || [];
 
   const changeRegion1 = (value) => {
@@ -27,7 +27,7 @@ export default function SearchPanel() {
           <input value={conditions.naturalQuery} onChange={(e) => updateCondition('naturalQuery', e.target.value)} placeholder="예: 충청남도 천안시 최근 인허가 일식 음식점" aria-label="자연어 검색 조건" />
           <button type="submit" className="button subtle">조건 해석</button>
         </form>
-        <button type="button" className="filter-toggle" onClick={() => setExpanded((prev) => !prev)} aria-expanded={expanded}><Icon name="filter" size={18} /> 검색 조건</button>
+        <button type="button" className="filter-toggle" onClick={() => setExpanded((prev) => !prev)} aria-expanded={expanded}><Icon name="filter" size={18} /> {expanded ? '검색 조건 접기' : '검색 조건 펼치기'}</button>
       </div>
 
       {expanded && <>

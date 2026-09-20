@@ -37,7 +37,7 @@ input::placeholder, textarea::placeholder { color: var(--ink-400); }
 label > span { display: block; margin-bottom: 8px; color: var(--ink-700); font-size: 13px; font-weight: 750; }
 code, .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 
-.eyebrow { display: inline-block; color: var(--ink-500); font-size: 11px; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+.eyebrow { display: inline-block; color: var(--ink-500); font-size: 12px; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
 .eyebrow.light { color: rgba(255,255,255,.66); }
 .panel { min-width: 0; border: 1px solid var(--line-200); border-radius: var(--radius-lg); background: var(--surface-0); box-shadow: var(--shadow-sm); }
 .panel-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
@@ -54,9 +54,9 @@ code, .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monosp
 .button.subtle:hover:not(:disabled) { border-color: var(--ink-500); background: var(--surface-50); }
 .button.wide { width: 100%; }
 .button.xl { min-height: 54px; padding: 0 22px; font-size: 15px; }
-.text-button { display: inline-flex; align-items: center; gap: 7px; border: 0; background: transparent; padding: 7px 0; color: var(--ink-600); font-size: 13px; font-weight: 800; white-space: nowrap; }
+.text-button { min-height: 44px; display: inline-flex; align-items: center; gap: 7px; border: 0; background: transparent; padding: 7px 0; color: var(--ink-600); font-size: 13px; font-weight: 800; white-space: nowrap; }
 .text-button:hover { color: var(--kt-red); }
-.icon-text-button { display: inline-flex; align-items: center; gap: 8px; border: 0; background: transparent; color: var(--ink-600); font-size: 13px; font-weight: 800; padding: 9px 11px; border-radius: 9px; }
+.icon-text-button { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; gap: 8px; border: 0; background: transparent; color: var(--ink-600); font-size: 13px; font-weight: 800; padding: 9px 11px; border-radius: 9px; }
 .icon-text-button:hover { background: var(--surface-100); color: var(--ink-900); }
 .status-badge { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border-radius: 999px; background: var(--surface-100); color: var(--ink-600); font-size: 12px; font-weight: 800; white-space: nowrap; }
 .status-badge.accent { background: var(--kt-red-soft); color: var(--kt-red-dark); }
@@ -66,8 +66,29 @@ code, .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monosp
 .global-error, .global-warning { border-radius: var(--radius-md); padding: 14px 16px; font-size: 14px; line-height: 1.6; font-weight: 700; }
 .global-error { border: 1px solid #f0b2ae; background: var(--danger-bg); color: var(--danger); }
 .global-warning { border: 1px solid #e4c36d; background: var(--warning-bg); color: var(--warning); }
-.empty-state { min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 42px; }
+.empty-state { min-height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 42px; }
 .empty-icon { width: 58px; height: 58px; display: grid; place-items: center; border-radius: 17px; background: var(--surface-100); color: var(--ink-500); margin-bottom: 18px; }
 .empty-state h3 { font-size: 20px; }
 .empty-state p { max-width: 480px; margin: 10px 0 20px; color: var(--ink-500); font-size: 14px; line-height: 1.7; }
 .action-row-v6 { display: flex; justify-content: flex-end; gap: 10px; margin-top: 26px; }
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: 12px;
+  z-index: 200;
+  transform: translateY(-160%);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 10px;
+  background: var(--ink-950);
+  color: white;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 850;
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+.skip-link:focus { transform: translateY(0); outline: 3px solid rgba(237,27,36,.28); outline-offset: 2px; }
+#main-content:focus { outline: none; }

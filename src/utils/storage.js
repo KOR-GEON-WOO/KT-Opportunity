@@ -1,8 +1,16 @@
-const WORKFLOW_KEY = 'kt-restaurant-agent:workflow:v3';
-const HISTORY_KEY = 'kt-restaurant-agent:consultation-history:v2';
-const STORE_STATUS_KEY = 'kt-restaurant-agent:store-status:v2';
-const AUTH_KEY = 'kt-restaurant-agent:auth:v2';
-const DRAFT_KEY = 'kt-restaurant-agent:followup-drafts:v2';
+const WORKFLOW_KEY = 'kt-opportunity:workflow:v3';
+const HISTORY_KEY = 'kt-opportunity:consultation-history:v2';
+const STORE_STATUS_KEY = 'kt-opportunity:store-status:v2';
+const AUTH_KEY = 'kt-opportunity:auth:v2';
+const DRAFT_KEY = 'kt-opportunity:followup-drafts:v2';
+
+const LEGACY_KEYS = {
+  [WORKFLOW_KEY]: 'kt-restaurant-agent:workflow:v3',
+  [HISTORY_KEY]: 'kt-restaurant-agent:consultation-history:v2',
+  [STORE_STATUS_KEY]: 'kt-restaurant-agent:store-status:v2',
+  [AUTH_KEY]: 'kt-restaurant-agent:auth:v2',
+  [DRAFT_KEY]: 'kt-restaurant-agent:followup-drafts:v2',
+};
 const MAX_PERSISTED_RESULTS = 200;
 
 function storage(type) {
@@ -16,8 +24,13 @@ function storage(type) {
 
 function readJson(type, key, fallback) {
   try {
-    const raw = storage(type)?.getItem(key);
+    const target = storage(type);
+    const current = target?.getItem(key);
+    const legacyKey = LEGACY_KEYS[key];
+    const legacy = !current && legacyKey ? target?.getItem(legacyKey) : null;
+    const raw = current || legacy;
     if (!raw) return fallback;
+    if (!current && legacy && target) target.setItem(key, legacy);
     return JSON.parse(raw);
   } catch {
     return fallback;
@@ -57,7 +70,11 @@ export function saveWorkflow(value) {
 }
 
 export function clearWorkflow() {
-  try { storage('session')?.removeItem(WORKFLOW_KEY); } catch {}
+  try {
+    const target = storage('session');
+    target?.removeItem(WORKFLOW_KEY);
+    target?.removeItem(LEGACY_KEYS[WORKFLOW_KEY]);
+  } catch {}
 }
 
 export function loadHistory() {
@@ -128,8 +145,10 @@ export function saveAuthSession(value) {
 
 export function clearAuthSession() {
   try {
-    storage('session')?.removeItem(AUTH_KEY);
-    storage('session')?.removeItem(WORKFLOW_KEY);
-    storage('session')?.removeItem(DRAFT_KEY);
+    const target = storage('session');
+    [AUTH_KEY, WORKFLOW_KEY, DRAFT_KEY].forEach((key) => {
+      target?.removeItem(key);
+      target?.removeItem(LEGACY_KEYS[key]);
+    });
   } catch {}
 }

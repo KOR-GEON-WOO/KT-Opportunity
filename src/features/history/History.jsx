@@ -8,6 +8,9 @@ import StatusBadge from '../../components/ui/StatusBadge.jsx';
 const leadLabels = { DISCOVERED: '발굴', VERIFIED: '검증 완료', READY: '상담 준비', CONTACTED: '접촉 완료', FOLLOW_UP: '후속 상담', CONVERTED: '전환', CLOSED: '종료' };
 const consultationLabels = { NOT_STARTED: '상담 전', SCHEDULED: '일정 확정', IN_PROGRESS: '상담 중', COMPLETED: '상담 완료', CANCELLED: '취소' };
 
+const leadTone = (value) => value === 'CONVERTED' ? 'success' : value === 'FOLLOW_UP' ? 'warning' : ['VERIFIED', 'READY', 'CONTACTED'].includes(value) ? 'accent' : 'neutral';
+const consultationTone = (value) => value === 'COMPLETED' ? 'success' : value === 'SCHEDULED' ? 'warning' : value === 'IN_PROGRESS' ? 'accent' : 'neutral';
+
 export default function History({ onlyFollowUp = false }) {
   const [state, setState] = useState({ status: 'loading', items: [], error: null });
 
@@ -35,7 +38,14 @@ export default function History({ onlyFollowUp = false }) {
         <div className="history-table-wrap">
           <table className="history-table">
             <thead><tr><th>매장</th><th>Lead</th><th>상담 상태</th><th>관심 상품</th><th>후속일</th><th>업데이트</th></tr></thead>
-            <tbody>{state.items.map((item, index) => <tr key={`${item.storeId}-${item.updatedAt}-${index}`}><td><strong>{item.storeName}</strong><span>{item.roadAddress}</span></td><td>{leadLabels[item.leadStatus] || item.leadStatus}</td><td>{consultationLabels[item.consultationStatus] || item.consultationStatus}</td><td>{item.interestProducts?.length ? item.interestProducts.map((value) => categoryLabels[value] || value).join(', ') : '-'}</td><td>{item.followUpDate || '-'}</td><td>{formatDateTime(item.updatedAt)}</td></tr>)}</tbody>
+            <tbody>{state.items.map((item, index) => <tr key={`${item.storeId}-${item.updatedAt}-${index}`}>
+              <td data-label="매장"><div className="history-cell-value store"><strong>{item.storeName}</strong><span>{item.roadAddress}</span></div></td>
+              <td data-label="Lead"><div className="history-cell-value"><StatusBadge tone={leadTone(item.leadStatus)}>{leadLabels[item.leadStatus] || item.leadStatus}</StatusBadge></div></td>
+              <td data-label="상담 상태"><div className="history-cell-value"><StatusBadge tone={consultationTone(item.consultationStatus)}>{consultationLabels[item.consultationStatus] || item.consultationStatus}</StatusBadge></div></td>
+              <td data-label="관심 상품"><div className="history-cell-value">{item.interestProducts?.length ? item.interestProducts.map((value) => categoryLabels[value] || value).join(', ') : '-'}</div></td>
+              <td data-label="후속일"><div className="history-cell-value">{item.followUpDate || '-'}</div></td>
+              <td data-label="업데이트"><div className="history-cell-value">{formatDateTime(item.updatedAt)}</div></td>
+            </tr>)}</tbody>
           </table>
         </div>
       </section>
