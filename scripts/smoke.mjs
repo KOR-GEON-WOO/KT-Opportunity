@@ -304,7 +304,7 @@ assert.throws(
 
 const { readFile } = await import('node:fs/promises');
 const packageJson = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
-assert.equal(packageJson.version, '3.2.0', 'package 버전은 V3.2와 동기화되어야 합니다.');
+assert.equal(packageJson.version, '3.2.0', 'package 버전은 V2.4 FINAL와 동기화되어야 합니다.');
 
 const providerSource = await readFile(new URL('../src/app/AgentProvider.jsx', import.meta.url), 'utf8');
 assert.match(providerSource, /const searchInFlight = useRef\(false\)/, '검색은 전용 in-flight lock을 사용해야 합니다.');
@@ -329,7 +329,7 @@ assert.match(operationalNoticeSource, /KST ISO 8601[\s\S]*상담 기록 시간 �
 const proposalSource = await readFile(new URL('../src/features/proposal/Proposal.jsx', import.meta.url), 'utf8');
 assert.match(proposalSource, /OperationalNotice message=\{error\}[\s\S]*생성된 맞춤 제안이 없습니다/, 'Proposal 생성 전 실패도 EmptyState에서 숨기면 안 됩니다.');
 const appMetaSource = await readFile(new URL('../src/config/appMeta.js', import.meta.url), 'utf8');
-assert.match(appMetaSource, /APP_VERSION = 'V3.2'/, 'UI 버전은 V3.2여야 합니다.');
-assert.match(appMetaSource, /APP_RELEASE_STATUS = 'Release'/, 'V3.2는 완료된 release baseline이어야 합니다.');
+assert.match(appMetaSource, /APP_VERSION = 'V2.4 FINAL'/, 'UI 버전은 V2.4 FINAL여야 합니다.');
+assert.match(appMetaSource, /APP_RELEASE_STATUS = 'Release'/, 'V2.4 FINAL는 완료된 release baseline이어야 합니다.');
 
-console.log(`smoke ok: V3.2 Release, ${rows.length} mock restaurants, demo D-2=${conditions.permitDateTo}, rules=PASS, idempotency=PASS`);
+console.log(`smoke ok: V2.4 FINAL Release, ${rows.length} mock restaurants, demo D-2=${conditions.permitDateTo}, rules=PASS, idempotency=PASS`);

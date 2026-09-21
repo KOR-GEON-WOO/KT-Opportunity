@@ -1,6 +1,6 @@
-# KT Opportunity V3.2
+# KT Opportunity V2.4 FINAL
 
-> 현재 기준: **KT Opportunity V3.2 — Release Baseline**
+> 현재 기준: **KT Opportunity V2.4 FINAL — Release Baseline**
 
 KT Opportunity는 신규 음식점 영업 기회를 발굴하고,
 매장 확인·상품 분석·맞춤 제안·후속 상담으로 이어지는
@@ -8,7 +8,7 @@ KT 영업 지원 React/Vite PoC다.
 
 ## Current release
 
-현재 공식 릴리스는 **V3.2**다.
+현재 공식 릴리스는 **V2.4 FINAL**다.
 
 주요 범위:
 
@@ -29,15 +29,15 @@ KT 영업 지원 React/Vite PoC다.
 
 공식 제품 계보:
 
-`V0.1 → V0.2 → V0.3 → V0.4 → V1 → V1.1 → V1.2 → V2 → V2.1 → V2.2 → V3 → V3.1 → V3.2`
+`V0.1 → V0.2 → V0.3 → V0.4 → V1 → V1.1 → V1.2 → V2 → V2.1 → V2.2 → V3 → V3.1 → V2.4 FINAL`
 
 향후 V3 roadmap:
 
-`V3.2 → V3.3 → V3.4 → V3 FINAL`
+`V2.4 FINAL → V3.3 → V3.4 → V3 FINAL`
 
 - [Full Changelog](CHANGELOG.md)
 - [Official Version Lineage](docs/VERSION_LINEAGE.md)
-- [V3.2 Release Baseline](docs/RELEASE_V3_2.md)
+- [V2.4 FINAL Release Baseline](docs/RELEASE_V3_2.md)
 
 ## Runtime contract
 

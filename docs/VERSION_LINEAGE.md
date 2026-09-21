@@ -21,7 +21,7 @@
 | V2.2 | KT Opportunity | Reliability / API / State |
 | V3 | KT Opportunity | UI/UX Overhaul |
 | V3.1 | KT Opportunity | Full UI/UX Audit |
-| V3.2 | KT Opportunity | Release Baseline / Trust Boundary & Operational Recovery |
+| V2.4 FINAL | KT Opportunity | Release Baseline / Trust Boundary & Operational Recovery |
 | V3.3 | KT Opportunity | Integration Foundation — Planned |
 | V3.4 | KT Opportunity | Final V3 / Pilot Ready — Planned |
 
@@ -40,7 +40,7 @@ V1은 KT Opportunity로의 공식 Project Pivot이다.
 현재 공식 baseline:
 
 - Product: KT Opportunity
-- Release: V3.2
+- Release: V2.4 FINAL
 - Package version: 3.2.0
 - Status: Release
 - Official tag: `v3.2`
@@ -49,7 +49,7 @@ V1은 KT Opportunity로의 공식 Project Pivot이다.
 
 ## Remaining V3 roadmap
 
-V3.2
+V2.4 FINAL
 → V3.3 Developer
 → V3.3 Designer
 → V3.3 Release

@@ -5,18 +5,18 @@
 
 ## Official product evolution
 
-`V0.1 → V0.2 → V0.3 → V0.4 → V1 → V1.1 → V1.2 → V2 → V2.1 → V2.2 → V3 → V3.1 → V3.2`
+`V0.1 → V0.2 → V0.3 → V0.4 → V1 → V1.1 → V1.2 → V2 → V2.1 → V2.2 → V3 → V3.1 → V2.4 FINAL`
 
 향후 V3 roadmap:
 
-`V3.2 → V3.3 → V3.4 → V3 FINAL`
+`V2.4 FINAL → V3.3 → V3.4 → V3 FINAL`
 
 ---
 
-## V3.2 — Release Baseline
+## V2.4 FINAL — Release Baseline
 
 - **Product:** KT Opportunity
-- **Release:** V3.2
+- **Release:** V2.4 FINAL
 - **Package version:** `3.2.0`
 - **Status:** Release
 

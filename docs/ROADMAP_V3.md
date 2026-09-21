@@ -2,7 +2,7 @@
 
 ## Current baseline
 
-Current official baseline: **V3.2**
+Current official baseline: **V2.4 FINAL**
 
 V3.x의 남은 개발은 V3.3과 V3.4 두 릴리스로 압축한다.
 

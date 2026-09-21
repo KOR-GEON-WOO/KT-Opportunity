@@ -1,6 +1,6 @@
-# KT Opportunity V3.2 — Release Baseline
+# KT Opportunity V2.4 FINAL — Release Baseline
 
-V3.2는 현재 KT Opportunity의 공식 release baseline이다.
+V2.4 FINAL는 현재 KT Opportunity의 공식 release baseline이다.
 
 ## Release Scope
 
@@ -36,7 +36,7 @@ HyperCLOVA X
 ## Version Identity
 
 - Product: KT Opportunity
-- Release: V3.2
+- Release: V2.4 FINAL
 - Package version: 3.2.0
 - Status: Release
 
