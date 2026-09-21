@@ -45,7 +45,7 @@ V1은 KT Opportunity로의 공식 Project Pivot이다.
 - Status: Release
 - Official tag: `v3.2`
 
-세부 내용은 [`RELEASE_V3_2.md`](RELEASE_V3_2.md)를 참조한다.
+세부 내용은 [`RELEASE_V2_4_FINAL.md`](RELEASE_V2_4_FINAL.md)를 참조한다.
 
 ## Remaining V3 roadmap
 

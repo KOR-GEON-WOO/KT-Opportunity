@@ -37,7 +37,7 @@ KT 영업 지원 React/Vite PoC다.
 
 - [Full Changelog](CHANGELOG.md)
 - [Official Version Lineage](docs/VERSION_LINEAGE.md)
-- [V2.4 FINAL Release Baseline](docs/RELEASE_V3_2.md)
+- [V2.4 FINAL Release Baseline](docs/RELEASE_V2_4_FINAL.md)
 
 ## Runtime contract
 
@@ -57,4 +57,4 @@ npm test
 npm run build
 ```
 
-세부 release 기준은 `docs/RELEASE_V3_2.md`를 참조한다.
+세부 release 기준은 `docs/RELEASE_V2_4_FINAL.md`를 참조한다.

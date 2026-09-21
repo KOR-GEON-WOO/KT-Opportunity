@@ -70,7 +70,7 @@ HyperCLOVA X
 - product version metadata consistency
 - README consistency
 - VERSION_LINEAGE consistency
-- ROADMAP_V3 consistency
+- ROADMAP_V2_5 consistency
 - ARCHITECTURE consistency
 - F04_INTEGRATION consistency
 
