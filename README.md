@@ -1,30 +1,32 @@
-# 🚀 KT K-뉴딜 아카데미 프로젝트
+# 🚀 KT K-New Deal Academy Project
 
 # KT Opportunity
 
-> AI Agent 기반 신규 음식점 영업 기회 발굴 및 맞춤 상품 설계 플랫폼
+> AI Agent-based Sales Opportunity Discovery and Proposal Generation
+> Platform
 
-KT Opportunity는 KT K-뉴딜 아카데미 프로젝트로 개발한 AI Agent 기반 영업
-지원 플랫폼입니다.
+KT Opportunity is an AI-powered sales support platform developed as part
+of the **KT K-New Deal Academy Project**.
 
-음식점 데이터를 기반으로 영업 기회를 탐색하고, 매장 상태 분석, KT 상품
-추천, 맞춤 상담안 생성, 후속 상담 관리까지 연결하는 Workflow Automation
-시스템입니다.
+The platform discovers new business opportunities from restaurant data,
+analyzes store conditions, recommends suitable KT products, generates
+customized proposals, and manages follow-up workflows through an AI
+Agent architecture.
 
 ------------------------------------------------------------------------
 
 # 📌 Project Overview
 
-  항목                  내용
-  --------------------- --------------------------------------
+  Category              Details
+  --------------------- -----------------------------
   Project               KT Opportunity
-  Program               KT K-뉴딜 아카데미
-  Type                  AI Agent / Sales Automation Platform
-  Version               V2.5 Foundation
+  Program               KT K-New Deal Academy
+  Domain                AI Agent / Sales Automation
+  Current Version       V2.5 Foundation
   Frontend              React + Vite
   Workflow Automation   n8n
   API Gateway           FastAPI
-  AI Runtime            vLLM / llama.cpp
+  LLM Runtime           vLLM / llama.cpp
 
 ------------------------------------------------------------------------
 
@@ -56,26 +58,26 @@ KT Opportunity는 KT K-뉴딜 아카데미 프로젝트로 개발한 AI Agent �
 
 # 🤖 AI Agent Workflow
 
-## Business Flow
+## Business Process
 
-    F-01 Restaurant Discovery
-            ↓
-    F-02 Store Verification
-            ↓
-    F-03 Opportunity Analysis
-            ↓
-    F-04 Customized Proposal
-            ↓
-    F-05 Follow-up Management
+    F-01  Restaurant Discovery
+              ↓
+    F-02  Store Verification
+              ↓
+    F-03  Opportunity Analysis
+              ↓
+    F-04  Customized Proposal
+              ↓
+    F-05  Follow-up Management
 
-주요 기능:
+## Key Capabilities
 
--   신규 음식점 영업 후보 발굴
--   매장 상태 검증
--   KT 상품 조건 분석
--   AI 기반 맞춤 상담안 생성
--   상담 이력 관리
--   Idempotency 기반 중복 저장 방지
+-   Restaurant opportunity discovery
+-   Store status verification
+-   KT product matching and recommendation
+-   AI-generated sales proposals
+-   Consultation history management
+-   Idempotency-based duplicate prevention
 
 ------------------------------------------------------------------------
 
@@ -84,46 +86,44 @@ KT Opportunity는 KT K-뉴딜 아카데미 프로젝트로 개발한 AI Agent �
 ## Local LLM Model Stack
 
   ---------------------------------------------------------------------------
-  제조사            모델                  추론 엔진         활용 목적
+  Provider          Model                 Runtime           Purpose
   ----------------- --------------------- ----------------- -----------------
-  NAVER Cloud       HyperCLOVA X SEED     vLLM              Agent Reasoning /
-                    Think 14B                               분석
+  NAVER Cloud       HyperCLOVA X SEED     vLLM              Agent reasoning
+                    Think 14B                               and analysis
 
-  KT                Mi:dm 2.0             llama.cpp         한국어 상담 응답
-                    Base-Instruct 11.5B                     생성
+  KT                Mi:dm 2.0             llama.cpp         Korean response
+                    Base-Instruct 11.5B                     generation
 
-  Alibaba Cloud     Qwen3.5-9B            llama.cpp         범용 한국어/영어
-                                                            LLM 테스트
+  Alibaba Cloud     Qwen3.5-9B            llama.cpp         General LLM
+                                                            evaluation
 
-  Microsoft         Phi-4-mini-instruct   llama.cpp         경량 추론 테스트
-                    3.8B                                    
+  Microsoft         Phi-4-mini-instruct   llama.cpp         Lightweight
+                    3.8B                                    inference testing
 
-  Google            Gemma 4 12B IT        llama.cpp         한국어·범용 LLM
-                                                            비교
+  Google            Gemma 4 12B IT        llama.cpp         General-purpose
+                                                            LLM comparison
   ---------------------------------------------------------------------------
 
 ## Runtime Architecture
 
-    HyperCLOVA X SEED Think 14B
-    (NAVER Cloud)
-            |
-            | vLLM
-            |
-    FastAPI Gateway
-            |
-            |
-    KT Mi:dm 2.0 Base-Instruct 11.5B
-    (KT)
-            |
-            | llama.cpp
+    NAVER Cloud HyperCLOVA X SEED Think 14B
+                    |
+                    | vLLM
+                    |
+            FastAPI LLM Gateway
+                    |
+                    |
+            KT Mi:dm 2.0 Base-Instruct 11.5B
+                    |
+                    | llama.cpp
 
-운영 원칙:
+## Operating Principles
 
--   NVIDIA RTX 5070 Ti Laptop GPU 환경 최적화
--   12GB VRAM 기준 Local LLM 운영
--   GPU에는 한 시점에 하나의 모델만 실행
--   Browser에서 LLM Endpoint 직접 호출 금지
--   FastAPI Gateway Boundary 적용
+-   Optimized for NVIDIA RTX 5070 Ti Laptop GPU
+-   Designed for 12GB VRAM environments
+-   Only one LLM model is loaded on GPU at a time
+-   Direct browser access to inference endpoints is prohibited
+-   All AI requests pass through the FastAPI Gateway boundary
 
 ------------------------------------------------------------------------
 
@@ -132,23 +132,23 @@ KT Opportunity는 KT K-뉴딜 아카데미 프로젝트로 개발한 AI Agent �
 ## Frontend
 
   Technology   Usage
-  ------------ --------------
-  React 19     UI Framework
-  Vite 7       Build Tool
+  ------------ ----------------
+  React 19     User Interface
+  Vite 7       Build System
 
-## Backend / Automation
+## Backend & Automation
 
   Technology   Usage
-  ------------ ---------------------
-  FastAPI      LLM Gateway
+  ------------ ------------------------------
+  FastAPI      LLM Gateway and API Boundary
   n8n          Workflow Automation
   Docker       Runtime Environment
 
-## AI Framework
+## AI Platform
 
   Technology     Usage
   -------------- ------------------------------
-  vLLM           High Performance LLM Serving
+  vLLM           High-performance LLM Serving
   llama.cpp      Local LLM Runtime
   Hugging Face   Model Management
 
@@ -156,25 +156,25 @@ KT Opportunity는 KT K-뉴딜 아카데미 프로젝트로 개발한 AI Agent �
 
 # 📊 Engineering Highlights
 
-## AI Agent Design
+## AI Agent Engineering
 
--   Workflow 기반 Agent 구조
--   F-01 \~ F-05 단계별 검증
--   Business Rule Validation
+-   Workflow-based Agent architecture
+-   F-01 \~ F-05 business process validation
+-   Rule-based opportunity analysis
 
 ## Data Reliability
 
--   API Contract 관리
--   Product Catalog Validation
--   Consultation History Contract
--   Idempotency 처리
+-   API Contract validation
+-   Product Catalog validation
+-   Consultation history contract
+-   Idempotency handling
 
 ## Frontend Engineering
 
--   Responsive UI
--   Accessibility 고려
--   Workflow State Management
--   Operational Error Recovery
+-   Responsive UI design
+-   Accessibility-focused implementation
+-   Workflow state management
+-   Operational error recovery
 
 ------------------------------------------------------------------------
 
@@ -182,35 +182,37 @@ KT Opportunity는 KT K-뉴딜 아카데미 프로젝트로 개발한 AI Agent �
 
     KT Sales Agent
 
-    V0.1 Functional MVP
-            ↓
-    V0.4 Reliability & Persistence
-            ↓
-    V1 KT Opportunity Project Pivot
-            ↓
-    V2 Product Architecture Rewrite
-            ↓
-    V2.4 FINAL Release Baseline
-            ↓
-    V2.5 Foundation
+    V0.1  Functional MVP
+      ↓
+    V0.4  Reliability & Persistence
+      ↓
+    V1    Project Pivot to KT Opportunity
+      ↓
+    V2    Product Architecture Rewrite
+      ↓
+    V2.4  FINAL Release Baseline
+      ↓
+    V2.5  Foundation Phase
 
 ------------------------------------------------------------------------
 
 # 🧪 Validation
+
+Run:
 
 ``` bash
 npm test
 npm run build
 ```
 
-검증 항목:
+Validation Coverage:
 
--   Workflow Rule Check
--   API Contract Validation
--   Proposal Catalog Validation
--   Save Approval Gate
--   Idempotency Test
--   Production Build Verification
+-   Workflow rule validation
+-   API contract validation
+-   Proposal catalog validation
+-   Save approval gate
+-   Idempotency testing
+-   Production build verification
 
 ------------------------------------------------------------------------
 
@@ -219,8 +221,10 @@ npm run build
     KT-Opportunity
     │
     ├── src
-    ├── scripts
-    ├── deploy
+    │   ├── features
+    │   ├── components
+    │   ├── services
+    │   └── domain
     │
     ├── docs
     │   ├── ARCHITECTURE.md
@@ -229,15 +233,19 @@ npm run build
     │   └── images
     │       └── architecture.png
     │
+    ├── scripts
+    ├── deploy
     ├── package.json
     └── README.md
 
 ------------------------------------------------------------------------
 
-# 📌 Current Version
+# 📌 Version
 
-KT Opportunity V2.5 Foundation
+Current Release:
+
+    KT Opportunity V2.5 Foundation
 
 Based on:
 
-KT Opportunity V2.4 FINAL Release Baseline
+    KT Opportunity V2.4 FINAL Release Baseline
