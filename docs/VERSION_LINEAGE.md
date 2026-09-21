@@ -22,8 +22,6 @@
 | V3 | KT Opportunity | UI/UX Overhaul |
 | V3.1 | KT Opportunity | Full UI/UX Audit |
 | V2.4 FINAL | KT Opportunity | Release Baseline / Trust Boundary & Operational Recovery |
-| V3.3 | KT Opportunity | Integration Foundation — Planned |
-| V3.4 | KT Opportunity | Final V3 / Pilot Ready — Planned |
 
 ## Project Pivot
 
@@ -47,15 +45,11 @@ V1은 KT Opportunity로의 공식 Project Pivot이다.
 
 세부 내용은 [`RELEASE_V2_4_FINAL.md`](RELEASE_V2_4_FINAL.md)를 참조한다.
 
-## Remaining V3 roadmap
+## Future roadmap
 
 V2.4 FINAL
-→ V3.3 Developer
-→ V3.3 Designer
-→ V3.3 Release
-→ V3.4 Developer
-→ V3.4 Designer
-→ V3.4 Final Release
-→ V3 FINAL HOLD
+→ V2.5 Foundation
+→ V2.5 Integration
+→ V3.0 Production Architecture
 
 V4.0은 사용자의 명시적 승인 후에만 시작한다.

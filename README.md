@@ -29,11 +29,11 @@ KT 영업 지원 React/Vite PoC다.
 
 공식 제품 계보:
 
-`V0.1 → V0.2 → V0.3 → V0.4 → V1 → V1.1 → V1.2 → V2 → V2.1 → V2.2 → V3 → V3.1 → V2.4 FINAL`
+`V0.1 → V0.2 → V0.3 → V0.4 → V1 → V1.1 → V1.2 → V2 → V2.1 → V2.2 → V2.3 → V2.4 FINAL`
 
-향후 V3 roadmap:
+향후 Roadmap:
 
-`V2.4 FINAL → V3.3 → V3.4 → V3 FINAL`
+`V2.4 FINAL → V2.5 Foundation → V2.5 Integration → V3.0 Production Architecture`
 
 - [Full Changelog](CHANGELOG.md)
 - [Official Version Lineage](docs/VERSION_LINEAGE.md)

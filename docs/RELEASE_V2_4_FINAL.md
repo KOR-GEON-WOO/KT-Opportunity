@@ -40,4 +40,4 @@ HyperCLOVA X
 - Package version: 2.4.0
 - Status: Release
 
-다음 공식 릴리스는 V3.3이다.
+다음 개발 단계는 V2.5 Foundation이다.

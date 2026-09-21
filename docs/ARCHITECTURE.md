@@ -75,7 +75,7 @@ HyperCLOVA X
 
 현재 저장소에는 검증된 FastAPI backend 구현이 존재한다고 가정하지 않는다.
 
-FastAPI가 외부 component라면 V3.4에서 정확한 contract와 runbook을 확정한다.
+FastAPI가 외부 component라면 V3.0에서 정확한 contract와 runbook을 확정한다.
 
 ## Protected Business Rules
 
