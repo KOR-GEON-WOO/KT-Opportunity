@@ -19,8 +19,7 @@
 | V2 | KT Opportunity | Product / Information Architecture Rewrite |
 | V2.1 | KT Opportunity | Stabilization |
 | V2.2 | KT Opportunity | Reliability / API / State |
-| V3 | KT Opportunity | UI/UX Overhaul |
-| V3.1 | KT Opportunity | Full UI/UX Audit |
+| V2.3 | KT Opportunity | Integration / Contract Hardening |
 | V2.4 FINAL | KT Opportunity | Release Baseline / Trust Boundary & Operational Recovery |
 
 ## Project Pivot
@@ -41,7 +40,7 @@ V1은 KT Opportunity로의 공식 Project Pivot이다.
 - Release: V2.4 FINAL
 - Package version: 2.4.0
 - Status: Release
-- Official tag: `v3.2`
+- Official tag: `v2.4`
 
 세부 내용은 [`RELEASE_V2_4_FINAL.md`](RELEASE_V2_4_FINAL.md)를 참조한다.
 

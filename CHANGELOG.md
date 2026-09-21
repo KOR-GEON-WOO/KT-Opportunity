@@ -5,11 +5,11 @@
 
 ## Official product evolution
 
-`V0.1 → V0.2 → V0.3 → V0.4 → V1 → V1.1 → V1.2 → V2 → V2.1 → V2.2 → V3 → V3.1 → V2.4 FINAL`
+`V0.1 → V0.2 → V0.3 → V0.4 → V1 → V1.1 → V1.2 → V2 → V2.1 → V2.2 → V2.3 → V2.4 FINAL`
 
-향후 V3 roadmap:
+향후 Roadmap:
 
-`V2.4 FINAL → V3.3 → V3.4 → V3 FINAL`
+`V2.4 FINAL → V2.5 Foundation → V2.5 Integration → V3.0 Production Architecture`
 
 ---
 
@@ -50,56 +50,6 @@
 ### 영향 영역
 
 Runtime · Gateway · Workflow · Concurrency · Data Contract · Validation · Sales Workspace · Operational UX · Testing
-
----
-
-## V3.1 — Full UI/UX Audit
-
-- **Product:** KT Opportunity
-- **Historical release commit:** `a9b1220a8b7c52bf337073b98d9bf03b747ab10b`
-- **Historical commit date:** 2026-09-21 (KST)
-
-### 주요 변경
-
-- 전체 UI/UX audit 문서와 simulator를 추가했다.
-- Dashboard, Discovery, Follow-up, History, Login, Products, Proposal 등 주요 화면을 desktop/mobile/wide 조건으로 캡처·검증했다.
-- loading, empty, error, mobile drawer 등 상태별 audit 자료를 추가했다.
-- audit 결과를 바탕으로 App/layout/sidebar/history/responsive 스타일을 보정했다.
-- storage와 화면 상태 처리 일부를 함께 정리했다.
-- 이 audit은 실제 프로젝트 CSS/컴포넌트를 사용한 정적 QA simulator 기반이며, React runtime 전체 E2E·실제 n8n 응답·실기기 브라우저 검증을 의미하지 않는다.
-
-### 이전 버전 대비
-
-V3의 전면 UI/UX 재설계를 다중 viewport·상태 조합의 정적 QA로 점검하고, 발견된 문제를 보완했다.
-
-### 영향 영역
-
-UI/UX Audit · Responsive · Accessibility-oriented QA · State · Documentation
-
----
-
-## V3 — UI/UX Overhaul
-
-- **Product:** KT Opportunity
-- **Historical release commit:** `5f8beaec981395511364d265979fdf6d4a5dc70d`
-- **Historical commit date:** 2026-09-21 (KST)
-
-### 주요 변경
-
-- V2.2의 기능 및 데이터 검증 로직을 유지하면서 UI/UX를 전면 재설계했다.
-- 작은 글자와 과도한 정보 압축을 완화했다.
-- 한국어 문장 줄바꿈과 가독성 문제를 개선했다.
-- Master–Detail 화면 폭과 필터 배치를 조정했다.
-- base/features/layout/responsive/tokens CSS 계층을 전반적으로 재정비했다.
-- UI QA 및 preview 문서를 갱신했다.
-
-### 이전 버전 대비
-
-V2.x에서 안정화한 제품 구조와 contract를 유지하면서 사용자 인터페이스 세대를 교체한 시각·상호작용 중심 release다.
-
-### 영향 영역
-
-UI/UX · Responsive · Typography · Layout · Documentation
 
 ---
 
