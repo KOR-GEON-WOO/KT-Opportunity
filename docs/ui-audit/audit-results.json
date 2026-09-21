@@ -1,0 +1,5907 @@
+[
+  {
+    "innerWidth": 2560,
+    "innerHeight": 1272,
+    "docWidth": 2560,
+    "docHeight": 1272,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.login-brand-panel",
+        "sw": 1630,
+        "cw": 1510,
+        "overflow": "hidden",
+        "text": "KT OPPORTUNITY · B2B SALES새로 문 연 음식점을영업 기회로 연결합니다.최근 인허가 음식점"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "login",
+    "viewport": "wide",
+    "width": 2560,
+    "height": 1272
+  },
+  {
+    "innerWidth": 2560,
+    "innerHeight": 1272,
+    "docWidth": 2560,
+    "docHeight": 1272,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.welcome-strip",
+        "sw": 1749,
+        "cw": 1644,
+        "overflow": "hidden",
+        "text": "TODAY'S SALES OPPORTUNITY최근 인허가 음식점에서 다음 영업 기회를 찾습니다.조회 → 직원"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "dashboard",
+    "viewport": "wide",
+    "width": 2560,
+    "height": 1272
+  },
+  {
+    "innerWidth": 2560,
+    "innerHeight": 1272,
+    "docWidth": 2545,
+    "docHeight": 1803,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "discovery",
+    "viewport": "wide",
+    "width": 2560,
+    "height": 1272
+  },
+  {
+    "innerWidth": 2560,
+    "innerHeight": 1272,
+    "docWidth": 2545,
+    "docHeight": 1510,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "proposal",
+    "viewport": "wide",
+    "width": 2560,
+    "height": 1272
+  },
+  {
+    "innerWidth": 2560,
+    "innerHeight": 1272,
+    "docWidth": 2545,
+    "docHeight": 1469,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "followup",
+    "viewport": "wide",
+    "width": 2560,
+    "height": 1272
+  },
+  {
+    "innerWidth": 2560,
+    "innerHeight": 1272,
+    "docWidth": 2560,
+    "docHeight": 1272,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "history",
+    "viewport": "wide",
+    "width": 2560,
+    "height": 1272
+  },
+  {
+    "innerWidth": 2560,
+    "innerHeight": 1272,
+    "docWidth": 2560,
+    "docHeight": 1272,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "products",
+    "viewport": "wide",
+    "width": 2560,
+    "height": 1272
+  },
+  {
+    "innerWidth": 2560,
+    "innerHeight": 1272,
+    "docWidth": 2560,
+    "docHeight": 1272,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "loading",
+    "viewport": "wide",
+    "width": 2560,
+    "height": 1272
+  },
+  {
+    "innerWidth": 2560,
+    "innerHeight": 1272,
+    "docWidth": 2560,
+    "docHeight": 1272,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "empty",
+    "viewport": "wide",
+    "width": 2560,
+    "height": 1272
+  },
+  {
+    "innerWidth": 2560,
+    "innerHeight": 1272,
+    "docWidth": 2560,
+    "docHeight": 1272,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "error",
+    "viewport": "wide",
+    "width": 2560,
+    "height": 1272
+  },
+  {
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "docWidth": 1440,
+    "docHeight": 900,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.login-brand-panel",
+        "sw": 970,
+        "cw": 850,
+        "overflow": "hidden",
+        "text": "KT OPPORTUNITY · B2B SALES새로 문 연 음식점을영업 기회로 연결합니다.최근 인허가 음식점"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "login",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "docWidth": 1425,
+    "docHeight": 1090,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.welcome-strip",
+        "sw": 1230,
+        "cw": 1125,
+        "overflow": "hidden",
+        "text": "TODAY'S SALES OPPORTUNITY최근 인허가 음식점에서 다음 영업 기회를 찾습니다.조회 → 직원"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "dashboard",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "docWidth": 1425,
+    "docHeight": 2553,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "discovery",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "docWidth": 1425,
+    "docHeight": 1506,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "proposal",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "docWidth": 1425,
+    "docHeight": 1465,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "followup",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "docWidth": 1440,
+    "docHeight": 900,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "history",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "docWidth": 1425,
+    "docHeight": 1114,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "products",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "docWidth": 1440,
+    "docHeight": 900,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "loading",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "docWidth": 1440,
+    "docHeight": 900,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "empty",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "docWidth": 1440,
+    "docHeight": 900,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "error",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900
+  },
+  {
+    "innerWidth": 1180,
+    "innerHeight": 820,
+    "docWidth": 1180,
+    "docHeight": 820,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.login-brand-panel",
+        "sw": 816,
+        "cw": 696,
+        "overflow": "hidden",
+        "text": "KT OPPORTUNITY · B2B SALES새로 문 연 음식점을영업 기회로 연결합니다.최근 인허가 음식점"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "login",
+    "viewport": "compact",
+    "width": 1180,
+    "height": 820
+  },
+  {
+    "innerWidth": 1180,
+    "innerHeight": 820,
+    "docWidth": 1165,
+    "docHeight": 1412,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.welcome-strip",
+        "sw": 990,
+        "cw": 885,
+        "overflow": "hidden",
+        "text": "TODAY'S SALES OPPORTUNITY최근 인허가 음식점에서 다음 영업 기회를 찾습니다.조회 → 직원"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "dashboard",
+    "viewport": "compact",
+    "width": 1180,
+    "height": 820
+  },
+  {
+    "innerWidth": 1180,
+    "innerHeight": 820,
+    "docWidth": 1165,
+    "docHeight": 3179,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "discovery",
+    "viewport": "compact",
+    "width": 1180,
+    "height": 820
+  },
+  {
+    "innerWidth": 1180,
+    "innerHeight": 820,
+    "docWidth": 1165,
+    "docHeight": 2047,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "proposal",
+    "viewport": "compact",
+    "width": 1180,
+    "height": 820
+  },
+  {
+    "innerWidth": 1180,
+    "innerHeight": 820,
+    "docWidth": 1165,
+    "docHeight": 1881,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "followup",
+    "viewport": "compact",
+    "width": 1180,
+    "height": 820
+  },
+  {
+    "innerWidth": 1180,
+    "innerHeight": 820,
+    "docWidth": 1180,
+    "docHeight": 820,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "history",
+    "viewport": "compact",
+    "width": 1180,
+    "height": 820
+  },
+  {
+    "innerWidth": 1180,
+    "innerHeight": 820,
+    "docWidth": 1165,
+    "docHeight": 1287,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "products",
+    "viewport": "compact",
+    "width": 1180,
+    "height": 820
+  },
+  {
+    "innerWidth": 1180,
+    "innerHeight": 820,
+    "docWidth": 1180,
+    "docHeight": 820,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "loading",
+    "viewport": "compact",
+    "width": 1180,
+    "height": 820
+  },
+  {
+    "innerWidth": 1180,
+    "innerHeight": 820,
+    "docWidth": 1180,
+    "docHeight": 820,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "empty",
+    "viewport": "compact",
+    "width": 1180,
+    "height": 820
+  },
+  {
+    "innerWidth": 1180,
+    "innerHeight": 820,
+    "docWidth": 1180,
+    "docHeight": 820,
+    "rectOverflow": [],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "error",
+    "viewport": "compact",
+    "width": 1180,
+    "height": 820
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 753,
+    "docHeight": 1138,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.login-brand-panel",
+        "sw": 873,
+        "cw": 753,
+        "overflow": "hidden",
+        "text": "KT OPPORTUNITY · B2B SALES새로 문 연 음식점을영업 기회로 연결합니다.최근 인허가 음식점"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "login",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 753,
+    "docHeight": 1476,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [
+      {
+        "el": "section.welcome-strip",
+        "sw": 822,
+        "cw": 717,
+        "overflow": "hidden",
+        "text": "TODAY'S SALES OPPORTUNITY최근 인허가 음식점에서 다음 영업 기회를 찾습니다.조회 → 직원"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "dashboard",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 753,
+    "docHeight": 3367,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "discovery",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 753,
+    "docHeight": 2096,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "proposal",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 753,
+    "docHeight": 1911,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "followup",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 768,
+    "docHeight": 1024,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "history",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 753,
+    "docHeight": 1341,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "products",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 768,
+    "docHeight": 1024,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "loading",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 768,
+    "docHeight": 1024,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "empty",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 768,
+    "docHeight": 1024,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "error",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 932,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.login-brand-panel",
+        "sw": 550,
+        "cw": 430,
+        "overflow": "hidden",
+        "text": "KT OPPORTUNITY · B2B SALES새로 문 연 음식점을영업 기회로 연결합니다.최근 인허가 음식점"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "login",
+    "viewport": "mobile",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 1749,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [
+      {
+        "el": "section.welcome-strip",
+        "sw": 511,
+        "cw": 406,
+        "overflow": "hidden",
+        "text": "TODAY'S SALES OPPORTUNITY최근 인허가 음식점에서 다음 영업 기회를 찾습니다.조회 → 직원"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "dashboard",
+    "viewport": "mobile",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 4612,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "discovery",
+    "viewport": "mobile",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 2418,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "proposal",
+    "viewport": "mobile",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 2178,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "followup",
+    "viewport": "mobile",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 1805,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [
+      {
+        "el": "tr",
+        "sw": 80,
+        "cw": 0,
+        "overflow": "hidden",
+        "text": "매장Lead상담 상태관심 상품후속일업데이트"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "history",
+    "viewport": "mobile",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 2141,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "products",
+    "viewport": "mobile",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 932,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "loading",
+    "viewport": "mobile",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 932,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "empty",
+    "viewport": "mobile",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 932,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "error",
+    "viewport": "mobile",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 857,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.login-brand-panel",
+        "sw": 510,
+        "cw": 390,
+        "overflow": "hidden",
+        "text": "KT OPPORTUNITY · B2B SALES새로 문 연 음식점을영업 기회로 연결합니다.최근 인허가 음식점"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "login",
+    "viewport": "mobile-small",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 1805,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [
+      {
+        "el": "section.welcome-strip",
+        "sw": 471,
+        "cw": 366,
+        "overflow": "hidden",
+        "text": "TODAY'S SALES OPPORTUNITY최근 인허가 음식점에서 다음 영업 기회를 찾습니다.조회 → 직원"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "dashboard",
+    "viewport": "mobile-small",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 4632,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "discovery",
+    "viewport": "mobile-small",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 2444,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "proposal",
+    "viewport": "mobile-small",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 2201,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "followup",
+    "viewport": "mobile-small",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 1805,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [
+      {
+        "el": "tr",
+        "sw": 80,
+        "cw": 0,
+        "overflow": "hidden",
+        "text": "매장Lead상담 상태관심 상품후속일업데이트"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "history",
+    "viewport": "mobile-small",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 2187,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "products",
+    "viewport": "mobile-small",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 844,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "loading",
+    "viewport": "mobile-small",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 844,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "empty",
+    "viewport": "mobile-small",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 844,
+    "rectOverflow": [
+      {
+        "el": "aside#app-sidebar.sidebar",
+        "right": -16,
+        "left": -332,
+        "w": 316
+      },
+      {
+        "el": "div.sidebar-brand-row",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "button.sidebar-logo",
+        "right": -85,
+        "left": -316,
+        "w": 231
+      },
+      {
+        "el": "img",
+        "right": -260,
+        "left": -305,
+        "w": 45
+      },
+      {
+        "el": "span",
+        "right": -131,
+        "left": -247,
+        "w": 116
+      },
+      {
+        "el": "button.sidebar-mobile-close",
+        "right": -33,
+        "left": -77,
+        "w": 44
+      },
+      {
+        "el": "nav.sidebar-nav",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -269,
+        "left": -282,
+        "w": 13
+      },
+      {
+        "el": "button.active",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -214,
+        "left": -283,
+        "w": 69
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -222,
+        "left": -278,
+        "w": 56
+      },
+      {
+        "el": "span.sidebar-section-label",
+        "right": -45,
+        "left": -304,
+        "w": 259
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -223,
+        "left": -279,
+        "w": 56
+      },
+      {
+        "el": "button",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span",
+        "right": -220,
+        "left": -276,
+        "w": 56
+      },
+      {
+        "el": "div.sidebar-status",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div.sidebar-status-copy",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "strong",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "small",
+        "right": -209,
+        "left": -287,
+        "w": 78
+      },
+      {
+        "el": "div",
+        "right": -33,
+        "left": -316,
+        "w": 283
+      },
+      {
+        "el": "span.dot.success",
+        "right": -297,
+        "left": -305,
+        "w": 8
+      },
+      {
+        "el": "p",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      },
+      {
+        "el": "strong",
+        "right": -190,
+        "left": -287,
+        "w": 97
+      }
+    ],
+    "internalOverflow": [],
+    "touch": [],
+    "tiny": [],
+    "screen": "error",
+    "viewport": "mobile-small",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "innerWidth": 768,
+    "innerHeight": 1024,
+    "docWidth": 753,
+    "docHeight": 1476,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.welcome-strip",
+        "sw": 822,
+        "cw": 717,
+        "overflow": "hidden",
+        "text": "TODAY'S SALES OPPORTUNITY최근 인허가 음식점에서 다음 영업 기회를 찾습니다.조회 → 직원"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "drawer-open",
+    "viewport": "tablet-menu",
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "innerWidth": 430,
+    "innerHeight": 932,
+    "docWidth": 430,
+    "docHeight": 1749,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.welcome-strip",
+        "sw": 511,
+        "cw": 406,
+        "overflow": "hidden",
+        "text": "TODAY'S SALES OPPORTUNITY최근 인허가 음식점에서 다음 영업 기회를 찾습니다.조회 → 직원"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "drawer-open",
+    "viewport": "mobile-menu",
+    "width": 430,
+    "height": 932
+  },
+  {
+    "innerWidth": 390,
+    "innerHeight": 844,
+    "docWidth": 390,
+    "docHeight": 1805,
+    "rectOverflow": [],
+    "internalOverflow": [
+      {
+        "el": "section.welcome-strip",
+        "sw": 471,
+        "cw": 366,
+        "overflow": "hidden",
+        "text": "TODAY'S SALES OPPORTUNITY최근 인허가 음식점에서 다음 영업 기회를 찾습니다.조회 → 직원"
+      }
+    ],
+    "touch": [],
+    "tiny": [],
+    "screen": "drawer-open",
+    "viewport": "mobile-small-menu",
+    "width": 390,
+    "height": 844
+  }
+]
