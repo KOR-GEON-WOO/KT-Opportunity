@@ -37,7 +37,7 @@ HyperCLOVA X
 
 - Product: KT Opportunity
 - Release: V2.4 FINAL
-- Package version: 3.2.0
+- Package version: 2.4.0
 - Status: Release
 
 다음 공식 릴리스는 V3.3이다.

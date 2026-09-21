@@ -41,7 +41,7 @@ V1은 KT Opportunity로의 공식 Project Pivot이다.
 
 - Product: KT Opportunity
 - Release: V2.4 FINAL
-- Package version: 3.2.0
+- Package version: 2.4.0
 - Status: Release
 - Official tag: `v3.2`
 

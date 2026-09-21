@@ -304,7 +304,7 @@ assert.throws(
 
 const { readFile } = await import('node:fs/promises');
 const packageJson = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
-assert.equal(packageJson.version, '3.2.0', 'package 버전은 V2.4 FINAL와 동기화되어야 합니다.');
+assert.equal(packageJson.version, '2.4.0', 'package 버전은 V2.4 FINAL와 동기화되어야 합니다.');
 
 const providerSource = await readFile(new URL('../src/app/AgentProvider.jsx', import.meta.url), 'utf8');
 assert.match(providerSource, /const searchInFlight = useRef\(false\)/, '검색은 전용 in-flight lock을 사용해야 합니다.');
