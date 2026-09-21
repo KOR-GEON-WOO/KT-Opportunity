@@ -1,60 +1,124 @@
-# KT Opportunity V2.4 FINAL
+# 🚀 KT Opportunity
 
-> 현재 기준: **KT Opportunity V2.4 FINAL — Release Baseline**
+> **KT K-뉴딜 아카데미 프로젝트**\
+> AI 기반 신규 음식점 영업 기회 발굴 및 맞춤 상품 설계 Agent
 
-KT Opportunity는 신규 음식점 영업 기회를 발굴하고,
-매장 확인·상품 분석·맞춤 제안·후속 상담으로 이어지는
-KT 영업 지원 React/Vite PoC다.
+![React](https://img.shields.io/badge/React-19-blue)
+![Vite](https://img.shields.io/badge/Vite-7-purple)
+![LLM](https://img.shields.io/badge/LLM-Local-green) ![AI
+Agent](https://img.shields.io/badge/AI-Agent-orange)
 
-## Current release
+------------------------------------------------------------------------
 
-현재 공식 릴리스는 **V2.4 FINAL**다.
+## 📌 Project Overview
 
-주요 범위:
+KT Opportunity는 신규 음식점 데이터를 기반으로 영업 기회를 탐색하고,
+매장 분석, KT 상품 추천, 맞춤 상담안 생성, 후속 상담 관리까지 지원하는
+AI Sales Agent 프로젝트입니다.
 
-- runtime / UX integration
-- authenticated HTTPS Gateway boundary
-- workflow / concurrency hardening
-- data contract / workflow semantics
-- validation / Sales Workspace integration
-- F-04 KT 상품 catalog subset validation
-- F-05 outbound contract validation
-- Proposal / Follow-up operational error 및 recovery feedback
-- `saveApproved=true` first-save gate
-- `consultationId` 기반 idempotency
-- KST ISO 8601 millisecond 상담 이력 contract
-- Local LLM inference endpoint의 browser 직접 노출 금지
+KT K-뉴딜 아카데미 과정에서 AI Agent 기반 업무 자동화, LLM Workflow
+설계, 서비스 아키텍처 구현을 목표로 개발되었습니다.
 
-## Version history
+------------------------------------------------------------------------
 
-공식 제품 계보:
+## 🎯 Technology Contribution
 
-`V0.1 → V0.2 → V0.3 → V0.4 → V1 → V1.1 → V1.2 → V2 → V2.1 → V2.2 → V2.3 → V2.4 FINAL`
+  영역                         기술                                  비중
+  ---------------------------- ----------------------------------- ------
+  Frontend Engineering         React 19 / Vite / UI Architecture      30%
+  AI Agent System              LLM Workflow / Agent Logic             25%
+  Backend Integration          FastAPI / Gateway Architecture         15%
+  Automation Workflow          n8n Workflow Design                    15%
+  Data Contract & Validation   API Contract / Testing                 10%
+  DevOps                       Linux / Git / CUDA                      5%
 
-향후 Roadmap:
+------------------------------------------------------------------------
 
-`V2.4 FINAL → V2.5 Foundation → V2.5 Integration → V3.0 Production Architecture`
+## 🏗 Architecture
 
-- [Full Changelog](CHANGELOG.md)
-- [Official Version Lineage](docs/VERSION_LINEAGE.md)
-- [V2.4 FINAL Release Baseline](docs/RELEASE_V2_4_FINAL.md)
+    User
+     |
+    React Frontend
+     |
+    KT Opportunity Agent
+     |
+    HTTPS Gateway
+     |
+    +----------------+
+    |                |
+    FastAPI          n8n
+     |
+    +----------------+
+    |                |
+    vLLM          llama.cpp
+     |
+    HyperCLOVA X   KT Mi:dm
 
-## Runtime contract
+------------------------------------------------------------------------
 
-- HyperCLOVA X: vLLM
-- KT Mi:dm: llama.cpp
-- 12GB VRAM에서 한 번에 하나의 모델만 상주
-- F-04 모델 실행은 server-side sequential Queue를 전제로 한다.
-- browser에서 vLLM / llama.cpp inference endpoint 직접 호출 금지
-- authenticated HTTPS Gateway / n8n session boundary 유지
+## 🤖 Local LLM Environment
 
-KT Mi:dm의 vLLM migration은 완료된 것으로 간주하지 않는다.
+  Model                Runtime
+  -------------------- ---------------------------
+  NAVER HyperCLOVA X   vLLM
+  KT Mi:dm             llama.cpp
+  GPU                  NVIDIA RTX 5070 Ti Laptop
+  VRAM                 12GB
 
-## Validation
+------------------------------------------------------------------------
 
-```bash
+## 🛠 Tech Stack
+
+-   React 19
+-   Vite 7
+-   FastAPI
+-   vLLM
+-   llama.cpp
+-   n8n
+-   Linux
+-   Git / GitHub
+-   CUDA Environment
+
+------------------------------------------------------------------------
+
+## 📂 Features
+
+-   F-01 Restaurant Discovery
+-   F-02 Store Analysis
+-   F-03 Product Recommendation
+-   F-04 Proposal Generation
+-   F-05 Follow-up Management
+
+------------------------------------------------------------------------
+
+## 📈 Version History
+
+    V0.1 ~ V0.4  KT Sales Agent
+    V1 ~ V1.2     KT Opportunity Project Pivot
+    V2 ~ V2.4     Architecture / Reliability / Contract Hardening
+    V2.5 Foundation
+                  Current Development Stage
+
+------------------------------------------------------------------------
+
+## ✅ Validation
+
+``` bash
 npm test
 npm run build
 ```
 
-세부 release 기준은 `docs/RELEASE_V2_4_FINAL.md`를 참조한다.
+Current:
+
+    KT Opportunity V2.4 FINAL
+    ✓ Smoke Test PASS
+    ✓ Build PASS
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Project
+
+KT K-뉴딜 아카데미 프로젝트
+
+AI Agent · LLM Infrastructure · Workflow Automation · Frontend
+Engineering
