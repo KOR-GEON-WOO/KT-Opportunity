@@ -1,6 +1,6 @@
 # KT Opportunity
 
-KT Enterprise 영업 담당자를 위한 검색 → 전체 매장 → 근거 상세 워크스페이스. 현재 구현은 **A 검색·상세와 B Fact 보완·제안 수정의 로컬 합성 데모**입니다. 실제 조회·저장·직원 이벤트는 연결하지 않았습니다. A는 기존 Cloudflare Pages 작업 브랜치 미리보기에 있으며, B는 로컬 작업 브랜치에만 있습니다.
+KT Enterprise 영업 담당자를 위한 검색 → 전체 매장 → 근거 상세 워크스페이스. 현재 구현은 **A 검색·상세와 B Fact 보완·제안 수정의 합성 데모**입니다. 실제 조회·저장·직원 이벤트는 연결하지 않았습니다. A와 B는 GitHub 작업 브랜치·PR 및 기존 Cloudflare Pages 미리보기로 검토합니다. 배포별 성공 여부와 확인한 URL은 해당 PR에서 확인합니다.
 
 ## 실행
 
@@ -40,4 +40,4 @@ npm run test:e2e
 - `src/components/`, `src/tokens/`, `public/theme-bootstrap.js`: 테마·상태 컴포넌트·초기 적용.
 - `tests/`: 계약·실패 상태·브라우저 흐름·반응형·접근성 회귀.
 
-[A 보고서](docs/first-path-verification.md)와 [B 보고서](docs/facts-revision-verification.md)에 변경 파일과 검증 계층을 기록했습니다. 직원 승인·반려·상담·후속, 상품 판정 상세 조회, 실제 인증·API 연동은 후속 범위입니다. B는 사용자 요청에 따라 로컬 커밋으로 정리했습니다. B Push·PR·배포는 아직 하지 않았습니다.
+[A 보고서](docs/first-path-verification.md)와 [B 보고서](docs/facts-revision-verification.md)에 변경 파일과 검증 계층을 기록했습니다. 직원 승인·반려·상담·후속, 상품 판정 상세 조회, 실제 인증·API 연동은 후속 범위입니다. 작업 브랜치 Push와 PR 공유는 사용자 요청 범위이며, 운영 main 병합·운영 배포는 별도입니다.

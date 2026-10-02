@@ -65,4 +65,6 @@ npm run test:e2e
 
 GAP-01 wire/auth/HTTP capture, GAP-02 최신 Entity·제안 read, GAP-03 서버 확인 직원 신원, GAP-04 상품 판정 상세, GAP-05 무결성·멱등성/동시성, GAP-06 동기 timeout, GAP-07 AI schema 확인이 필요하다. 운영 backend의 재평가·저장 동작은 fixture 통과로 입증되지 않는다.
 
-B는 2026-10-03 사용자의 커밋 요청에 따라 `feat/b-facts-revision`의 로컬 커밋으로 정리했다. 커밋 전 최종 검증 대상 소스·테스트 22개 파일의 해시가 검증 기록과 동일함을 확인했다. B Push·새 PR·Cloudflare 배포·설정 변경 없음. 기존 A PR #1과 원격 브랜치를 변경하지 않았다.
+B는 2026-10-03 사용자의 커밋 요청에 따라 `feat/b-facts-revision`의 `713f91e`로 정리했다. 커밋 전 최종 검증 대상 소스·테스트 22개 파일의 해시가 검증 기록과 동일함을 확인했다.
+
+이후 사용자가 GitHub 동기화를 요청해 B 작업 브랜치 Push·PR·미리보기 공유를 허용했다. A PR #1이 아직 열려 있으므로 B PR의 비교 기준은 `feat/a-demo-workspace`로 두어 B 추가 변경을 검토한다. B 브랜치에는 A와 B 구현이 모두 포함된다. 배포 성공·URL·온라인 확인 결과는 B PR에 기록한다. 운영 main 직접 Push·PR 병합·Cloudflare 설정 변경·실제 n8n/Sheets 쓰기는 범위 밖이다.
