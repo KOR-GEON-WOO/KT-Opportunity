@@ -137,3 +137,35 @@
   .app-footer { flex-direction: column; gap: .35rem; }
 }
 @media (max-width: 380px) { .search-fields { grid-template-columns: 1fr; } .header-tools { width: 100%; justify-content: space-between; } }
+/* B: session-only fact editing and proposal review, using the project theme tokens. */
+.mutation-dialog { width: min(820px, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); overflow-y: auto; padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius-dialog); background: var(--raised); color: var(--text); box-shadow: 0 20px 60px #0003; }
+.mutation-dialog::backdrop { background: #0008; }
+.mutation-dialog h2 { margin-top: 1rem; }
+.mutation-dialog .identifier { color: var(--muted); overflow-wrap: anywhere; word-break: break-all; }
+.fact-edit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; margin-block: 1.25rem; }
+.fact-field { border: 1px solid var(--border); border-radius: .5rem; padding: 1rem; }
+.change-preview { padding: 1rem; background: var(--subtle); border: 1px solid var(--border); border-radius: .5rem; margin-block: 1rem; }
+.change-preview dl > div, .submitted-facts dl > div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; border-top: 1px solid var(--border); padding-top: .5rem; margin-top: .5rem; }
+.mutation-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+.mutation-settings { margin-block: 1rem; }
+.mutation-settings summary, .submitted-facts summary { min-height: 44px; padding-block: .5rem; cursor: pointer; }
+.revision-help { margin-top: .5rem; }
+.reason-field { margin-top: 1rem; }
+textarea { resize: vertical; }
+textarea:disabled { color: var(--secondary); background: var(--subtle); opacity: 1; }
+textarea[aria-invalid='true'] { border-color: var(--error-fg); }
+.proposal-selector { margin-block: 1rem; }
+.proposal-preview h4 { margin: 1.25rem 0 .5rem; font-size: 1rem; }
+.consultation-script { white-space: pre-wrap; }
+.product-preview, .variant-fees { margin-block: .75rem; }
+.revise-trigger { margin-block: 1.25rem .75rem; }
+.detail-section > .secondary { margin-top: 1rem; }
+@media (max-width: 767px) {
+  .mutation-dialog { padding: 1rem; }
+  .fact-edit-grid { grid-template-columns: 1fr; }
+  .mutation-actions > button { flex: 1 1 160px; }
+  .fact-field { padding: .75rem; }
+}
+
+.proposal-preview .identifier { overflow-wrap: anywhere; word-break: break-all; }
+.evidence-link { display: inline-block; min-height: 44px; padding-block: .5rem; }

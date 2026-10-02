@@ -3,13 +3,13 @@
 * { box-sizing: border-box; }
 html, body, #root { margin: 0; min-width: 320px; min-height: 100%; }
 body { min-height: 100vh; }
-button, input, select { font: inherit; }
+button, input, select, textarea { font: inherit; }
 button, input, select, summary { -webkit-tap-highlight-color: transparent; }
 button, summary { cursor: pointer; }
 button { min-height: 44px; border: 1px solid transparent; border-radius: var(--radius-control); padding: .6rem 1rem; color: var(--text); background: transparent; font-weight: 600; }
 button:disabled, button[aria-disabled='true'] { cursor: default; color: var(--disabled-fg); background: var(--disabled-bg); border-color: var(--control); }
 button, .entity-row { transition: background-color var(--motion-fast) var(--ease), border-color var(--motion-fast) var(--ease); }
-input, select { width: 100%; min-width: 0; min-height: 46px; padding: .65rem .75rem; color: var(--text); background: var(--surface); border: 1px solid var(--control); border-radius: var(--radius-control); }
+input, select, textarea { width: 100%; min-width: 0; min-height: 46px; padding: .65rem .75rem; color: var(--text); background: var(--surface); border: 1px solid var(--control); border-radius: var(--radius-control); }
 input:disabled, select:disabled { background: var(--disabled-bg); color: var(--disabled-fg); opacity: 1; }
 input[aria-invalid='true'], select[aria-invalid='true'] { border-color: var(--error-fg); }
 input[type='date'] { min-inline-size: 0; }
